@@ -1,492 +1,662 @@
-<!doctype html> <html lang="tr"> <head> <!-- Temel meta / SEO --> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /> <title>Eyüp Müzik ve Etkinlik — Profesyonel Müzik Organizasyonları</title> <meta name="description" content="Eyüp Müzik ve Etkinlik — konser, düğün, kurumsal etkinlik ve prodüksiyon çözümleri. Sahne, ışık, ses ve yönetim ile unutulmaz etkinlikler." /> <meta name="keywords" content="Eyüp, müzik, organizasyon, konser, düğün, prodüksiyon, etkinlik" /> <meta name="theme-color" content="#6a1b9a" /> <!-- Open Graph --> <meta property="og:title" content="Eyüp Müzik ve Etkinlik" /> <meta property="og:description" content="Konserlerden düğünlere, tam prodüksiyon hizmeti." /> <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Ey%C3%BCp+M%C3%BCzik+ve+Etkinlik" /> <meta property="og:type" content="website" /> <!-- Google Font (GitHub Pages uyumlu) --> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet"> <!-- Inline CSS: mobil-first, değişkenler, duyarlı düzen, karanlık mod destek --> <style> /* Tema değişkenleri: birincil vurgu = bordo-mor */ :root{ --bg: #ffffff; --surface: #fbfafa; --text: #0b1220; --muted: #6b7280; --accent: #6a1b9a; /* bordo-mor */ --accent-2: #b04adf; --radius: 12px; --shadow: 0 8px 28px rgba(15,18,32,0.06); --glass: rgba(106,27,154,0.06); --glass-2: rgba(106,27,154,0.04); --success: #16a34a; }
-less
-Kopyala
-Düzenle
-/* Koyu tema */
-[data-theme="dark"]{
-  --bg: #071018;
-  --surface: #07181f;
-  --text: #e6eef8;
-  --muted: #9aa7be;
-  --accent: #7b4bbf;
-  --accent-2: #a77cf0;
-  --shadow: 0 10px 36px rgba(0,0,0,0.6);
-  --glass: rgba(255,255,255,0.02);
-  --glass-2: rgba(255,255,255,0.03);
-}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Eyüp Müzik Organizasyon - Profesyonel müzik ve etkinlik organizasyon hizmetleri" />
+<meta name="author" content="Eyüp Müzik Organizasyon" />
+<meta name="theme-color" content="#1e88e5" />
+<title>Eyüp Müzik Organizasyon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  /* CSS Variables & Reset */
+  :root {
+    --primary: #1e88e5;
+    --primary-dark: #1565c0;
+    --neutral-light: #f5f7fa;
+    --neutral-dark: #212121;
+    --text-light: #ffffff;
+    --text-dark: #121212;
+    --shadow: rgba(0,0,0,0.15);
+    --border-radius: 8px;
+    --transition: 0.3s ease;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin:0; font-family: 'Roboto', sans-serif; background: var(--neutral-light); color: var(--neutral-dark);
+    line-height:1.5; scroll-behavior: smooth;
+    min-height:100vh; display: flex; flex-direction: column;
+  }
+  a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    text-decoration: underline;
+    outline-offset: 3px;
+  }
+  img {
+    max-width: 100%; display: block; border-radius: var(--border-radius);
+  }
+  h1,h2,h3 {
+    font-weight: 700; margin-top: 0; color: var(--primary-dark);
+  }
+  p {
+    margin-bottom: 1em;
+  }
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 0.75em 1.5em;
+    font-weight: 700;
+    transition: background-color var(--transition);
+  }
+  button:hover, button:focus {
+    background-color: var(--primary-dark);
+    outline-offset: 3px;
+  }
+  input, textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5em;
+    border: 2px solid #ccc;
+    border-radius: var(--border-radius);
+    width: 100%;
+    transition: border-color var(--transition);
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  label {
+    display: block;
+    margin-bottom: 0.25em;
+    font-weight: 600;
+  }
+  /* Layout */
+  main {
+    flex-grow: 1;
+    max-width: 1024px;
+    margin: 1rem auto 2rem;
+    padding: 0 1rem;
+  }
+  section {
+    margin-bottom: 3rem;
+  }
+  /* Navbar */
+  nav {
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    box-shadow: 0 2px 8px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav h1 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+  ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  ul.menu li a {
+    color: var(--text-light);
+    font-weight: 600;
+  }
+  ul.menu li a:focus-visible {
+    outline: 3px solid var(--text-light);
+    outline-offset: 2px;
+  }
+  /* Hamburger */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.8rem;
+  }
+  /* Hero */
+  #hero {
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--text-light);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+  #hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  #hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  /* About */
+  #about p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+  }
+  /* Services */
+  #services .services-list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  }
+  .service-card {
+    background: var(--neutral-light);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px var(--shadow);
+    transition: transform var(--transition);
+  }
+  .service-card:hover, .service-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow);
+  }
+  .service-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-dark);
+  }
+  /* Events */
+  #events {
+    max-width: 100%;
+  }
+  #event-filter {
+    padding: 0.5em;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    border: 2px solid #ccc;
+  }
+  #event-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 1.5rem;
+  }
+  .event-card {
+    background: var(--neutral-light);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px var(--shadow);
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition);
+  }
+  .event-card:hover, .event-card:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow);
+    outline: none;
+  }
+  .event-card img {
+    border-radius: var(--border-radius);
+    margin-bottom: 0.75rem;
+    height: 140px;
+    object-fit: cover;
+  }
+  .event-card h3 {
+    margin: 0.3rem 0;
+    color: var(--primary-dark);
+  }
+  .event-card time {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: auto;
+  }
+  /* Modal */
+  .modal-overlay {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .modal-overlay.show {
+    display: flex;
+  }
+  .modal {
+    background: var(--neutral-light);
+    border-radius: var(--border-radius);
+    max-width: 400px;
+    width: 90%;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px var(--shadow);
+    position: relative;
+    outline: none;
+  }
+  .modal h3 {
+    margin-top: 0;
+    color: var(--primary-dark);
+  }
+  .modal button.close-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+  }
+  .modal button.close-btn:hover,
+  .modal button.close-btn:focus {
+    color: var(--primary);
+    outline-offset: 3px;
+  }
+  /* Gallery */
+  #gallery .gallery-grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+  }
+  #gallery img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+    transition: transform var(--transition);
+  }
+  #gallery img:hover, #gallery img:focus {
+    transform: scale(1.05);
+    outline: none;
+  }
+  /* Testimonials */
+  #testimonials .testimonial-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .testimonial {
+    background: var(--neutral-light);
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px var(--shadow);
+    font-style: italic;
+    color: #333;
+    outline-offset: 3px;
+  }
+  /* Contact Form */
+  #contact form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  /* Footer */
+  footer {
+    background: var(--primary-dark);
+    color: var(--text-light);
+    padding: 1rem;
+    text-align: center;
+  }
+  .social-icons {
+    margin-bottom: 0.75rem;
+  }
+  .social-icons a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    color: var(--text-light);
+    transition: color var(--transition);
+  }
+  .social-icons a:hover,
+  .social-icons a:focus {
+    color: var(--primary);
+    outline-offset: 3px;
+  }
+  .toggle-theme {
+    margin-top: 0.5rem;
+    background: var(--neutral-light);
+    color: var(--primary-dark);
+    padding: 0.4em 1em;
+    font-weight: 600;
+  }
+  .toggle-theme:hover,
+  .toggle-theme:focus {
+    background: var(--primary);
+    color: var(--text-light);
+  }
+  /* Dark mode */
+  body.dark {
+    background: var(--neutral-dark);
+    color: var(--text-light);
+  }
+  body.dark nav {
+    background: var(--primary-dark);
+    color: var(--text-light);
+  }
+  body.dark a {
+    color: var(--primary);
+  }
+  body.dark a:hover,
+  body.dark a:focus {
+    color: #bbdefb;
+  }
+  body.dark #hero {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: var(--text-light);
+  }
+  body.dark .service-card,
+  body.dark .event-card,
+  body.dark .testimonial {
+    background: #263238;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+  }
+  body.dark input, body.dark textarea {
+    background: #37474f;
+    border-color: #607d8b;
+    color: var(--text-light);
+  }
+  body.dark input:focus, body.dark textarea:focus {
+    border-color: var(--primary);
+  }
+  body.dark footer {
+    background: #121212;
+    color: var(--primary);
+  }
+  /* Responsive Navbar */
+  @media (max-width: 768px) {
+    ul.menu {
+      display: none;
+      flex-direction: column;
+      background: var(--primary);
+      position: absolute;
+      top: 56px;
+      right: 0;
+      width: 200px;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      box-shadow: 0 4px 12px var(--shadow);
+      padding: 0.5rem 0;
+    }
+    ul.menu.show {
+      display: flex;
+    }
+    ul.menu li {
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+    .menu-toggle {
+      display: block;
+    }
+  }
+</style>
+</head>
+<body>
+<nav role="navigation" aria-label="Ana menü">
+  <h1 tabindex="0">Eyüp Müzik Organizasyon</h1>
+  <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Menüyü aç/kapat">☰</button>
+  <ul class="menu" id="primary-menu">
+    <li><a href="#hero" tabindex="0">Anasayfa</a></li>
+    <li><a href="#about" tabindex="0">Hakkımızda</a></li>
+    <li><a href="#services" tabindex="0">Hizmetler</a></li>
+    <li><a href="#events" tabindex="0">Etkinlikler</a></li>
+    <li><a href="#gallery" tabindex="0">Galeri</a></li>
+    <li><a href="#testimonials" tabindex="0">Referanslar</a></li>
+    <li><a href="#contact" tabindex="0">İletişim</a></li>
+  </ul>
+</nav>
 
-/* Reset & temel */
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:linear-gradient(180deg,var(--bg),var(--surface));
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
-  font-size:16px;
-}
-.container{max-width:1100px;margin:0 auto;padding:1rem;}
-a{color:inherit}
-small{color:var(--muted);font-size:.92rem}
+<main>
+  <section id="hero" tabindex="0" aria-label="Hoşgeldiniz bölümü">
+    <h2>Unutulmaz Müzik Organizasyonları</h2>
+    <p>Eyüp Müzik Organizasyon ile her etkinlikte profesyonel hizmet ve eşsiz deneyim sizi bekliyor.</p>
+    <button id="btn-contact" aria-describedby="hero-desc">İletişime Geçin</button>
+  </section>
 
-/* Header / navbar */
-header[role="banner"]{
-  position:sticky;top:0;z-index:80;
-  backdrop-filter: blur(6px);
-  background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.5));
-  border-bottom: 1px solid var(--glass-2);
-}
-[data-theme="dark"] header{
-  background: linear-gradient(180deg, rgba(7,24,33,0.7), rgba(7,24,33,0.5));
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0;}
-.brand{display:flex;align-items:center;gap:.75rem}
-.logo{
-  width:52px;height:52px;border-radius:10px;display:grid;place-items:center;color:white;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));font-weight:800;box-shadow:var(--shadow);
-  flex:0 0 52px;font-size:1.05rem;
-}
-.brand h1{margin:0;font-size:1rem;line-height:1}
-nav ul{display:flex;gap:.6rem;align-items:center;list-style:none;margin:0;padding:0}
-nav a{padding:.45rem .6rem;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600;transition:all .15s}
-nav a:hover{background:var(--glass);color:var(--text);transform:translateY(-2px)}
-.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:.6rem .9rem;border-radius:10px;border:0;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(106,27,154,0.12)}
-.muted{color:var(--muted)}
-/* Hamburger (mobile) */
-.mobile-toggle{display:none}
-.mobile-menu{display:none;background:var(--surface);border-top:1px solid var(--glass-2)}
-.mobile-menu a{display:block;padding:.8rem 1rem;border-bottom:1px solid rgba(0,0,0,0.02)}
+  <section id="about" tabindex="0" aria-labelledby="about-title">
+    <h2 id="about-title">Hakkımızda</h2>
+    <p>Eyüp Müzik Organizasyon olarak 10 yılı aşkın süredir düğün, festival, kurumsal etkinlik ve özel partilerde müzik organizasyonu hizmeti sunuyoruz. Profesyonel kadromuz ve geniş sanatçı ağımızla hayallerinizi gerçeğe dönüştürüyoruz.</p>
+  </section>
 
-/* Hero */
-.hero{display:grid;grid-template-columns:1fr;gap:1rem;padding:2rem 0}
-.hero-card{display:flex;gap:1rem;align-items:center;padding:1rem;border-radius:14px;background:linear-gradient(180deg, rgba(106,27,154,0.04), rgba(106,27,154,0.02));box-shadow:var(--shadow)}
-.hero-card h2{margin:0;font-size:1.5rem}
-.hero-card p{margin:0;color:var(--muted)}
+  <section id="services" tabindex="0" aria-labelledby="services-title">
+    <h2 id="services-title">Hizmetlerimiz</h2>
+    <div class="services-list">
+      <article class="service-card" tabindex="0" aria-label="Düğün organizasyonu">
+        <h3>Düğün Organizasyonu</h3>
+        <p>Romantik ve unutulmaz düğünler için profesyonel müzik çözümleri.</p>
+      </article>
+      <article class="service-card" tabindex="0" aria-label="Festival organizasyonu">
+        <h3>Festival Organizasyonu</h3>
+        <p>Büyük çaplı müzik festivalleri için teknik ve sanatçı desteği.</p>
+      </article>
+      <article class="service-card" tabindex="0" aria-label="Kurumsal etkinlikler">
+        <h3>Kurumsal Etkinlikler</h3>
+        <p>Firma toplantıları ve lansmanlar için kaliteli müzik ve organizasyon.</p>
+      </article>
+      <article class="service-card" tabindex="0" aria-label="Özel partiler">
+        <h3>Özel Partiler</h3>
+        <p>Doğum günü ve özel gün kutlamaları için kişiye özel müzik çözümleri.</p>
+      </article>
+    </div>
+  </section>
 
-/* Sections */
-section{padding:2rem 0}
-.section-title{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}
-.grid{display:grid;gap:1rem}
-/* Services */
-.services{grid-template-columns:repeat(1,1fr)}
-.service{display:flex;gap:.9rem;align-items:flex-start;padding:1rem;border-radius:12px;background:var(--surface);box-shadow:var(--shadow)}
-.service .ico{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;display:grid;place-items:center;font-weight:800}
-/* Events */
-.events-grid{grid-template-columns:1fr;align-items:start}
-.event{display:flex;gap:.8rem;padding:1rem;border-radius:12px;background:var(--surface);box-shadow:var(--shadow);align-items:center}
-.event img{width:120px;height:72px;object-fit:cover;border-radius:8px}
-.event .meta{min-width:96px;text-align:center}
-.event .meta time{font-weight:700;display:block}
-.event .actions{margin-left:auto;display:flex;gap:.5rem}
-.btn-outline{padding:.45rem .6rem;border-radius:8px;border:1px solid var(--glass-2);background:transparent;cursor:pointer}
+  <section id="events" tabindex="0" aria-labelledby="events-title">
+    <h2 id="events-title">Yaklaşan Etkinlikler</h2>
+    <label for="event-filter">Etkinlik Tarihine Göre Filtrele:</label>
+    <select id="event-filter" aria-controls="event-list" aria-label="Etkinlik tarih filtresi">
+      <option value="all">Tümü</option>
+      <option value="2025-09">Eylül 2025</option>
+      <option value="2025-10">Ekim 2025</option>
+      <option value="2025-11">Kasım 2025</option>
+    </select>
+    <div id="event-list" tabindex="0" aria-live="polite" aria-relevant="additions"></div>
+  </section>
 
-/* Gallery */
-.gallery{grid-template-columns:repeat(2,1fr)}
-.gallery img{width:100%;height:160px;object-fit:cover;border-radius:10px;display:block}
+  <section id="gallery" tabindex="0" aria-labelledby="gallery-title">
+    <h2 id="gallery-title">Galeri</h2>
+    <div class="gallery-grid" role="list">
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iOTAiIGZpbGw9IiMxZThhODIiLz48dGV4dCB4PSI2MCIgeT0iNDUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhbGVyaSAxPC90ZXh0Pjwvc3ZnPg==" alt="Galeri görseli 1" loading="lazy" tabindex="0" />
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iOTAiIGZpbGw9IiM0ZGY4ZjYiLz48dGV4dCB4PSI2MCIgeT0iNDUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhbGVyaSAyPC90ZXh0Pjwvc3ZnPg==" alt="Galeri görseli 2" loading="lazy" tabindex="0" />
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iOTAiIGZpbGw9IiM2YjI3ZDYiLz48dGV4dCB4PSI2MCIgeT0iNDUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhbGVyaSAzPC90ZXh0Pjwvc3ZnPg==" alt="Galeri görseli 3" loading="lazy" tabindex="0" />
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iOTAiIGZpbGw9IiM4YWRjNzciLz48dGV4dCB4PSI2MCIgeT0iNDUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhbGVyaSA0PC90ZXh0Pjwvc3ZnPg==" alt="Galeri görseli 4" loading="lazy" tabindex="0" />
+    </div>
+  </section>
 
-/* Testimonials */
-.testi{padding:1rem;border-radius:12px;background:var(--surface);box-shadow:var(--shadow)}
+  <section id="testimonials" tabindex="0" aria-labelledby="testimonials-title">
+    <h2 id="testimonials-title">Müşteri Yorumları</h2>
+    <div class="testimonial-list">
+      <blockquote class="testimonial" tabindex="0">
+        “Eyüp Müzik Organizasyon sayesinde düğünümüz tam hayal ettiğimiz gibi geçti. Profesyonel ve sıcak yaklaşımları için teşekkür ederiz.”
+        <footer>– Ayşe & Mehmet</footer>
+      </blockquote>
+      <blockquote class="testimonial" tabindex="0">
+        “Kurumsal etkinliğimiz için sağladıkları müzik ve teknik ekip harikaydı. Kesinlikle tavsiye ediyoruz.”
+        <footer>– XYZ Şirketi</footer>
+      </blockquote>
+    </div>
+  </section>
 
-/* Contact */
-.contact-grid{grid-template-columns:1fr;gap:1rem}
-input,textarea,select{width:100%;padding:.6rem .8rem;border-radius:8px;border:1px solid var(--glass-2);background:transparent;color:var(--text);outline:none}
-input:focus,textarea:focus,select:focus{box-shadow:0 8px 28px rgba(106,27,154,0.08);border-color:var(--accent)}
-.form-actions{display:flex;gap:.6rem;align-items:center}
+  <section id="contact" tabindex="0" aria-labelledby="contact-title">
+    <h2 id="contact-title">İletişim</h2>
+    <form id="contact-form" aria-describedby="contact-desc">
+      <label for="name">İsim</label>
+      <input type="text" id="name" name="name" required autocomplete="name" placeholder="Adınız" />
+      <label for="email">E-posta</label>
+      <input type="email" id="email" name="email" required autocomplete="email" placeholder="ornek@mail.com" />
+      <label for="message">Mesajınız</label>
+      <textarea id="message" name="message" rows="4" required placeholder="Mesajınızı yazın"></textarea>
+      <button type="submit">Gönder</button>
+    </form>
+  </section>
+</main>
 
-/* Footer */
-footer{padding:1.5rem 0;border-top:1px dashed var(--glass-2);margin-top:2rem}
-.social{display:flex;gap:.6rem}
+<footer role="contentinfo">
+  <div class="social-icons" aria-label="Sosyal medya bağlantıları">
+    <a href="https://www.facebook.com/eyupmuzikorganizasyon" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+    <a href="https://www.instagram.com/eyupmuzikorganizasyon" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+    <a href="https://twitter.com/eyupmuzik" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
+  </div>
+  <button class="toggle-theme" aria-pressed="false" aria-label="Karanlık veya aydın modu değiştir">Karanlık Modu Aç/Kapa</button>
+  <p>© 2025 Eyüp Müzik Organizasyon. Tüm hakları saklıdır.</p>
+</footer>
 
-/* Modal */
-.modal-backdrop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:200;padding:1rem}
-.modal{background:var(--bg);width:100%;max-width:780px;border-radius:12px;padding:1rem;box-shadow:0 24px 80px rgba(2,6,23,0.6)}
-.modal header{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-
-/* Responsive */
-@media(min-width:720px){
-  .hero{grid-template-columns:1fr 420px}
-  .services{grid-template-columns:repeat(3,1fr)}
-  .events-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery{grid-template-columns:repeat(4,1fr)}
-  .contact-grid{grid-template-columns:1fr 360px}
-  nav ul{display:flex}
-  .mobile-toggle{display:none}
-  .mobile-menu{display:none}
-}
-@media(max-width:719px){
-  nav ul{display:none}
-  .mobile-toggle{display:flex}
-  .mobile-menu{display:block}
-  .mobile-menu[hidden]{display:none}
-}
-
-/* Küçük animasyonlar */
-.fade{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .45s ease}
-.fade.visible{opacity:1;transform:none}
-.card-hover{transition:transform .2s, box-shadow .15s}
-.card-hover:hover{transform:translateY(-6px)}
-.sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
-</style> </head> <body> <!-- Header / Navbar --> <header role="banner" aria-label="Eyüp Müzik ve Etkinlik başlığı"> <div class="container nav"> <div class="brand"> <div class="logo" aria-hidden="true">EME</div> <div> <h1>Eyüp Müzik ve Etkinlik</h1> <small class="muted">Konser, düğün, kurumsal & prodüksiyon</small> </div> </div>
-php-template
-Kopyala
-Düzenle
-  <!-- Primary nav (desktop) -->
-  <nav role="navigation" aria-label="Ana menü">
-    <ul>
-      <li><a href="#about">Hakkında</a></li>
-      <li><a href="#services">Hizmetler</a></li>
-      <li><a href="#events">Etkinlikler</a></li>
-      <li><a href="#gallery">Galeri</a></li>
-      <li><a href="#contact">İletişim</a></li>
-    </ul>
-  </nav>
-
-  <!-- Actions: tema + mobil -->
-  <div style="display:flex;align-items:center;gap:.6rem">
-    <!-- Tema anahtarı -->
-    <button id="theme-toggle" class="btn-outline" aria-pressed="false" title="Karanlık / Aydın mod">🌙</button>
-
-    <!-- Mobil hamburger -->
-    <button id="hamburger" class="mobile-toggle btn-outline" aria-controls="mobile-menu" aria-expanded="false" aria-label="Menüyü aç">
-      ☰
-    </button>
-
-    <a class="cta" href="#contact">Teklif Al</a>
+<!-- Modal template -->
+<div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+  <div class="modal" role="document">
+    <button class="close-btn" aria-label="Kapat">&times;</button>
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+    <time id="modal-time"></time>
   </div>
 </div>
 
-<!-- Mobil menü (başlangıçta gizli) -->
-<div id="mobile-menu" class="mobile-menu" hidden>
-  <div class="container" style="padding:0;">
-    <a href="#about">Hakkında</a>
-    <a href="#services">Hizmetler</a>
-    <a href="#events">Etkinlikler</a>
-    <a href="#gallery">Galeri</a>
-    <a href="#contact">İletişim</a>
-  </div>
-</div>
-</header> <main> <div class="container"> <!-- Hero --> <section class="hero" id="home" aria-labelledby="hero-title"> <div class="hero-card fade card-hover"> <!-- küçük logo / ikon --> <div style="width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:white;font-weight:800;font-size:20px"> 🎶 </div> <div> <h2 id="hero-title">Sahneyi birlikte kuruyoruz — Müzik & Etkinlik Yönetimi</h2> <p class="muted">Eyüp Müzik ve Etkinlik, her ölçekten etkinlik için konsept, prodüksiyon ve operasyonel yönetim sunar.</p> <div style="margin-top:.75rem;display:flex;gap:.6rem;flex-wrap:wrap"> <a class="cta" href="#services">Hizmetlerimiz</a> <button id="open-events" class="btn-outline">Etkinlik Takvimi</button> <a class="btn-outline" href="#contact">Teklif Al</a> </div> </div> </div>
-php-template
-Kopyala
-Düzenle
-    <!-- Quick info card -->
-    <aside style="margin-top:.9rem;padding:1rem;border-radius:12px;background:var(--surface);box-shadow:var(--shadow)" class="fade">
-      <div style="display:flex;align-items:center;gap:.8rem">
-        <div style="width:48px;height:48px;border-radius:10px;background:var(--accent);color:white;display:grid;place-items:center">★</div>
-        <div>
-          <div style="font-weight:700">10+ yıl deneyim</div>
-          <small class="muted">Profesyonel ekip, güvenilir süreç</small>
-        </div>
-      </div>
-    </aside>
-  </section>
+<script>
+  // Sayfa hazırlandıktan sonra çalışacak kodlar
+  document.addEventListener('DOMContentLoaded', () => {
+    // Mobil menü toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+      menu.classList.toggle('show');
+    });
+    // Etkinlik verileri
+    const eventsData = [
+      {
+        id: 1,
+        title: "Eylül Festivali",
+        date: "2025-09-20",
+        month: "2025-09",
+        description: "Yaz bitmeden büyük Eylül müzik festivali. Ünlü sanatçılar ve sürprizler.",
+        img: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iIzFlOGE4MiIvPjx0ZXh0IHg9IjE2MCIgeT0iOTAiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkV5dMOkbCBGZXN0aXZhbDwvdGV4dD48L3N2Zz4=",
+      },
+      {
+        id: 2,
+        title: "Ekim Düğünü",
+        date: "2025-10-05",
+        month: "2025-10",
+        description: "Romantik Ekim ayında özel düğün organizasyonu, size özel repertuar.",
+        img: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iIzRlZDg5NiIvPjx0ZXh0IHg9IjE2MCIgeT0iOTAiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkVraW0gRMO8Z8O8bjwvdGV4dD48L3N2Zz4=",
+      },
+      {
+        id: 3,
+        title: "Kasım Özel Partisi",
+        date: "2025-11-15",
+        month: "2025-11",
+        description: "Kasım ayında kişiye özel doğum günü ve kutlama partileri için müzik organizasyonu.",
+        img: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iIzZiMjdkNiIvPjx0ZXh0IHg9IjE2MCIgeT0iOTAiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkthc8O8bSBPemVsIFBhcnRpPC90ZXh0Pjwvc3ZnPg==",
+      },
+    ];
+    const eventListEl = document.getElementById('event-list');
+    const eventFilterEl = document.getElementById('event-filter');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalTime = document.getElementById('modal-time');
+    const modalCloseBtn = modalOverlay.querySelector('.close-btn');
 
-  <!-- About -->
-  <section id="about" aria-labelledby="about-title">
-    <div class="section-title">
-      <div>
-        <h2 id="about-title">Hakkımızda</h2>
-        <small class="muted">Tutku, deneyim ve teknik mükemmellik</small>
-      </div>
-      <div class="muted">Sahne → Ses → Işık → Yönetim</div>
-    </div>
+    // Fonksiyon: etkinlik listesini renderla
+    function renderEvents(filterMonth = "all") {
+      eventListEl.innerHTML = '';
+      const filtered = filterMonth === "all" ? eventsData : eventsData.filter(e => e.month === filterMonth);
+      if(filtered.length === 0) {
+        eventListEl.innerHTML = '<p>Seçilen dönemde etkinlik bulunmamaktadır.</p>';
+        return;
+      }
+      filtered.forEach(event => {
+        const card = document.createElement('article');
+        card.className = 'event-card';
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-pressed', 'false');
+        card.setAttribute('aria-label', event.title + ' etkinliği, detay görmek için tıklayın');
+        card.innerHTML = `
+          <img src="${event.img}" alt="${event.title} görseli" loading="lazy" />
+          <h3>${event.title}</h3>
+          <time datetime="${event.date}">${new Date(event.date).toLocaleDateString('tr-TR', {year:'numeric',month:'long',day:'numeric'})}</time>
+        `;
+        // Modal açma fonksiyonu
+        card.addEventListener('click', () => openModal(event));
+        card.addEventListener('keydown', e => {
+          if(e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal(event);
+          }
+        });
+        eventListEl.appendChild(card);
+      });
+    }
+    // Modal aç
+    function openModal(event) {
+      modalTitle.textContent = event.title;
+      modalDesc.textContent = event.description;
+      modalTime.textContent = new Date(event.date).toLocaleDateString('tr-TR', {year:'numeric',month:'long',day:'numeric'});
+      modalOverlay.classList.add('show');
+      modalOverlay.focus();
+    }
+    // Modal kapat
+    function closeModal() {
+      modalOverlay.classList.remove('show');
+    }
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', e => {
+      if(e.target === modalOverlay) closeModal();
+    });
+    modalOverlay.addEventListener('keydown', e => {
+      if(e.key === 'Escape') closeModal();
+    });
+    eventFilterEl.addEventListener('change', e => renderEvents(e.target.value));
+    renderEvents();
 
-    <div class="grid" style="grid-template-columns:1fr 320px;gap:1rem;">
-      <article class="fade">
-        <p>Eyüp Müzik ve Etkinlik, konserler, düğünler, kurumsal etkinlikler ve özel partiler için uçtan uca prodüksiyon hizmeti sunar. Konsept geliştirme, sanatçı yönetimi, sahne & teknik altyapı temini ve operasyon yönetimi ile etkinliğinizin her adımını güvenle yürütüyoruz.</p>
-        <ul style="margin-top:.6rem">
-          <li class="muted">Sahne & ışık tasarımı</li>
-          <li class="muted">Ses mühendisliği & yayın</li>
-          <li class="muted">Sanatçı koordinasyonu</li>
-        </ul>
-      </article>
+    // İletişim formu mailto işlevi
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = contactForm.name.value.trim();
+      const email = contactForm.email.value.trim();
+      const message = contactForm.message.value.trim();
+      if(!name || !email || !message) return;
+      const subject = encodeURIComponent('İletişim Formu Mesajı');
+      const body = encodeURIComponent(`İsim: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
+      window.location.href = `mailto:info@eyupmuzikorganizasyon.com?subject=${subject}&body=${body}`;
+    });
 
-      <aside class="fade" style="display:grid;gap:.6rem">
-        <div style="padding:1rem;border-radius:12px;background:linear-gradient(180deg, rgba(106,27,154,0.04), rgba(106,27,154,0.02));">
-          <div style="font-weight:700">Hızlı Teklif</div>
-          <small class="muted">Net fiyatlandırma ve planlama</small>
-        </div>
-        <div style="padding:1rem;border-radius:12px;background:var(--surface)">
-          <div style="font-weight:700">İş Ortaklarımız</div>
-          <small class="muted">Yerel prodüksiyon firmaları ve sanatçılar</small>
-        </div>
-      </aside>
-    </div>
-  </section>
+    // Hero buton iletişim bölümüne scroll
+    document.getElementById('btn-contact').addEventListener('click', () => {
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    });
 
-  <!-- Services -->
-  <section id="services" aria-labelledby="services-title">
-    <div class="section-title">
-      <div>
-        <h2 id="services-title">Hizmetlerimiz</h2>
-        <small class="muted">Organizasyon türleri</small>
-      </div>
-      <div class="muted">Konseptten sahneye kadar</div>
-    </div>
-
-    <div class="grid services">
-      <!-- Her biri açıklayıcı kart -->
-      <div class="service fade card-hover">
-        <div class="ico">🎤</div>
-        <div>
-          <div style="font-weight:700">Canlı Konser & Festival</div>
-          <small class="muted">Sahne, ses, ışık, güvenlik ve backstage yönetimi.</small>
-        </div>
-      </div>
-
-      <div class="service fade card-hover">
-        <div class="ico">💍</div>
-        <div>
-          <div style="font-weight:700">Düğün & Özel Etkinlik</div>
-          <small class="muted">Kişiye özel repertuar, orkestrasyon, DJ ve sunum.</small>
-        </div>
-      </div>
-
-      <div class="service fade card-hover">
-        <div class="ico">🏢</div>
-        <div>
-          <div style="font-weight:700">Kurumsal Etkinlikler</div>
-          <small class="muted">Lansman, gala, yıl sonu etkinlikleri.</small>
-        </div>
-      </div>
-
-      <div class="service fade card-hover">
-        <div class="ico">🎧</div>
-        <div>
-          <div style="font-weight:700">DJ & After Party</div>
-          <small class="muted">Özel setler, teknik altyapı ve görsel show.</small>
-        </div>
-      </div>
-
-      <div class="service fade card-hover">
-        <div class="ico">📡</div>
-        <div>
-          <div style="font-weight:700">Canlı Yayın & Kayıt</div>
-          <small class="muted">Streaming, multitrack kayıt, post-prodüksiyon.</small>
-        </div>
-      </div>
-
-      <div class="service fade card-hover">
-        <div class="ico">🧭</div>
-        <div>
-          <div style="font-weight:700">Danışmanlık & Planlama</div>
-          <small class="muted">Bütçe, lojistik ve sanatçı sözleşmeleri.</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Events with filter -->
-  <section id="events" aria-labelledby="events-title">
-    <div class="section-title">
-      <div>
-        <h2 id="events-title">Yaklaşan Etkinlikler</h2>
-        <small class="muted">Tarihe göre filtreleme & detaylı bilgi</small>
-      </div>
-
-      <!-- Filtre kontrolleri -->
-      <div style="display:flex;gap:.6rem;align-items:center">
-        <label for="filter-date" class="sr-only">Tarihe göre filtrele</label>
-        <input id="filter-date" type="date" />
-        <label for="filter-type" class="sr-only">Tür filtre</label>
-        <select id="filter-type" aria-label="Etkinlik türüne göre filtrele">
-          <option value="">Tüm Türler</option>
-          <option value="Konser">Konser</option>
-          <option value="Düğün">Düğün</option>
-          <option value="Kurumsal">Kurumsal</option>
-          <option value="Party">Party</option>
-        </select>
-        <button id="clear-filters" class="btn-outline">Temizle</button>
-      </div>
-    </div>
-
-    <!-- Etkinlik kartları -->
-    <div class="grid events-grid" id="events-list">
-      <!-- Event: data-date (YYYY-MM-DD) ve data-type -->
-      <article class="event fade card-hover" data-date="2025-08-20" data-type="Düğün" tabindex="0">
-        <img src="https://via.placeholder.com/360x220.png?text=Düğün+Ayşe+%26+Emre" alt="Romantik düğün" loading="lazy" width="120" height="72">
-        <div>
-          <div style="font-weight:700">Romantik Düğün: Ayşe & Emre</div>
-          <small class="muted">Kır bahçesi — 20 Ağustos 2025 · 18:00</small>
-        </div>
-        <div class="actions">
-          <button class="btn-outline event-detail" data-id="e1">Detay</button>
-        </div>
-      </article>
-
-      <article class="event fade card-hover" data-date="2025-09-05" data-type="Konser" tabindex="0">
-        <img src="https://via.placeholder.com/360x220.png?text=Sunset+Beats+Konser" alt="Sunset Beats konser" loading="lazy" width="120" height="72">
-        <div>
-          <div style="font-weight:700">Sunset Beats — Açık Hava Konseri</div>
-          <small class="muted">İstanbul Açık Sahne — 05 Eylül 2025 · 20:00</small>
-        </div>
-        <div class="actions">
-          <button class="btn-outline event-detail" data-id="e2">Detay</button>
-        </div>
-      </article>
-
-      <article class="event fade card-hover" data-date="2025-10-01" data-type="Party" tabindex="0">
-        <img src="https://via.placeholder.com/360x220.png?text=Neon+Nights+Afterparty" alt="Neon Nights afterparty" loading="lazy" width="120" height="72">
-        <div>
-          <div style="font-weight:700">Neon Nights — Afterparty</div>
-          <small class="muted">İzmir Club — 01 Ekim 2025 · 23:00</small>
-        </div>
-        <div class="actions">
-          <button class="btn-outline event-detail" data-id="e3">Detay</button>
-        </div>
-      </article>
-
-      <article class="event fade card-hover" data-date="2025-11-14" data-type="Kurumsal" tabindex="0">
-        <img src="https://via.placeholder.com/360x220.png?text=Y%C4%B1l+Sonu+Gala" alt="Kurumsal gala" loading="lazy" width="120" height="72">
-        <div>
-          <div style="font-weight:700">Yıl Sonu Gala — Firma Etkinliği</div>
-          <small class="muted">Ankara Kongre Merkezi — 14 Kasım 2025 · 19:30</small>
-        </div>
-        <div class="actions">
-          <button class="btn-outline event-detail" data-id="e4">Detay</button>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery" aria-labelledby="gallery-title">
-    <div class="section-title">
-      <div>
-        <h2 id="gallery-title">Galeri</h2>
-        <small class="muted">Etkinliklerden kareler</small>
-      </div>
-    </div>
-
-    <div class="grid gallery fade" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));">
-      <img src="https://via.placeholder.com/800x600.png?text=Galeri+1" alt="Galeri foto 1" loading="lazy">
-      <img src="https://via.placeholder.com/800x600.png?text=Galeri+2" alt="Galeri foto 2" loading="lazy">
-      <img src="https://via.placeholder.com/800x600.png?text=Galeri+3" alt="Galeri foto 3" loading="lazy">
-      <img src="https://via.placeholder.com/800x600.png?text=Galeri+4" alt="Galeri foto 4" loading="lazy">
-      <img src="https://via.placeholder.com/800x600.png?text=Galeri+5" alt="Galeri foto 5" loading="lazy">
-      <img src="https://via.placeholder.com/800x600.png?text=Galeri+6" alt="Galeri foto 6" loading="lazy">
-      <!-- Önerilen: kullanıcı kendi 'images/' klasörünü ekleyebilir -->
-      <img src="images/sample1.jpg" alt="Kullanıcı img örnek 1" loading="lazy">
-      <img src="images/sample2.jpg" alt="Kullanıcı img örnek 2" loading="lazy">
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials" aria-labelledby="testi-title">
-    <div class="section-title">
-      <div>
-        <h2 id="testi-title">Referanslar</h2>
-        <small class="muted">Müşterilerimiz ne dedi</small>
-      </div>
-    </div>
-
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
-      <div class="testi fade">
-        <div style="font-weight:700">"Profesyonel ekip, her şey zamanında ve kusursuzdu."</div>
-        <small class="muted">— M. Koç, Konser Yapımcısı</small>
-      </div>
-
-      <div class="testi fade">
-        <div style="font-weight:700">"Düğünümüz tam istediğimiz gibi oldu, teşekkürler Eyüp!"</div>
-        <small class="muted">— Z. Yılmaz</small>
-      </div>
-
-      <div class="testi fade">
-        <div style="font-weight:700">"Teknik altyapı ve yayın kalitesi mükemmeldi."</div>
-        <small class="muted">— A. Demir, Marka Müdürü</small>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" aria-labelledby="contact-title">
-    <div class="section-title">
-      <div>
-        <h2 id="contact-title">İletişim</h2>
-        <small class="muted">Proje detayını gönder, en kısa sürede teklif hazırlayalım</small>
-      </div>
-      <div class="muted">E-posta: <a href="mailto:hello@eyupmuziketkinlik.example">hello@eyupmuziketkinlik.example</a></div>
-    </div>
-
-    <div class="grid contact-grid" style="grid-template-columns:1fr 320px;gap:1rem;">
-      <!-- Form: gönderildiğinde mailto açılacak -->
-      <form id="contact-form" class="fade" aria-label="Teklif formu">
-        <label for="name">Adınız</label>
-        <input id="name" name="name" placeholder="Adınız" required>
-
-        <label for="email">E-posta</label>
-        <input id="email" name="email" type="email" placeholder="you@example.com" required>
-
-        <label for="type">Etkinlik Türü</label>
-        <select id="type" name="type" required>
-          <option value="Konser">Konser</option>
-          <option value="Düğün">Düğün</option>
-          <option value="Kurumsal">Kurumsal</option>
-          <option value="Party">Party</option>
-          <option value="Diğer">Diğer</option>
-        </select>
-
-        <label for="date">Tahmini Tarih</label>
-        <input id="date" name="date" type="date">
-
-        <label for="message">Kısa Açıklama</label>
-        <textarea id="message" name="message" rows="4" placeholder="Katılımcı sayısı, mekan, özel istekler..." required></textarea>
-
-        <div class="form-actions" style="margin-top:.5rem">
-          <button type="submit" class="cta">Teklif İste</button>
-          <button type="button" id="preview-mail" class="btn-outline">E-posta Önizle</button>
-        </div>
-        <small class="muted" style="display:block;margin-top:.4rem">Gönder tuşuna bastığınızda varsayılan posta programınız açılacaktır.</small>
-      </form>
-
-      <aside class="fade" style="padding:1rem;border-radius:12px;background:var(--surface);box-shadow:var(--shadow)">
-        <div style="font-weight:700">İrtibat Bilgileri</div>
-        <small class="muted">Telefon: +90 555 123 45 67</small>
-        <small class="muted">E-posta: hello@eyupmuziketkinlik.example</small>
-        <div style="margin-top:.6rem">
-          <div style="font-weight:700">Ofis</div>
-          <small class="muted">İstanbul, Türkiye</small>
-          <div style="height:110px;border-radius:8px;overflow:hidden;background:#f2f2f6;margin-top:.6rem;display:grid;place-items:center">
-            <!-- Basit SVG yer tutucu -->
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='110'><rect width='100%' height='100%' fill='%23f2f2f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%236a1b9a' font-family='Poppins, sans-serif' font-size='14'>Harita Örneği</text></svg>" alt="Harita" loading="lazy">
-          </div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-</div>
-</main> <!-- Modal (Etkinlik Detay) --> <div id="modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true"> <div class="modal" role="document" aria-labelledby="modal-title"> <header> <div> <h3 id="modal-title">Etkinlik Başlığı</h3> <small id="modal-sub" class="muted">Tarih · Mekan</small> </div> <div> <button id="modal-close" aria-label="Kapat" class="btn-outline">✕</button> </div> </header> <div id="modal-content" style="margin-top:.8rem"> <p class="muted">Detaylar burada yer alacak.</p> </div> <div style="display:flex;gap:.6rem;justify-content:flex-end;margin-top:1rem"> <button id="modal-book" class="cta">Rezervasyon İste</button> <button id="modal-share" class="btn-outline">Paylaş</button> </div> </div> </div> <!-- Footer --> <footer> <div class="container" style="display:flex;flex-direction:column;gap:.8rem"> <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap"> <div style="display:flex;align-items:center;gap:.6rem"> <div class="logo" style="width:44px;height:44px;font-size:.9rem">EME</div> <div> <div style="font-weight:700">Eyüp Müzik ve Etkinlik</div> <small class="muted">Sahne, ses, ışık & prodüksiyon</small> </div> </div> <div class="social" aria-label="Sosyal medya"> <a class="btn-outline" href="#" aria-label="Instagram">IG</a> <a class="btn-outline" href="#" aria-label="YouTube">YT</a> <a class="btn-outline" href="#" aria-label="LinkedIn">IN</a> </div> </div>
-php-template
-Kopyala
-Düzenle
-  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
-    <small class="muted">© <span id="year"></span> Eyüp Müzik ve Etkinlik. Tüm hakları saklıdır.</small>
-    <nav aria-label="Footer links" style="display:flex;gap:.6rem">
-      <a class="muted" href="#home">Üst</a>
-      <a class="muted" href="#privacy">Gizlilik</a>
-    </nav>
-  </div>
-</div>
-</footer> <!-- Inline JavaScript: menü, modal, filtre, mailto, tema, erişilebilirlik --> <script> /* Kısa yardımcı fonksiyonlar */ const $ = (s, ctx=document) => ctx.querySelector(s); const $$ = (s, ctx=document) => Array.from((ctx||document).querySelectorAll(s)); // Yıl dinamik document.getElementById('year').textContent = new Date().getFullYear(); /* Mobil menü toggle */ const hamburger = $('#hamburger'); const mobileMenu = $('#mobile-menu'); if(hamburger){ hamburger.addEventListener('click', ()=>{ const expanded = hamburger.getAttribute('aria-expanded') === 'true'; hamburger.setAttribute('aria-expanded', String(!expanded)); if(expanded){ mobileMenu.hidden = true; } else { mobileMenu.hidden = false; } }); } /* Tema toggle: tercih localStorage'da saklanır, sistem tercihine saygı */ const themeToggle = $('#theme-toggle'); const root = document.documentElement; const savedTheme = localStorage.getItem('eme-theme'); function applyTheme(t){ if(t === 'dark'){ root.setAttribute('data-theme','dark'); themeToggle.textContent = '☀️'; themeToggle.setAttribute('aria-pressed','true'); } else { root.removeAttribute('data-theme'); themeToggle.textContent = '🌙'; themeToggle.setAttribute('aria-pressed','false'); } } if(savedTheme) applyTheme(savedTheme); else applyTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); themeToggle.addEventListener('click', ()=>{ const cur = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; const next = cur === 'dark' ? 'light' : 'dark'; applyTheme(next); localStorage.setItem('eme-theme', next); }); /* Fade-in on scroll */ const observer = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, {threshold:0.12}); document.querySelectorAll('.fade').forEach(el=>observer.observe(el)); /* Event data: basit inline veri (gerçek projede dışarıdan çekilebilir) */ const EVENT_DATA = { e1: { id:'e1', title:'Romantik Düğün: Ayşe & Emre', date:'20 Ağustos 2025 · 18:00', place:'Kır Bahçesi, İstanbul', body:'Kapsam: sahne, ses, canlı grup ve DJ. Kişiselleştirilmiş repertuar ve orkestrasyon. Teknik ekip 4 saat ön kurulum yapar.', img:'https://via.placeholder.com/1000x500.png?text=Romantik+Düğ%C3%BCg%C3%BCn' }, e2: { id:'e2', title:'Sunset Beats — Açık Hava Konseri', date:'05 Eylül 2025 · 20:00', place:'İstanbul Açık Sahne', body:'Ana sanatçılar: XYZ Band, DJ Luminous. 30kW ses sistemi, LED tasarım, güvenlik ve biletleme destekli organizasyon.', img:'https://via.placeholder.com/1000x500.png?text=Sunset+Beats' }, e3: { id:'e3', title:'Neon Nights — Afterparty', date:'01 Ekim 2025 · 23:00', place:'Club Neon, İzmir', body:'DJ setleri, görsel şov, afterparty prodüksiyonu. Işık & lazer show opsiyonel.', img:'https://via.placeholder.com/1000x500.png?text=Neon+Nights' }, e4: { id:'e4', title:'Yıl Sonu Gala — Kurumsal Etkinlik', date:'14 Kasım 2025 · 19:30', place:'Ankara Kongre Merkezi', body:'Tam prodüksiyon: sahne tasarımı, sunum yönetimi, yayın ve kayıt altyapısı ile gala prodüksiyonu.', img:'https://via.placeholder.com/1000x500.png?text=Y%C4%B1l+Sonu+Gala' } }; /* Modal yönetimi */ const modal = $('#modal'); const modalTitle = $('#modal-title'); const modalSub = $('#modal-sub'); const modalContent = $('#modal-content'); const modalClose = $('#modal-close'); const modalBook = $('#modal-book'); const modalShare = $('#modal-share'); function openModal(id){ const ev = EVENT_DATA[id]; if(!ev) return; modalTitle.textContent = ev.title; modalSub.textContent = `${ev.date} · ${ev.place}`; modalContent.innerHTML = `<p class="muted">${ev.body}</p><div style="margin-top:.6rem"><img src="${ev.img}" alt="${ev.title}" style="width:100%;border-radius:10px;object-fit:cover" loading="lazy"></div>`; modal.style.display = 'flex'; modal.setAttribute('aria-hidden','false'); modalClose.focus(); // Rezervasyon butonu: mailto oluşturur modalBook.onclick = ()=>{ const subject = encodeURIComponent('Rezervasyon Talebi: '+ev.title); const body = encodeURIComponent(`Merhaba,%0D%0A%0D%0AEtkinlik: ${ev.title}%0D%0ATarih: ${ev.date}%0D%0AMekan: ${ev.place}%0D%0ALütfen rezervasyon, fiyat ve müsaitlik bilgilerini paylaşır mısınız?%0D%0A%0D%0ASaygılar,%0D%0A[Adınız]`); window.location.href = `mailto:hello@eyupmuziketkinlik.example?subject=${subject}&body=${body}`; }; } function closeModal(){ modal.style.display = 'none'; modal.setAttribute('aria-hidden','true'); } // Event detaya atama $$('.event-detail').forEach(btn=>{ btn.addEventListener('click', ()=> openModal(btn.getAttribute('data-id'))); }); // Klavye girişleri $$('.event').forEach(card=>{ card.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { const btn = card.querySelector('.event-detail'); btn && btn.click(); }}); }); modalClose.addEventListener('click', closeModal); modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); }); window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); }); /* Share: Web Share API veya kopyala fallback */ modalShare.addEventListener('click', async ()=>{ const text = modalTitle.textContent + ' — ' + modalSub.textContent; const url = window.location.href.split('#')[0] + '#events'; if(navigator.share){ try{ await navigator.share({title: modalTitle.textContent, text, url}); } catch(e){} } else { navigator.clipboard && navigator.clipboard.writeText(url); alert('Etkinlik bağlantısı panoya kopyalandı.'); } }); /* Etkinlik filtreleme: tarih ve tür */ const filterDate = $('#filter-date'); const filterType = $('#filter-type'); const clearFilters = $('#clear-filters'); const eventsList = $('#events-list'); function applyFilters(){ const dateVal = filterDate.value; // YYYY-MM-DD const typeVal = filterType.value; $$('.event', eventsList).forEach(card=>{ const cardDate = card.getAttribute('data-date'); // YYYY-MM-DD const cardType = card.getAttribute('data-type') || ''; let show = true; if(dateVal){ // gösterilecek: cardDate >= dateVal show = show && (new Date(cardDate) >= new Date(dateVal)); } if(typeVal){ show = show && (cardType === typeVal); } card.style.display = show ? '' : 'none'; }); } filterDate.addEventListener('change', applyFilters); filterType.addEventListener('change', applyFilters); clearFilters.addEventListener('click', ()=>{ filterDate.value = ''; filterType.value = ''; applyFilters(); }); /* "Etkinlik Takvimi" kısa butonu */ $('#open-events').addEventListener('click', ()=> document.getElementById('events').scrollIntoView({behavior:'smooth'})); /* Form -> mailto: URL oluşturma ve açma; preview penceresi */ const contactForm = $('#contact-form'); const previewMail = $('#preview-mail'); function buildMailto(form){ const to = 'hello@eyupmuziketkinlik.example'; const subject = encodeURIComponent('Teklif Talebi: ' + (form.get('type') || '')); const bodyLines = [ 'İsim: ' + (form.get('name') || ''), 'E-posta: ' + (form.get('email') || ''), 'Etkinlik Türü: ' + (form.get('type') || ''), 'Tahmini Tarih: ' + (form.get('date') || ''), '', 'Açıklama:', form.get('message') || '' ]; return `mailto:${to}?subject=${subject}&body=${encodeURIComponent(bodyLines.join('\n'))}`; } contactForm.addEventListener('submit', (e)=>{ e.preventDefault(); const fd = new FormData(contactForm); // Temel doğrulama if(!fd.get('name') || !fd.get('email') || !fd.get('message')){ alert('Lütfen ad, e-posta ve açıklama alanlarını doldurun.'); return; } window.location.href = buildMailto(fd); }); previewMail.addEventListener('click', ()=>{ const fd = new FormData(contactForm); if(!fd.get('name') || !fd.get('email') || !fd.get('message')){ alert('Lütfen ad, e-posta ve açıklama alanlarını doldurun (önizleme için).'); return; } const mailto = buildMailto(fd); const w = window.open('', '_blank', 'width=700,height=500'); w.document.write(`<title>E-posta Önizleme</title><pre style="white-space:pre-wrap;font-family:Poppins,Arial,monospace;padding:1rem;">${decodeURIComponent(mailto)}</pre>`);
-javascript
-Kopyala
-Düzenle
-});
-
-/* Küçük performans: Google Fonts için preconnect (başlıkta olması idealdir) */
-(function preconnect(){
-  const l = document.createElement('link');
-  l.rel = 'preconnect';
-  l.href = 'https://fonts.gstatic.com';
-  l.crossOrigin = '';
-  document.head.appendChild(l);
-})();
-
-/* Görsel lazy-loading: statik img'ler zaten loading="lazy" kullanıyor */
-// Erişilebilirlik: linklerin focus stilini belirgin kıl (CSS ile) - kullanıcı tarayıcısı uygular.
-</script> </body> </html>
+    // Karanlık/Aydın mod toggle
+    const themeToggleBtn = document.querySelector('.toggle-theme');
+    function updateThemeButton() {
+      const isDark = document.body.classList.contains('dark');
+      themeToggleBtn.textContent = isDark ? 'Aydın Modu Aç' : 'Karanlık Modu Aç';
+      themeToggleBtn.setAttribute('aria-pressed', isDark);
+    }
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      updateThemeButton();
+      try {
+        localStorage.setItem('eyup-theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+      } catch {}
+    });
+    // Sayfa açılırken tema tercihini uygula
+    try {
+      const savedTheme = localStorage.getItem('eyup-theme');
+      if(savedTheme === 'dark') document.body.classList.add('dark');
+    } catch {}
+    updateThemeButton();
+  });
+</script>
+</body>
+</html>
+ 
