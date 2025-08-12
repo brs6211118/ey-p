@@ -20,7 +20,7 @@
     --text-light: #ffffff;
     --text-dark: #121212;
     --shadow: rgba(0,0,0,0.15);
-    --border-radius: 8px;
+    --border-radius: 10px;
     --transition: 0.3s ease;
   }
   *, *::before, *::after {
@@ -28,7 +28,7 @@
   }
   body {
     margin:0; font-family: 'Roboto', sans-serif; background: var(--neutral-light); color: var(--neutral-dark);
-    line-height:1.5; scroll-behavior: smooth;
+    line-height:1.6; scroll-behavior: smooth;
     min-height:100vh; display: flex; flex-direction: column;
   }
   a {
@@ -42,7 +42,7 @@
   img {
     max-width: 100%; display: block; border-radius: var(--border-radius);
   }
-  h1,h2,h3 {
+  h1,h2,h3,h4 {
     font-weight: 700; margin-top: 0; color: var(--primary-dark);
   }
   p {
@@ -63,7 +63,7 @@
     background-color: var(--primary-dark);
     outline-offset: 3px;
   }
-  input, textarea {
+  input, textarea, select {
     font-family: inherit;
     font-size: 1rem;
     padding: 0.5em;
@@ -72,50 +72,51 @@
     width: 100%;
     transition: border-color var(--transition);
   }
-  input:focus, textarea:focus {
+  input:focus, textarea:focus, select:focus {
     outline: none;
     border-color: var(--primary);
   }
   label {
     display: block;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.3em;
     font-weight: 600;
   }
   /* Layout */
   main {
     flex-grow: 1;
-    max-width: 1024px;
-    margin: 1rem auto 2rem;
+    max-width: 1100px;
+    margin: 1.5rem auto 2rem;
     padding: 0 1rem;
   }
   section {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
   /* Navbar */
   nav {
     background: var(--primary);
     color: var(--text-light);
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     position: sticky;
     top: 0;
-    z-index: 99;
-    box-shadow: 0 2px 8px var(--shadow);
+    z-index: 1000;
+    box-shadow: 0 3px 10px var(--shadow);
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
   nav h1 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin: 0;
   }
   ul.menu {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.8rem;
   }
   ul.menu li a {
     color: var(--text-light);
     font-weight: 600;
+    font-size: 1rem;
   }
   ul.menu li a:focus-visible {
     outline: 3px solid var(--text-light);
@@ -127,96 +128,113 @@
     background: none;
     border: none;
     color: var(--text-light);
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   /* Hero */
   #hero {
     text-align: center;
-    padding: 4rem 1rem 2rem;
+    padding: 5rem 1rem 3rem;
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: var(--text-light);
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 12px var(--shadow);
+    box-shadow: 0 6px 18px var(--shadow);
   }
   #hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 0.7rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
   #hero p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
   }
   /* About */
   #about p {
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    color: #333;
   }
   /* Services */
   #services .services-list {
     display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
   }
   .service-card {
     background: var(--neutral-light);
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px var(--shadow);
+    box-shadow: 0 6px 12px var(--shadow);
     transition: transform var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .service-card:hover, .service-card:focus-within {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px var(--shadow);
+    transform: translateY(-7px);
+    box-shadow: 0 12px 24px var(--shadow);
   }
   .service-card h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
     color: var(--primary-dark);
+  }
+  /* Services icons */
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
   }
   /* Events */
   #events {
     max-width: 100%;
   }
   #event-filter {
-    padding: 0.5em;
-    margin-bottom: 1rem;
+    padding: 0.7em;
+    margin-bottom: 1.5rem;
     font-size: 1rem;
     border-radius: var(--border-radius);
     border: 2px solid #ccc;
+    max-width: 250px;
   }
   #event-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
   }
   .event-card {
     background: var(--neutral-light);
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px var(--shadow);
-    padding: 1rem;
+    box-shadow: 0 6px 14px var(--shadow);
+    padding: 1.25rem;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     transition: transform var(--transition);
   }
   .event-card:hover, .event-card:focus {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px var(--shadow);
+    transform: translateY(-7px);
+    box-shadow: 0 14px 28px var(--shadow);
     outline: none;
   }
   .event-card img {
     border-radius: var(--border-radius);
-    margin-bottom: 0.75rem;
-    height: 140px;
+    margin-bottom: 1rem;
+    height: 150px;
     object-fit: cover;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   }
   .event-card h3 {
-    margin: 0.3rem 0;
+    margin: 0.4rem 0 0.6rem;
     color: var(--primary-dark);
   }
   .event-card time {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #555;
     margin-top: auto;
   }
@@ -224,11 +242,12 @@
   .modal-overlay {
     position: fixed;
     top:0; left:0; right:0; bottom:0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.75);
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 1500;
+    padding: 1rem;
   }
   .modal-overlay.show {
     display: flex;
@@ -236,23 +255,35 @@
   .modal {
     background: var(--neutral-light);
     border-radius: var(--border-radius);
-    max-width: 400px;
-    width: 90%;
-    padding: 1.5rem;
-    box-shadow: 0 8px 24px var(--shadow);
+    max-width: 460px;
+    width: 100%;
+    padding: 2rem 2rem 1.5rem;
+    box-shadow: 0 12px 36px var(--shadow);
     position: relative;
     outline: none;
   }
   .modal h3 {
     margin-top: 0;
     color: var(--primary-dark);
+    font-size: 1.8rem;
+  }
+  .modal p {
+    color: #444;
+    margin-top: 0.8rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  .modal time {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 600;
   }
   .modal button.close-btn {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
     background: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--primary-dark);
   }
   .modal button.close-btn:hover,
@@ -263,8 +294,8 @@
   /* Gallery */
   #gallery .gallery-grid {
     display: grid;
-    gap: 0.75rem;
-    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+    gap: 0.9rem;
+    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
   }
   #gallery img {
     width: 100%;
@@ -273,47 +304,70 @@
     aspect-ratio: 4 / 3;
     cursor: pointer;
     transition: transform var(--transition);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
   #gallery img:hover, #gallery img:focus {
-    transform: scale(1.05);
+    transform: scale(1.08);
     outline: none;
   }
   /* Testimonials */
   #testimonials .testimonial-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .testimonial {
     background: var(--neutral-light);
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 2rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px var(--shadow);
+    box-shadow: 0 6px 14px var(--shadow);
     font-style: italic;
     color: #333;
-    outline-offset: 3px;
+    position: relative;
+  }
+  .testimonial::before {
+    content: "“";
+    font-size: 3rem;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: var(--primary);
+    font-weight: 900;
+    font-family: serif;
+  }
+  .testimonial cite {
+    display: block;
+    margin-top: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    text-align: right;
+    color: var(--primary-dark);
   }
   /* Contact Form */
   #contact form {
-    max-width: 400px;
+    max-width: 480px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.3rem;
   }
   /* Footer */
   footer {
     background: var(--primary-dark);
     color: var(--text-light);
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     text-align: center;
+    font-size: 0.9rem;
   }
   .social-icons {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
   }
   .social-icons a {
-    font-size: 1.5rem;
-    margin: 0 0.5rem;
+    font-size: 1.9rem;
+    margin: 0 0.65rem;
     color: var(--text-light);
     transition: color var(--transition);
   }
@@ -323,16 +377,20 @@
     outline-offset: 3px;
   }
   .toggle-theme {
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
     background: var(--neutral-light);
     color: var(--primary-dark);
-    padding: 0.4em 1em;
-    font-weight: 600;
+    padding: 0.45em 1.3em;
+    font-weight: 700;
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: 0 3px 7px rgba(30,136,229,0.5);
   }
   .toggle-theme:hover,
   .toggle-theme:focus {
     background: var(--primary);
     color: var(--text-light);
+    box-shadow: 0 5px 14px rgba(21,101,192,0.8);
   }
   /* Dark mode */
   body.dark {
@@ -358,14 +416,18 @@
   body.dark .event-card,
   body.dark .testimonial {
     background: #263238;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+    color: #ddd;
   }
-  body.dark input, body.dark textarea {
+  body.dark input, body.dark textarea, body.dark select {
     background: #37474f;
     border-color: #607d8b;
     color: var(--text-light);
   }
-  body.dark input:focus, body.dark textarea:focus {
+  body.dark input::placeholder, body.dark textarea::placeholder {
+    color: #bbb;
+  }
+  body.dark input:focus, body.dark textarea:focus, body.dark select:focus {
     border-color: var(--primary);
   }
   body.dark footer {
@@ -381,16 +443,16 @@
       position: absolute;
       top: 56px;
       right: 0;
-      width: 200px;
+      width: 220px;
       border-radius: 0 0 var(--border-radius) var(--border-radius);
-      box-shadow: 0 4px 12px var(--shadow);
+      box-shadow: 0 4px 16px var(--shadow);
       padding: 0.5rem 0;
     }
     ul.menu.show {
       display: flex;
     }
     ul.menu li {
-      margin: 0.5rem 0;
+      margin: 0.7rem 0;
       text-align: center;
     }
     .menu-toggle {
@@ -412,42 +474,52 @@
     <li><a href="#testimonials" tabindex="0">Referanslar</a></li>
     <li><a href="#contact" tabindex="0">İletişim</a></li>
   </ul>
+  <button class="toggle-theme" aria-pressed="false" aria-label="Karanlık/Aydın mod değiştirici">🌙</button>
 </nav>
 
 <main>
+  <!-- Hero Section -->
   <section id="hero" tabindex="0" aria-label="Hoşgeldiniz bölümü">
     <h2>Unutulmaz Müzik Organizasyonları</h2>
     <p>Eyüp Müzik Organizasyon ile her etkinlikte profesyonel hizmet ve eşsiz deneyim sizi bekliyor.</p>
     <button id="btn-contact" aria-describedby="hero-desc">İletişime Geçin</button>
   </section>
 
+  <!-- About Section -->
   <section id="about" tabindex="0" aria-labelledby="about-title">
     <h2 id="about-title">Hakkımızda</h2>
     <p>Eyüp Müzik Organizasyon olarak 10 yılı aşkın süredir düğün, festival, kurumsal etkinlik ve özel partilerde müzik organizasyonu hizmeti sunuyoruz. Profesyonel kadromuz ve geniş sanatçı ağımızla hayallerinizi gerçeğe dönüştürüyoruz.</p>
+    <p>Müşteri memnuniyetini her zaman ön planda tutuyor, son teknoloji ekipman ve yaratıcı çözümlerle etkinliklerinizi unutulmaz kılıyoruz.</p>
   </section>
 
+  <!-- Services Section -->
   <section id="services" tabindex="0" aria-labelledby="services-title">
     <h2 id="services-title">Hizmetlerimiz</h2>
     <div class="services-list">
       <article class="service-card" tabindex="0" aria-label="Düğün organizasyonu">
+        <div class="service-icon" aria-hidden="true">💍</div>
         <h3>Düğün Organizasyonu</h3>
-        <p>Romantik ve unutulmaz düğünler için profesyonel müzik çözümleri.</p>
+        <p>Romantik ve unutulmaz düğünler için profesyonel müzik çözümleri. Müzik seçimi, sahne kurulumu ve koordinasyon hizmetlerimizle yanınızdayız.</p>
       </article>
       <article class="service-card" tabindex="0" aria-label="Festival organizasyonu">
+        <div class="service-icon" aria-hidden="true">🎤</div>
         <h3>Festival Organizasyonu</h3>
-        <p>Büyük çaplı müzik festivalleri için teknik ve sanatçı desteği.</p>
+        <p>Büyük çaplı müzik festivalleri için teknik altyapı, sahne düzeni ve sanatçı organizasyonu sağlar, kusursuz bir deneyim sunarız.</p>
       </article>
       <article class="service-card" tabindex="0" aria-label="Kurumsal etkinlikler">
+        <div class="service-icon" aria-hidden="true">🏢</div>
         <h3>Kurumsal Etkinlikler</h3>
-        <p>Firma toplantıları ve lansmanlar için kaliteli müzik ve organizasyon.</p>
+        <p>Firma toplantıları, lansmanlar ve yıl sonu partileri için kaliteli müzik ve organizasyon hizmetleri sunarız. Kurumsal imajınızı güçlendirin.</p>
       </article>
       <article class="service-card" tabindex="0" aria-label="Özel partiler">
+        <div class="service-icon" aria-hidden="true">🎉</div>
         <h3>Özel Partiler</h3>
-        <p>Doğum günü ve özel gün kutlamaları için kişiye özel müzik çözümleri.</p>
+        <p>Doğum günü, yıldönümü ve özel kutlamalarınız için kişiye özel müzik ve eğlence çözümleri ile unutulmaz anlar yaratıyoruz.</p>
       </article>
     </div>
   </section>
 
+  <!-- Events Section -->
   <section id="events" tabindex="0" aria-labelledby="events-title">
     <h2 id="events-title">Yaklaşan Etkinlikler</h2>
     <label for="event-filter">Etkinlik Tarihine Göre Filtrele:</label>
@@ -457,206 +529,177 @@
       <option value="2025-10">Ekim 2025</option>
       <option value="2025-11">Kasım 2025</option>
     </select>
-    <div id="event-list" tabindex="0" aria-live="polite" aria-relevant="additions"></div>
+    <div id="event-list" tabindex="0" aria-live="polite" aria-relevant="additions" aria-label="Etkinlik listesi"></div>
   </section>
 
+  <!-- Gallery Section -->
   <section id="gallery" tabindex="0" aria-labelledby="gallery-title">
     <h2 id="gallery-title">Galeri</h2>
     <div class="gallery-grid" role="list">
-      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iOTAiIGZpbGw9IiMxZThhODIiLz48dGV4dCB4PSI2MCIgeT0iNDUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhbGVyaSAxPC90ZXh0Pjwvc3ZnPg==" alt="Galeri görseli 1" loading="lazy" tabindex="0" />
-      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iOTAiIGZpbGw9IiM0ZGY4ZjYiLz48dGV4dCB4PSI2MCIgeT0iNDUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhbGVyaSAyPC90ZXh0Pjwvc3ZnPg==" alt="Galeri görseli 2" loading="lazy" tabindex="0" />
-      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iOTAiIGZpbGw9IiM2YjI3ZDYiLz48dGV4dCB4PSI2MCIgeT0iNDUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhbGVyaSAzPC90ZXh0Pjwvc3ZnPg==" alt="Galeri görseli 3" loading="lazy" tabindex="0" />
-      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iOTAiIGZpbGw9IiM4YWRjNzciLz48dGV4dCB4PSI2MCIgeT0iNDUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhbGVyaSA0PC90ZXh0Pjwvc3ZnPg==" alt="Galeri görseli 4" loading="lazy" tabindex="0" />
+      <img src="https://via.placeholder.com/320x240/1e88e5/ffffff?text=Konser" alt="Canlı konser sahnesi" loading="lazy" tabindex="0" />
+      <img src="https://via.placeholder.com/320x240/4ed896/ffffff?text=Düğün" alt="Düğün organizasyonu sahnesi" loading="lazy" tabindex="0" />
+      <img src="https://via.placeholder.com/320x240/6b27d6/ffffff?text=Festival" alt="Müzik festivali alanı" loading="lazy" tabindex="0" />
+      <img src="https://via.placeholder.com/320x240/8adc77/ffffff?text=Kurumsal" alt="Kurumsal etkinlik sahnesi" loading="lazy" tabindex="0" />
+      <img src="https://via.placeholder.com/320x240/f79f79/ffffff?text=Parti" alt="Özel parti ortamı" loading="lazy" tabindex="0" />
+      <img src="https://via.placeholder.com/320x240/f2594b/ffffff?text=Sanat%C3%A7%C4%B1" alt="Sanatçı performansı" loading="lazy" tabindex="0" />
     </div>
   </section>
 
+  <!-- Testimonials Section -->
   <section id="testimonials" tabindex="0" aria-labelledby="testimonials-title">
     <h2 id="testimonials-title">Müşteri Yorumları</h2>
     <div class="testimonial-list">
       <blockquote class="testimonial" tabindex="0">
-        “Eyüp Müzik Organizasyon sayesinde düğünümüz tam hayal ettiğimiz gibi geçti. Profesyonel ve sıcak yaklaşımları için teşekkür ederiz.”
-        <footer>– Ayşe & Mehmet</footer>
+        “Eyüp Müzik Organizasyon sayesinde düğünümüz tam hayal ettiğimiz gibi geçti. Profesyonellik ve samimiyet bir aradaydı.”
+        <cite>- Ayşe K.</cite>
       </blockquote>
       <blockquote class="testimonial" tabindex="0">
-        “Kurumsal etkinliğimiz için sağladıkları müzik ve teknik ekip harikaydı. Kesinlikle tavsiye ediyoruz.”
-        <footer>– XYZ Şirketi</footer>
+        “Festivalimiz için ekip tam zamanında geldi, her şey kusursuzdu. İyi ki sizi tercih etmişiz.”
+        <cite>- Mehmet D.</cite>
+      </blockquote>
+      <blockquote class="testimonial" tabindex="0">
+        “Kurumsal etkinliğimizde müzik ve organizasyon harikaydı, çalışanlar çok ilgiliydi. Kesinlikle öneriyorum.”
+        <cite>- Seda T.</cite>
       </blockquote>
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" tabindex="0" aria-labelledby="contact-title">
     <h2 id="contact-title">İletişim</h2>
-    <form id="contact-form" aria-describedby="contact-desc">
-      <label for="name">İsim</label>
-      <input type="text" id="name" name="name" required autocomplete="name" placeholder="Adınız" />
+    <form id="contact-form" aria-describedby="contact-desc" novalidate>
+      <p id="contact-desc">Sorularınız veya talepleriniz için aşağıdaki formu doldurabilirsiniz.</p>
+      <label for="name">Adınız</label>
+      <input type="text" id="name" name="name" placeholder="Adınızı yazınız" required aria-required="true" />
       <label for="email">E-posta</label>
-      <input type="email" id="email" name="email" required autocomplete="email" placeholder="ornek@mail.com" />
+      <input type="email" id="email" name="email" placeholder="E-posta adresinizi yazınız" required aria-required="true" />
+      <label for="subject">Konu</label>
+      <select id="subject" name="subject" required aria-required="true">
+        <option value="">Lütfen konu seçiniz</option>
+        <option value="dugun">Düğün Organizasyonu</option>
+        <option value="festival">Festival</option>
+        <option value="kurumsal">Kurumsal Etkinlik</option>
+        <option value="ozel">Özel Parti</option>
+        <option value="diger">Diğer</option>
+      </select>
       <label for="message">Mesajınız</label>
-      <textarea id="message" name="message" rows="4" required placeholder="Mesajınızı yazın"></textarea>
+      <textarea id="message" name="message" rows="5" placeholder="Mesajınızı yazınız" required aria-required="true"></textarea>
       <button type="submit">Gönder</button>
+      <p id="form-message" role="alert" aria-live="assertive" style="margin-top:1em; color:green; display:none;"></p>
     </form>
   </section>
 </main>
 
 <footer role="contentinfo">
   <div class="social-icons" aria-label="Sosyal medya bağlantıları">
-    <a href="https://www.facebook.com/eyupmuzikorganizasyon" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
-    <a href="https://www.instagram.com/eyupmuzikorganizasyon" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
-    <a href="https://twitter.com/eyupmuzik" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
+    <a href="https://www.facebook.com/eyupmuzikorganizasyon" target="_blank" rel="noopener" aria-label="Facebook"><svg aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.87v-6.98H8v-2.89h2.5V9.41c0-2.47 1.46-3.84 3.7-3.84 1.07 0 2.18.19 2.18.19v2.4h-1.23c-1.21 0-1.59.75-1.59 1.52v1.83h2.72l-.44 2.89h-2.28v6.98A10 10 0 0 0 22 12"/></svg></a>
+    <a href="https://www.instagram.com/eyupmuzikorganizasyon" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm5 3a5 5 0 1 1 0 10a5 5 0 0 1 0-10zm6.25-.5a1.25 1.25 0 1 1 0 2.5a1.25 1.25 0 0 1 0-2.5z"/></svg></a>
+    <a href="https://www.twitter.com/eyupmuzik" target="_blank" rel="noopener" aria-label="Twitter"><svg aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.46.69a4.28 4.28 0 0 0 1.87-2.36a8.55 8.55 0 0 1-2.72 1.04a4.27 4.27 0 0 0-7.27 3.9a12.12 12.12 0 0 1-8.8-4.46a4.25 4.25 0 0 0 1.32 5.7a4.26 4.26 0 0 1-1.94-.54v.06a4.28 4.28 0 0 0 3.43 4.19a4.3 4.3 0 0 1-1.93.07a4.27 4.27 0 0 0 3.99 2.97A8.56 8.56 0 0 1 2 19.54a12.07 12.07 0 0 0 6.55 1.92c7.87 0 12.18-6.52 12.18-12.18c0-.18-.01-.36-.02-.54A8.69 8.69 0 0 0 22.46 6z"/></svg></a>
   </div>
-  <button class="toggle-theme" aria-pressed="false" aria-label="Karanlık veya aydın modu değiştir">Karanlık Modu Aç/Kapa</button>
-  <p>© 2025 Eyüp Müzik Organizasyon. Tüm hakları saklıdır.</p>
+  <p>&copy; 2025 Eyüp Müzik Organizasyon. Tüm hakları saklıdır.</p>
 </footer>
 
-<!-- Modal template -->
-<div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
-  <div class="modal" role="document">
-    <button class="close-btn" aria-label="Kapat">&times;</button>
-    <h3 id="modal-title"></h3>
-    <p id="modal-desc"></p>
-    <time id="modal-time"></time>
-  </div>
-</div>
-
 <script>
-  // Sayfa hazırlandıktan sonra çalışacak kodlar
-  document.addEventListener('DOMContentLoaded', () => {
-    // Mobil menü toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-      menu.classList.toggle('show');
-    });
-    // Etkinlik verileri
-    const eventsData = [
-      {
-        id: 1,
-        title: "Eylül Festivali",
-        date: "2025-09-20",
-        month: "2025-09",
-        description: "Yaz bitmeden büyük Eylül müzik festivali. Ünlü sanatçılar ve sürprizler.",
-        img: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iIzFlOGE4MiIvPjx0ZXh0IHg9IjE2MCIgeT0iOTAiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkV5dMOkbCBGZXN0aXZhbDwvdGV4dD48L3N2Zz4=",
-      },
-      {
-        id: 2,
-        title: "Ekim Düğünü",
-        date: "2025-10-05",
-        month: "2025-10",
-        description: "Romantik Ekim ayında özel düğün organizasyonu, size özel repertuar.",
-        img: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iIzRlZDg5NiIvPjx0ZXh0IHg9IjE2MCIgeT0iOTAiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkVraW0gRMO8Z8O8bjwvdGV4dD48L3N2Zz4=",
-      },
-      {
-        id: 3,
-        title: "Kasım Özel Partisi",
-        date: "2025-11-15",
-        month: "2025-11",
-        description: "Kasım ayında kişiye özel doğum günü ve kutlama partileri için müzik organizasyonu.",
-        img: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iIzZiMjdkNiIvPjx0ZXh0IHg9IjE2MCIgeT0iOTAiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkthc8O8bSBPemVsIFBhcnRpPC90ZXh0Pjwvc3ZnPg==",
-      },
-    ];
-    const eventListEl = document.getElementById('event-list');
-    const eventFilterEl = document.getElementById('event-filter');
-    const modalOverlay = document.getElementById('modal-overlay');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDesc = document.getElementById('modal-desc');
-    const modalTime = document.getElementById('modal-time');
-    const modalCloseBtn = modalOverlay.querySelector('.close-btn');
+  // Menü aç/kapat
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('primary-menu');
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+    menuToggle.setAttribute('aria-expanded', !expanded);
+    menu.classList.toggle('show');
+  });
 
-    // Fonksiyon: etkinlik listesini renderla
-    function renderEvents(filterMonth = "all") {
-      eventListEl.innerHTML = '';
-      const filtered = filterMonth === "all" ? eventsData : eventsData.filter(e => e.month === filterMonth);
-      if(filtered.length === 0) {
-        eventListEl.innerHTML = '<p>Seçilen dönemde etkinlik bulunmamaktadır.</p>';
-        return;
-      }
-      filtered.forEach(event => {
-        const card = document.createElement('article');
-        card.className = 'event-card';
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-pressed', 'false');
-        card.setAttribute('aria-label', event.title + ' etkinliği, detay görmek için tıklayın');
-        card.innerHTML = `
-          <img src="${event.img}" alt="${event.title} görseli" loading="lazy" />
-          <h3>${event.title}</h3>
-          <time datetime="${event.date}">${new Date(event.date).toLocaleDateString('tr-TR', {year:'numeric',month:'long',day:'numeric'})}</time>
-        `;
-        // Modal açma fonksiyonu
-        card.addEventListener('click', () => openModal(event));
-        card.addEventListener('keydown', e => {
-          if(e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openModal(event);
-          }
-        });
-        eventListEl.appendChild(card);
-      });
-    }
-    // Modal aç
-    function openModal(event) {
-      modalTitle.textContent = event.title;
-      modalDesc.textContent = event.description;
-      modalTime.textContent = new Date(event.date).toLocaleDateString('tr-TR', {year:'numeric',month:'long',day:'numeric'});
-      modalOverlay.classList.add('show');
-      modalOverlay.focus();
-    }
-    // Modal kapat
-    function closeModal() {
-      modalOverlay.classList.remove('show');
-    }
-    modalCloseBtn.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', e => {
-      if(e.target === modalOverlay) closeModal();
-    });
-    modalOverlay.addEventListener('keydown', e => {
-      if(e.key === 'Escape') closeModal();
-    });
-    eventFilterEl.addEventListener('change', e => renderEvents(e.target.value));
-    renderEvents();
+  // Karanlık/Aydın mod toggle
+  const toggleThemeBtn = document.querySelector('.toggle-theme');
+  toggleThemeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    toggleThemeBtn.setAttribute('aria-pressed', isDark);
+    toggleThemeBtn.textContent = isDark ? '☀️' : '🌙';
+  });
 
-    // İletişim formu mailto işlevi
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = contactForm.name.value.trim();
-      const email = contactForm.email.value.trim();
-      const message = contactForm.message.value.trim();
-      if(!name || !email || !message) return;
-      const subject = encodeURIComponent('İletişim Formu Mesajı');
-      const body = encodeURIComponent(`İsim: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
-      window.location.href = `mailto:info@eyupmuzikorganizasyon.com?subject=${subject}&body=${body}`;
-    });
-
-    // Hero buton iletişim bölümüne scroll
-    document.getElementById('btn-contact').addEventListener('click', () => {
-      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-    });
-
-    // Karanlık/Aydın mod toggle
-    const themeToggleBtn = document.querySelector('.toggle-theme');
-    function updateThemeButton() {
-      const isDark = document.body.classList.contains('dark');
-      themeToggleBtn.textContent = isDark ? 'Aydın Modu Aç' : 'Karanlık Modu Aç';
-      themeToggleBtn.setAttribute('aria-pressed', isDark);
+  // Etkinlik verisi
+  const eventsData = [
+    {
+      id: 1,
+      title: "Sonbahar Festivali",
+      date: "2025-09-20",
+      description: "Büyük açık hava müzik festivali, birçok sanatçıyla.",
+      img: "https://via.placeholder.com/400x250/1e88e5/ffffff?text=Sonbahar+Festivali"
+    },
+    {
+      id: 2,
+      title: "Düğün Organizasyonu - Ahmet & Elif",
+      date: "2025-10-05",
+      description: "Romantik ve unutulmaz bir düğün müziği.",
+      img: "https://via.placeholder.com/400x250/4ed896/ffffff?text=Düğün+Ahmet+%26+Elif"
+    },
+    {
+      id: 3,
+      title: "Kurumsal Lansman",
+      date: "2025-10-25",
+      description: "Firma yeni ürün lansmanı için özel müzik performansı.",
+      img: "https://via.placeholder.com/400x250/6b27d6/ffffff?text=Kurumsal+Lansman"
+    },
+    {
+      id: 4,
+      title: "Yılbaşı Partisi",
+      date: "2025-11-30",
+      description: "Özel yılbaşı kutlaması müzik ve eğlence.",
+      img: "https://via.placeholder.com/400x250/f2594b/ffffff?text=Yılbaşı+Partisi"
     }
-    themeToggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      updateThemeButton();
-      try {
-        localStorage.setItem('eyup-theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-      } catch {}
+  ];
+
+  const eventFilter = document.getElementById('event-filter');
+  const eventList = document.getElementById('event-list');
+
+  function renderEvents(filterValue = 'all') {
+    eventList.innerHTML = '';
+    const filtered = filterValue === 'all' ? eventsData : eventsData.filter(ev => ev.date.startsWith(filterValue));
+    if(filtered.length === 0) {
+      eventList.innerHTML = '<p>Seçilen tarihe göre etkinlik bulunamadı.</p>';
+      return;
+    }
+    filtered.forEach(ev => {
+      const div = document.createElement('div');
+      div.className = 'event-card';
+      div.tabIndex = 0;
+      div.setAttribute('role','article');
+      div.innerHTML = `
+        <img src="${ev.img}" alt="${ev.title} görseli" loading="lazy" />
+        <h3>${ev.title}</h3>
+        <p>${ev.description}</p>
+        <time datetime="${ev.date}">${new Date(ev.date).toLocaleDateString('tr-TR', {day:'numeric',month:'long',year:'numeric'})}</time>
+      `;
+      eventList.appendChild(div);
     });
-    // Sayfa açılırken tema tercihini uygula
-    try {
-      const savedTheme = localStorage.getItem('eyup-theme');
-      if(savedTheme === 'dark') document.body.classList.add('dark');
-    } catch {}
-    updateThemeButton();
+  }
+  eventFilter.addEventListener('change', (e) => renderEvents(e.target.value));
+  // İlk yüklemede tüm etkinlikler
+  renderEvents();
+
+  // İletişim formu işlemleri (ön yüz doğrulama + basit başarı mesajı)
+  const contactForm = document.getElementById('contact-form');
+  const formMessage = document.getElementById('form-message');
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+    // Burada gerçek backend yok, sadece gösterim için success mesajı veriyoruz
+    formMessage.style.display = 'block';
+    formMessage.textContent = "Mesajınız başarıyla gönderildi, teşekkürler!";
+    contactForm.reset();
+  });
+
+  // "İletişime Geçin" butonu anasayfa -> iletişim formuna kaydırır
+  const btnContact = document.getElementById('btn-contact');
+  btnContact.addEventListener('click', () => {
+    document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
   });
 </script>
 </body>
 </html>
+
  
