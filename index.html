@@ -1,31 +1,29 @@
 <!DOCTYPE html>
+
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <title>Eyüp Müzik Organizasyon | Profesyonel Etkinlik & Müzik Hizmetleri</title>
-  <meta name="description" content="Düğün, konser, festival ve kurumsal etkinliklerde profesyonel müzik organizasyonu, sahne, ses-ışık ve sanatçı yönetimi. İstanbul ve tüm Türkiye." />
-  <meta name="keywords" content="müzik organizasyon, etkinlik, düğün, konser, festival, dj, orkestra, sahne ses ışık" />
-  <meta name="theme-color" content="#0a0a0a" />
-  <link rel="canonical" href="https://eyupmuzik.com/" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Eyüp Müzik Organizasyon" />
-  <meta property="og:description" content="Düğün, konser, festival ve kurumsal etkinliklerde profesyonel müzik organizasyonu." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://eyupmuzik.com/" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?q=80&w=1200&auto=format&fit=crop" />
-  <meta property="og:locale" content="tr_TR" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1XOn..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport"/>
+<title>Eyüp Müzik Organizasyon | Profesyonel Etkinlik &amp; Müzik Hizmetleri</title>
+<meta content="Düğün, konser, festival ve kurumsal etkinliklerde profesyonel müzik organizasyonu, sahne, ses-ışık ve sanatçı yönetimi. İstanbul ve tüm Türkiye." name="description"/>
+<meta content="müzik organizasyon, etkinlik, düğün, konser, festival, dj, orkestra, sahne ses ışık" name="keywords"/>
+<meta content="#0a0a0a" name="theme-color"/>
+<link href="https://eyupmuzik.com/" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="Eyüp Müzik Organizasyon" property="og:title"/>
+<meta content="Düğün, konser, festival ve kurumsal etkinliklerde profesyonel müzik organizasyonu." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://eyupmuzik.com/" property="og:url"/>
+<meta content="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" property="og:image"/>
+<meta content="tr_TR" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- Fonts & Icons -->
+<link crossorigin="" href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1XOn..." referrerpolicy="no-referrer" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+<style>
     :root{
       --bg:#0a0a0a;--bg-soft:#111418;--bg-elev:#171a20;--text:#ffffff;--muted:#c7c9cc;
       --primary:#e91e63;--primary-2:#ff4d8d;--accent:#7c3aed;--ring:#2dd4bf;
@@ -280,430 +278,443 @@
 .overlay {
   pointer-events: auto !important;
 }
-</style>
-</head>
-<body>
 
-<button id="theme-toggle" aria-label="Tema değiştir" style="
+/* ==== EK MOBİL OPTİMİZASYONLAR ==== */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  h2 {
+    font-size: 1.4rem !important;
+  }
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+  .card {
+    padding: 1rem !important;
+  }
+  nav .menu a {
+    font-size: 1rem !important;
+    padding: 0.9rem !important;
+  }
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem !important;
+  }
+  h2 {
+    font-size: 1.2rem !important;
+  }
+  .btn {
+    font-size: 0.9rem !important;
+    padding: 0.8rem 1rem !important;
+  }
+}
+</style>
+</link></link></head>
+<body>
+<button aria-label="Tema değiştir" id="theme-toggle" style="
   position:fixed;top:16px;left:16px;z-index:1100;
   border:0;border-radius:50%;width:44px;height:44px;
   display:flex;align-items:center;justify-content:center;
   background:var(--card);color:var(--text);font-size:1.2rem;
   cursor:pointer;box-shadow:var(--shadow);
 ">
-  <span id="theme-icon">🌙</span>
+<span id="theme-icon">🌙</span>
 </button>
+<noscript><div class="container" style="margin-top:1rem"><div class="badge">Tarayıcınızda JavaScript kapalı. Bazı özellikler sınırlı çalışacaktır.</div></div></noscript>
+<!-- HEADER -->
+<header role="banner">
+<div class="container">
+<nav aria-label="Ana Navigasyon">
+<div class="brand"><span aria-hidden="true" class="dot"></span> <span>Eyüp Müzik</span></div>
+<button aria-controls="primary-menu" aria-expanded="false" aria-label="Menüyü aç/kapat" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+<div class="menu" id="primary-menu" role="menubar">
+<a href="#hero" role="menuitem">Anasayfa</a>
+<a href="#about" role="menuitem">Hakkımızda</a>
+<a href="#services" role="menuitem">Hizmetler</a>
+<a href="#events" role="menuitem">Etkinlikler</a>
+<a href="#gallery" role="menuitem">Galeri</a>
+<a href="#pricing" role="menuitem">Paketler</a>
+<a href="#process" role="menuitem">Süreç</a>
+<a href="#testimonials" role="menuitem">Referanslar</a>
+<a href="#faq" role="menuitem">SSS</a>
+<a href="#contact" role="menuitem">İletişim</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="overlay" hidden="" id="overlay"></div>
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="container">
+<div class="wrap fade-in" tabindex="0">
+<div aria-hidden="true" class="bg"></div>
+<div class="content">
+<span class="badge" data-aos="fade-down">10+ yıl deneyim</span>
+<h1 data-aos="fade-up">Unutulmaz Etkinlikler İçin <span style="background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Profesyonel Müzik Organizasyonu</span></h1>
+<p data-aos="fade-up" data-aos-delay="100">Düğün, konser, festival ve kurumsal etkinliklerde sahne, ses-ışık, DJ/orkestra ve sanatçı yönetimi ile uçtan uca çözüm sunuyoruz.</p>
+<div class="actions" data-aos="fade-up" data-aos-delay="150">
+<a class="btn btn-primary" href="#contact"><i class="fa-solid fa-envelope"></i> Hızlı Teklif Al</a>
+<a class="btn btn-ghost" href="#services"><i class="fa-solid fa-music"></i> Hizmetleri Gör</a>
+</div>
+<div class="stats" data-aos="zoom-in">
+<div class="stat"><strong id="c1">0</strong><span class="muted">Tamamlanan etkinlik</span></div>
+<div class="stat"><strong id="c2">0</strong><span class="muted">Mutlu müşteri</span></div>
+<div class="stat"><strong id="c3">0</strong><span class="muted">Şehir</span></div>
+<div class="stat"><strong id="c4">0</strong><span class="muted">Yıllık deneyim</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Biz kimiz?</div>
+<h2>Hakkımızda</h2>
+<p class="muted">Her ölçekte etkinlik için planlama, lojistik ve sahne yönetimi.</p>
+</div>
+<div class="grid grid-3">
+<div class="card fade-in" tabindex="0">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-wave-square"></i></div>
+<h3>Teknik Üstünlük</h3>
+<p>RF koordinasyonundan backline’a kadar tüm teknik süreçleri uluslararası standartlarda yönetiyoruz.</p>
+</div>
+<div class="card fade-in" tabindex="0">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-users-gear"></i></div>
+<h3>Deneyimli Ekip</h3>
+<p>Prodüksiyon, sanatçı ilişkileri ve sahne operasyonlarında uzman, güler yüzlü ekip.</p>
+</div>
+<div class="card fade-in" tabindex="0">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-shield-heart"></i></div>
+<h3>Güven ve Şeffaflık</h3>
+<p>Bütçe, zamanlama ve içerik konularında net iletişimle risksiz süreç.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SERVICES -->
+<section id="services">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Ne yapıyoruz?</div>
+<h2>Hizmetlerimiz</h2>
+<p class="muted">Festivalden butik düğüne, kurumsaldan açıkhava konserine.</p>
+</div>
+<div class="grid grid-3">
+<article aria-label="Festival Organizasyonu" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+<h3>Festival Organizasyonu</h3>
+<p>Çok sahneli kurgu, sanatçı akışı, sahne &amp; backline, lojistik ve güvenlik koordinasyonu.</p>
+</article>
+<article aria-label="Kurumsal Etkinlikler" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-building"></i></div>
+<h3>Kurumsal Etkinlikler</h3>
+<p>Lansman, bayi toplantısı, yıl sonu partisi: marka kimliğinize uygun konsept ve akış.</p>
+</article>
+<article aria-label="Düğün &amp; Özel Davet" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-ring"></i></div>
+<h3>Düğün &amp; Özel</h3>
+<p>DJ/bando/orkestra, ilk dans koreografisi, sanatçı &amp; MC yönetimi, teknik tüm detaylar.</p>
+</article>
+<article aria-label="Sahne &amp; Işık Tasarımı" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-lightbulb"></i></div>
+<h3>Sahne &amp; Işık Tasarımı</h3>
+<p>Mekanınıza özel sahne, rigging ve dinamik ışık senaryoları ile etkileyici atmosfer.</p>
+</article>
+<article aria-label="Ses Sistemleri" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-volume-high"></i></div>
+<h3>Ses Sistemleri</h3>
+<p>Line array, monitörleme, dijital miksaj, akustik optimizasyon ve kayıt.</p>
+</article>
+<article aria-label="Sanatçı &amp; DJ" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-headphones"></i></div>
+<h3>Sanatçı &amp; DJ</h3>
+<p>Tarza uygun sanatçı, DJ ve performans grupları; telif ve sözleşme yönetimi.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- EVENTS -->
+<section id="events">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Gündem</div>
+<h2>Yaklaşan Etkinlikler</h2>
+<p class="muted">Takvimi inceleyin, katılım için bizimle iletişime geçin.</p>
+</div>
+<label class="badge" for="event-filter" style="margin-bottom:.8rem;display:inline-block">Tarihe göre filtrele</label>
+<select aria-controls="event-list" aria-label="Etkinlik tarih filtresi" id="event-filter">
+<option value="all">Tümü</option>
+<option value="2025-09">Eylül 2025</option>
+<option value="2025-10">Ekim 2025</option>
+<option value="2025-11">Kasım 2025</option>
+</select>
+<div aria-live="polite" aria-relevant="additions" class="grid grid-3 event-list" id="event-list" style="margin-top:1rem"></div>
+<!-- Modal -->
+<div aria-describedby="modal-desc" aria-labelledby="modal-title" aria-modal="true" class="modal" hidden="" id="modal" role="dialog">
+<div class="box">
+<button aria-label="Kapat" class="close" id="modal-close">×</button>
+<h3 id="modal-title"></h3>
+<img alt="" id="modal-img" style="max-width:100%;border-radius:12px;margin:.5rem 0;max-width:100%;height:auto;"/>
+<div class="muted" style="margin:.3rem 0"><time id="modal-date"></time></div>
+<p id="modal-desc"></p>
+</div>
+</div>
+</div>
+</section>
+<!-- GALLERY -->
+<section id="gallery">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Kareler</div>
+<h2>Galeri</h2>
+<p class="muted">Geçmiş projelerimizden öne çıkan anlar.</p>
+</div>
+<div class="gallery" role="list">
+<a aria-label="Konser sahnesi" class="gl" href="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="Konser sahnesi" loading="lazy" src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+<a aria-label="Düğün ilk dans" class="gl" href="https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="Düğün ilk dans" loading="lazy" src="https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+<a aria-label="Festival kalabalığı" class="gl" href="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="Festival kalabalığı" loading="lazy" src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+<a aria-label="Kurumsal sahne" class="gl" href="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="Kurumsal sahne" loading="lazy" src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+<a aria-label="DJ performansı" class="gl" href="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="DJ performansı" loading="lazy" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+<a aria-label="Sahne ışıkları" class="gl" href="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="Sahne ışıkları" loading="lazy" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+</div>
+<!-- Lightbox -->
+<div aria-modal="true" class="lightbox" hidden="" id="lightbox" role="dialog">
+<button aria-label="Kapat" class="close" id="lightbox-close">×</button>
+<img alt="Büyütülmüş görsel" id="lightbox-img" style="max-width:100%;height:auto;"/>
+</div>
+</div>
+</section>
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Paketler</div>
+<h2>İhtiyacınıza Uygun Çözümler</h2>
+<p class="muted">Tüm paketler kurulum, prova ve sahne yönetimini içerir.</p>
+</div>
+<div class="grid grid-3">
+<div class="price-card card fade-in">
+<h3>Başlangıç</h3>
+<div class="price">₺19.900 <small>/ etkinlik</small></div>
+<ul class="features">
+<li><i class="fa-solid fa-check"></i> DJ + Temel Ses Sistemi</li>
+<li><i class="fa-solid fa-check"></i> 4 Adet Işık</li>
+<li><i class="fa-solid fa-check"></i> Standart Sahne</li>
+</ul>
+<div style="margin-top:1rem"><a class="btn btn-primary" href="#contact">Teklif Al</a></div>
+</div>
+<div class="price-card card best fade-in">
+<h3>Popüler</h3>
+<div class="price">₺34.900 <small>/ etkinlik</small></div>
+<ul class="features">
+<li><i class="fa-solid fa-check"></i> DJ / Orkestra Opsiyonu</li>
+<li><i class="fa-solid fa-check"></i> Gelişmiş Ses &amp; Işık</li>
+<li><i class="fa-solid fa-check"></i> Sahne Tasarımı</li>
+<li><i class="fa-solid fa-check"></i> Koordinatör</li>
+</ul>
+<div style="margin-top:1rem"><a class="btn btn-primary" href="#contact">Teklif Al</a></div>
+</div>
+<div class="price-card card fade-in">
+<h3>Pro</h3>
+<div class="price">₺59.900 <small>/ etkinlik</small></div>
+<ul class="features">
+<li><i class="fa-solid fa-check"></i> Full Band + DJ</li>
+<li><i class="fa-solid fa-check"></i> Konser Düzeyi Ses &amp; Işık</li>
+<li><i class="fa-solid fa-check"></i> Pyro/Özel Efekt Opsiyonları</li>
+<li><i class="fa-solid fa-check"></i> Backstage &amp; Sanatçı İlişkileri</li>
+</ul>
+<div style="margin-top:1rem"><a class="btn btn-primary" href="#contact">Teklif Al</a></div>
+</div>
+</div>
+</div>
+</section>
+<!-- PROCESS -->
+<section id="process">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Nasıl Çalışıyoruz?</div>
+<h2>4 Adımda Kusursuz Organizasyon</h2>
+</div>
+<div class="grid grid-2">
+<div class="card">
+<div class="steps">
+<div class="step"><h3>Keşif &amp; Brief</h3><p>İhtiyaçlarınızı dinleyip hedeflerinizi netleştiriyoruz.</p></div>
+<div class="step"><h3>Tasarım</h3><p>Sahne, ses-ışık ve akış taslağını hazırlıyoruz.</p></div>
+<div class="step"><h3>Uygulama</h3><p>Kurulum, prova ve canlı yönetim.</p></div>
+<div class="step"><h3>Değerlendirme</h3><p>Etkinlik sonrası rapor ve medya paylaşımı.</p></div>
+</div>
+</div>
+<div class="card">
+<img alt="Sahne kurulum" src="https://images.unsplash.com/photo-1518972559570-7cc1309f3229?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" style="border-radius:12pxmax-width:100%;height:auto;"/>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Yorumlar</div>
+<h2>Referanslar</h2>
+</div>
+<div class="testi">
+<div class="quote fade-in">“Düğünümüz hayalimizden bile güzeldi. Akış ve müzik seçkisi mükemmeldi.”<cite>— Ayşe K.</cite></div>
+<div class="quote fade-in">“Festivalimizde tüm süreç kusursuz ilerledi. Profesyonel ve güven veren ekip.”<cite>— Mehmet T.</cite></div>
+<div class="quote fade-in">“Kurumsal lansmanda sahne-ışık ve müzik kurgusu tam istediğimiz gibiydi.”<cite>— Zeynep A.</cite></div>
+</div>
+</div>
+</section>
+<!-- BLOG PREVIEW -->
+<section id="blog">
+<div class="container">
+<div class="section-head"><div class="kicker">Bilgi</div><h2>Blogdan</h2></div>
+<div class="grid grid-3">
+<article class="post fade-in">
+<img alt="Ses sistemi" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/>
+<div>
+<h3>Etkinlikte Ses Kalitesi Nasıl Sağlanır?</h3>
+<p class="muted">Akustik planlama, mikrofon seçimi ve miksaj ipuçları.</p>
+</div>
+</article>
+<article class="post fade-in">
+<img alt="Işık tasarımı" src="https://images.unsplash.com/photo-1526485797145-8b63c1a37e2e?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/>
+<div>
+<h3>Işık Tasarımında 5 Altın Kural</h3>
+<p class="muted">Renk paleti, hareket ve senkron prensipleri.</p>
+</div>
+</article>
+<article class="post fade-in">
+<img alt="DJ seçimi" src="https://images.unsplash.com/photo-1515165562835-c3b8c8cbb5b0?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/>
+<div>
+<h3>Etkinliğe Uygun DJ/Orkestra Seçimi</h3>
+<p class="muted">Konuk profilinize göre repertuvar stratejisi.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- CTA BAND -->
+<section>
+<div class="container">
+<div class="cta fade-in">
+<div>
+<h3 style="margin:0">Takviminizde tarih var mı?</h3>
+<p class="muted" style="margin:.3rem 0 0">Müsaitliği kontrol edip 24 saat içinde dönüş yapalım.</p>
+</div>
+<a class="btn btn-primary" href="#contact"><i class="fa-solid fa-calendar-check"></i> Müsaitlik Sor</a>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section id="faq">
+<div class="container">
+<div class="section-head"><div class="kicker">SSS</div><h2>Sık Sorulan Sorular</h2></div>
+<div class="grid grid-2 faq">
+<details class="fade-in"><summary>Hangi şehirlerde hizmet veriyorsunuz?</summary><p>İstanbul merkez olmak üzere tüm Türkiye’de hizmet veriyoruz.</p></details>
+<details class="fade-in"><summary>Rezervasyon için ne kadar önce iletişime geçmeliyim?</summary><p>Yoğun sezonda en az 4–8 hafta önce iletişime geçmenizi öneririz.</p></details>
+<details class="fade-in"><summary>Ödeme koşulları nedir?</summary><p>Sözleşmede belirtilen avans + etkinlik öncesi bakiye şeklinde ilerliyoruz.</p></details>
+<details class="fade-in"><summary>Ses seviyesi ve komşu şikayetleri nasıl yönetilir?</summary><p>Desibel ölçümü ve saat planı ile riskleri en aza indiriyoruz.</p></details>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+<div class="section-head"><div class="kicker">İletişim</div><h2>Hızlı Teklif Formu</h2><p class="muted">Form çalışmazsa <a href="mailto:info@eyupmuzik.com">info@eyupmuzik.com</a> adresine e‑posta gönderebilirsiniz.</p></div>
+<form class="fade-in" id="contact-form" novalidate="">
+<div class="grid grid-2">
+<div>
+<label for="name">Ad Soyad *</label>
+<input id="name" name="name" placeholder="Adınız Soyadınız" required=""/>
+</div>
+<div>
+<label for="email">E‑posta *</label>
+<input id="email" name="email" placeholder="ornek@eposta.com" required="" type="email"/>
+</div>
+<div>
+<label for="phone">Telefon</label>
+<input id="phone" name="phone" placeholder="05xx xxx xx xx"/>
+</div>
+<div>
+<label for="subject">Konu *</label>
+<select id="subject" name="subject" required="">
+<option value="">Seçiniz</option>
+<option value="festival">Festival</option>
+<option value="kurumsal">Kurumsal Etkinlik</option>
+<option value="dugun">Düğün</option>
+<option value="ozel">Özel Parti</option>
+<option value="diger">Diğer</option>
+</select>
+</div>
+</div>
+<label for="date">Etkinlik Tarihi</label>
+<input id="date" name="date" type="date"/>
+<label for="message">Mesaj *</label>
+<textarea id="message" name="message" placeholder="Detayları yazın..." required="" rows="6"></textarea>
+<div class="grid grid-2" style="margin-top:1rem">
+<button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Gönder</button>
+<a class="btn btn-ghost" href="tel:+905555555555"><i class="fa-solid fa-phone"></i> Hemen Ara</a>
+</div>
+<div class="muted" id="form-status" style="margin-top:.6rem"></div>
+</form>
+<div class="fade-in" style="margin-top:1.4rem">
+<iframe height="260" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12038.542!2d28.9784!3d41.0082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2z!5e0!3m2!1str!2str!4v1680000000000" style="border:0;border-radius:12px" title="Harita" width="100%"></iframe>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer role="contentinfo">
+<div class="container">
+<div class="footer-grid" style="padding:1.2rem 0">
+<div>
+<div class="brand" style="margin-bottom:.6rem"><span class="dot"></span><strong>Eyüp Müzik</strong></div>
+<p class="muted">Profesyonel müzik organizasyonları için güvenilir çözüm ortağınız.</p>
+</div>
+<div>
+<h4>Menü</h4>
+<a href="#services">Hizmetler</a><br/>
+<a href="#pricing">Paketler</a><br/>
+<a href="#faq">SSS</a>
+</div>
+<div>
+<h4>Bağlantılar</h4>
+<a href="https://instagram.com" rel="noopener" target="_blank">Instagram</a><br/>
+<a href="https://facebook.com" rel="noopener" target="_blank">Facebook</a><br/>
+<a href="https://x.com" rel="noopener" target="_blank">X</a>
+</div>
+<div>
+<h4>İletişim</h4>
+<a href="mailto:info@eyupmuzik.com">info@eyupmuzik.com</a><br/>
+<a href="tel:+905555555555">+90 555 555 55 55</a>
+</div>
+</div>
+<div style="border-top:1px solid var(--border);padding:1rem 0;text-align:center;color:var(--muted)">© <span id="year"></span> Eyüp Müzik Organizasyon. Tüm hakları saklıdır.</div>
+</div>
+</footer>
+<!-- Back to Top -->
+<button aria-label="Yukarı çık" id="toTop"><i class="fa-solid fa-arrow-up"></i></button>
+<div class="muted">Deneyiminizi iyileştirmek için çerez kullanıyoruz.</div>
 
-  <noscript><div class="container" style="margin-top:1rem"><div class="badge">Tarayıcınızda JavaScript kapalı. Bazı özellikler sınırlı çalışacaktır.</div></div></noscript>
+<div>
+<button class="btn btn-primary" id="cookie-accept">Kabul Et</button>
+<button class="btn btn-ghost" id="cookie-decline">Reddet</button>
+</div>
 
-  <!-- HEADER -->
-  <header role="banner">
-    <div class="container">
-      <nav aria-label="Ana Navigasyon">
-        <div class="brand"><span class="dot" aria-hidden="true"></span> <span>Eyüp Müzik</span></div>
-        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Menüyü aç/kapat"><i class="fa-solid fa-bars"></i></button>
-        <div class="menu" id="primary-menu" role="menubar">
-          <a href="#hero" role="menuitem">Anasayfa</a>
-          <a href="#about" role="menuitem">Hakkımızda</a>
-          <a href="#services" role="menuitem">Hizmetler</a>
-          <a href="#events" role="menuitem">Etkinlikler</a>
-          <a href="#gallery" role="menuitem">Galeri</a>
-          <a href="#pricing" role="menuitem">Paketler</a>
-          <a href="#process" role="menuitem">Süreç</a>
-          <a href="#testimonials" role="menuitem">Referanslar</a>
-          <a href="#faq" role="menuitem">SSS</a>
-          <a href="#contact" role="menuitem">İletişim</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <div class="overlay" id="overlay" hidden></div>
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <div class="wrap fade-in" tabindex="0">
-        <div class="bg" aria-hidden="true"></div>
-        <div class="content">
-          <span class="badge" data-aos="fade-down">10+ yıl deneyim</span>
-          <h1 data-aos="fade-up">Unutulmaz Etkinlikler İçin <span style="background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Profesyonel Müzik Organizasyonu</span></h1>
-          <p data-aos="fade-up" data-aos-delay="100">Düğün, konser, festival ve kurumsal etkinliklerde sahne, ses-ışık, DJ/orkestra ve sanatçı yönetimi ile uçtan uca çözüm sunuyoruz.</p>
-          <div class="actions" data-aos="fade-up" data-aos-delay="150">
-            <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-envelope"></i> Hızlı Teklif Al</a>
-            <a class="btn btn-ghost" href="#services"><i class="fa-solid fa-music"></i> Hizmetleri Gör</a>
-          </div>
-          <div class="stats" data-aos="zoom-in">
-            <div class="stat"><strong id="c1">0</strong><span class="muted">Tamamlanan etkinlik</span></div>
-            <div class="stat"><strong id="c2">0</strong><span class="muted">Mutlu müşteri</span></div>
-            <div class="stat"><strong id="c3">0</strong><span class="muted">Şehir</span></div>
-            <div class="stat"><strong id="c4">0</strong><span class="muted">Yıllık deneyim</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Biz kimiz?</div>
-        <h2>Hakkımızda</h2>
-        <p class="muted">Her ölçekte etkinlik için planlama, lojistik ve sahne yönetimi.</p>
-      </div>
-      <div class="grid grid-3">
-        <div class="card fade-in" tabindex="0">
-          <div class="icon" aria-hidden="true"><i class="fa-solid fa-wave-square"></i></div>
-          <h3>Teknik Üstünlük</h3>
-          <p>RF koordinasyonundan backline’a kadar tüm teknik süreçleri uluslararası standartlarda yönetiyoruz.</p>
-        </div>
-        <div class="card fade-in" tabindex="0">
-          <div class="icon" aria-hidden="true"><i class="fa-solid fa-users-gear"></i></div>
-          <h3>Deneyimli Ekip</h3>
-          <p>Prodüksiyon, sanatçı ilişkileri ve sahne operasyonlarında uzman, güler yüzlü ekip.</p>
-        </div>
-        <div class="card fade-in" tabindex="0">
-          <div class="icon" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i></div>
-          <h3>Güven ve Şeffaflık</h3>
-          <p>Bütçe, zamanlama ve içerik konularında net iletişimle risksiz süreç.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Ne yapıyoruz?</div>
-        <h2>Hizmetlerimiz</h2>
-        <p class="muted">Festivalden butik düğüne, kurumsaldan açıkhava konserine.</p>
-      </div>
-      <div class="grid grid-3">
-        <article class="card fade-in" aria-label="Festival Organizasyonu">
-          <div class="icon" aria-hidden="true"><i class="fa-solid fa-tower-broadcast"></i></div>
-          <h3>Festival Organizasyonu</h3>
-          <p>Çok sahneli kurgu, sanatçı akışı, sahne & backline, lojistik ve güvenlik koordinasyonu.</p>
-        </article>
-        <article class="card fade-in" aria-label="Kurumsal Etkinlikler">
-          <div class="icon" aria-hidden="true"><i class="fa-solid fa-building"></i></div>
-          <h3>Kurumsal Etkinlikler</h3>
-          <p>Lansman, bayi toplantısı, yıl sonu partisi: marka kimliğinize uygun konsept ve akış.</p>
-        </article>
-        <article class="card fade-in" aria-label="Düğün & Özel Davet">
-          <div class="icon" aria-hidden="true"><i class="fa-solid fa-ring"></i></div>
-          <h3>Düğün & Özel</h3>
-          <p>DJ/bando/orkestra, ilk dans koreografisi, sanatçı & MC yönetimi, teknik tüm detaylar.</p>
-        </article>
-        <article class="card fade-in" aria-label="Sahne & Işık Tasarımı">
-          <div class="icon" aria-hidden="true"><i class="fa-solid fa-lightbulb"></i></div>
-          <h3>Sahne & Işık Tasarımı</h3>
-          <p>Mekanınıza özel sahne, rigging ve dinamik ışık senaryoları ile etkileyici atmosfer.</p>
-        </article>
-        <article class="card fade-in" aria-label="Ses Sistemleri">
-          <div class="icon" aria-hidden="true"><i class="fa-solid fa-volume-high"></i></div>
-          <h3>Ses Sistemleri</h3>
-          <p>Line array, monitörleme, dijital miksaj, akustik optimizasyon ve kayıt.</p>
-        </article>
-        <article class="card fade-in" aria-label="Sanatçı & DJ">
-          <div class="icon" aria-hidden="true"><i class="fa-solid fa-headphones"></i></div>
-          <h3>Sanatçı & DJ</h3>
-          <p>Tarza uygun sanatçı, DJ ve performans grupları; telif ve sözleşme yönetimi.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- EVENTS -->
-  <section id="events">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Gündem</div>
-        <h2>Yaklaşan Etkinlikler</h2>
-        <p class="muted">Takvimi inceleyin, katılım için bizimle iletişime geçin.</p>
-      </div>
-
-      <label for="event-filter" class="badge" style="margin-bottom:.8rem;display:inline-block">Tarihe göre filtrele</label>
-      <select id="event-filter" aria-controls="event-list" aria-label="Etkinlik tarih filtresi">
-        <option value="all">Tümü</option>
-        <option value="2025-09">Eylül 2025</option>
-        <option value="2025-10">Ekim 2025</option>
-        <option value="2025-11">Kasım 2025</option>
-      </select>
-
-      <div class="grid grid-3 event-list" id="event-list" aria-live="polite" aria-relevant="additions" style="margin-top:1rem"></div>
-
-      <!-- Modal -->
-      <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" hidden>
-        <div class="box">
-          <button class="close" id="modal-close" aria-label="Kapat">×</button>
-          <h3 id="modal-title"></h3>
-          <img id="modal-img" alt="" style="max-width:100%;border-radius:12px;margin:.5rem 0;" />
-          <div class="muted" style="margin:.3rem 0"><time id="modal-date"></time></div>
-          <p id="modal-desc"></p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Kareler</div>
-        <h2>Galeri</h2>
-        <p class="muted">Geçmiş projelerimizden öne çıkan anlar.</p>
-      </div>
-      <div class="gallery" role="list">
-        <a href="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="Konser sahnesi"><img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=600&auto=format&fit=crop" alt="Konser sahnesi" loading="lazy"></a>
-        <a href="https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="Düğün ilk dans"><img src="https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&w=600&auto=format&fit=crop" alt="Düğün ilk dans" loading="lazy"></a>
-        <a href="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="Festival kalabalığı"><img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=600&auto=format&fit=crop" alt="Festival kalabalığı" loading="lazy"></a>
-        <a href="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="Kurumsal sahne"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=600&auto=format&fit=crop" alt="Kurumsal sahne" loading="lazy"></a>
-        <a href="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="DJ performansı"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop" alt="DJ performansı" loading="lazy"></a>
-        <a href="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="Sahne ışıkları"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop" alt="Sahne ışıkları" loading="lazy"></a>
-      </div>
-
-      <!-- Lightbox -->
-      <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" hidden>
-        <button class="close" id="lightbox-close" aria-label="Kapat">×</button>
-        <img id="lightbox-img" alt="Büyütülmüş görsel">
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing" class="pricing">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Paketler</div>
-        <h2>İhtiyacınıza Uygun Çözümler</h2>
-        <p class="muted">Tüm paketler kurulum, prova ve sahne yönetimini içerir.</p>
-      </div>
-      <div class="grid grid-3">
-        <div class="price-card card fade-in">
-          <h3>Başlangıç</h3>
-          <div class="price">₺19.900 <small>/ etkinlik</small></div>
-          <ul class="features">
-            <li><i class="fa-solid fa-check"></i> DJ + Temel Ses Sistemi</li>
-            <li><i class="fa-solid fa-check"></i> 4 Adet Işık</li>
-            <li><i class="fa-solid fa-check"></i> Standart Sahne</li>
-          </ul>
-          <div style="margin-top:1rem"><a class="btn btn-primary" href="#contact">Teklif Al</a></div>
-        </div>
-        <div class="price-card card best fade-in">
-          <h3>Popüler</h3>
-          <div class="price">₺34.900 <small>/ etkinlik</small></div>
-          <ul class="features">
-            <li><i class="fa-solid fa-check"></i> DJ / Orkestra Opsiyonu</li>
-            <li><i class="fa-solid fa-check"></i> Gelişmiş Ses & Işık</li>
-            <li><i class="fa-solid fa-check"></i> Sahne Tasarımı</li>
-            <li><i class="fa-solid fa-check"></i> Koordinatör</li>
-          </ul>
-          <div style="margin-top:1rem"><a class="btn btn-primary" href="#contact">Teklif Al</a></div>
-        </div>
-        <div class="price-card card fade-in">
-          <h3>Pro</h3>
-          <div class="price">₺59.900 <small>/ etkinlik</small></div>
-          <ul class="features">
-            <li><i class="fa-solid fa-check"></i> Full Band + DJ</li>
-            <li><i class="fa-solid fa-check"></i> Konser Düzeyi Ses & Işık</li>
-            <li><i class="fa-solid fa-check"></i> Pyro/Özel Efekt Opsiyonları</li>
-            <li><i class="fa-solid fa-check"></i> Backstage & Sanatçı İlişkileri</li>
-          </ul>
-          <div style="margin-top:1rem"><a class="btn btn-primary" href="#contact">Teklif Al</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Nasıl Çalışıyoruz?</div>
-        <h2>4 Adımda Kusursuz Organizasyon</h2>
-      </div>
-      <div class="grid grid-2">
-        <div class="card">
-          <div class="steps">
-            <div class="step"><h3>Keşif & Brief</h3><p>İhtiyaçlarınızı dinleyip hedeflerinizi netleştiriyoruz.</p></div>
-            <div class="step"><h3>Tasarım</h3><p>Sahne, ses-ışık ve akış taslağını hazırlıyoruz.</p></div>
-            <div class="step"><h3>Uygulama</h3><p>Kurulum, prova ve canlı yönetim.</p></div>
-            <div class="step"><h3>Değerlendirme</h3><p>Etkinlik sonrası rapor ve medya paylaşımı.</p></div>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1518972559570-7cc1309f3229?q=80&w=1200&auto=format&fit=crop" alt="Sahne kurulum" style="border-radius:12px">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Yorumlar</div>
-        <h2>Referanslar</h2>
-      </div>
-      <div class="testi">
-        <div class="quote fade-in">“Düğünümüz hayalimizden bile güzeldi. Akış ve müzik seçkisi mükemmeldi.”<cite>— Ayşe K.</cite></div>
-        <div class="quote fade-in">“Festivalimizde tüm süreç kusursuz ilerledi. Profesyonel ve güven veren ekip.”<cite>— Mehmet T.</cite></div>
-        <div class="quote fade-in">“Kurumsal lansmanda sahne-ışık ve müzik kurgusu tam istediğimiz gibiydi.”<cite>— Zeynep A.</cite></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG PREVIEW -->
-  <section id="blog">
-    <div class="container">
-      <div class="section-head"><div class="kicker">Bilgi</div><h2>Blogdan</h2></div>
-      <div class="grid grid-3">
-        <article class="post fade-in">
-          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600&auto=format&fit=crop" alt="Ses sistemi">
-          <div>
-            <h3>Etkinlikte Ses Kalitesi Nasıl Sağlanır?</h3>
-            <p class="muted">Akustik planlama, mikrofon seçimi ve miksaj ipuçları.</p>
-          </div>
-        </article>
-        <article class="post fade-in">
-          <img src="https://images.unsplash.com/photo-1526485797145-8b63c1a37e2e?q=80&w=600&auto=format&fit=crop" alt="Işık tasarımı">
-          <div>
-            <h3>Işık Tasarımında 5 Altın Kural</h3>
-            <p class="muted">Renk paleti, hareket ve senkron prensipleri.</p>
-          </div>
-        </article>
-        <article class="post fade-in">
-          <img src="https://images.unsplash.com/photo-1515165562835-c3b8c8cbb5b0?q=80&w=600&auto=format&fit=crop" alt="DJ seçimi">
-          <div>
-            <h3>Etkinliğe Uygun DJ/Orkestra Seçimi</h3>
-            <p class="muted">Konuk profilinize göre repertuvar stratejisi.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BAND -->
-  <section>
-    <div class="container">
-      <div class="cta fade-in">
-        <div>
-          <h3 style="margin:0">Takviminizde tarih var mı?</h3>
-          <p class="muted" style="margin:.3rem 0 0">Müsaitliği kontrol edip 24 saat içinde dönüş yapalım.</p>
-        </div>
-        <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-calendar-check"></i> Müsaitlik Sor</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <div class="section-head"><div class="kicker">SSS</div><h2>Sık Sorulan Sorular</h2></div>
-      <div class="grid grid-2 faq">
-        <details class="fade-in"><summary>Hangi şehirlerde hizmet veriyorsunuz?</summary><p>İstanbul merkez olmak üzere tüm Türkiye’de hizmet veriyoruz.</p></details>
-        <details class="fade-in"><summary>Rezervasyon için ne kadar önce iletişime geçmeliyim?</summary><p>Yoğun sezonda en az 4–8 hafta önce iletişime geçmenizi öneririz.</p></details>
-        <details class="fade-in"><summary>Ödeme koşulları nedir?</summary><p>Sözleşmede belirtilen avans + etkinlik öncesi bakiye şeklinde ilerliyoruz.</p></details>
-        <details class="fade-in"><summary>Ses seviyesi ve komşu şikayetleri nasıl yönetilir?</summary><p>Desibel ölçümü ve saat planı ile riskleri en aza indiriyoruz.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-head"><div class="kicker">İletişim</div><h2>Hızlı Teklif Formu</h2><p class="muted">Form çalışmazsa <a href="mailto:info@eyupmuzik.com">info@eyupmuzik.com</a> adresine e‑posta gönderebilirsiniz.</p></div>
-      <form id="contact-form" class="fade-in" novalidate>
-        <div class="grid grid-2">
-          <div>
-            <label for="name">Ad Soyad *</label>
-            <input id="name" name="name" required placeholder="Adınız Soyadınız" />
-          </div>
-          <div>
-            <label for="email">E‑posta *</label>
-            <input id="email" name="email" type="email" required placeholder="ornek@eposta.com" />
-          </div>
-          <div>
-            <label for="phone">Telefon</label>
-            <input id="phone" name="phone" placeholder="05xx xxx xx xx" />
-          </div>
-          <div>
-            <label for="subject">Konu *</label>
-            <select id="subject" name="subject" required>
-              <option value="">Seçiniz</option>
-              <option value="festival">Festival</option>
-              <option value="kurumsal">Kurumsal Etkinlik</option>
-              <option value="dugun">Düğün</option>
-              <option value="ozel">Özel Parti</option>
-              <option value="diger">Diğer</option>
-            </select>
-          </div>
-        </div>
-        <label for="date">Etkinlik Tarihi</label>
-        <input id="date" name="date" type="date" />
-        <label for="message">Mesaj *</label>
-        <textarea id="message" name="message" rows="6" required placeholder="Detayları yazın..."></textarea>
-        <div class="grid grid-2" style="margin-top:1rem">
-          <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Gönder</button>
-          <a class="btn btn-ghost" href="tel:+905555555555"><i class="fa-solid fa-phone"></i> Hemen Ara</a>
-        </div>
-        <div id="form-status" class="muted" style="margin-top:.6rem"></div>
-      </form>
-
-      <div style="margin-top:1.4rem" class="fade-in">
-        <iframe title="Harita" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12038.542!2d28.9784!3d41.0082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2z!5e0!3m2!1str!2str!4v1680000000000" width="100%" height="260" style="border:0;border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer role="contentinfo">
-    <div class="container">
-      <div class="footer-grid" style="padding:1.2rem 0">
-        <div>
-          <div class="brand" style="margin-bottom:.6rem"><span class="dot"></span><strong>Eyüp Müzik</strong></div>
-          <p class="muted">Profesyonel müzik organizasyonları için güvenilir çözüm ortağınız.</p>
-        </div>
-        <div>
-          <h4>Menü</h4>
-          <a href="#services">Hizmetler</a><br>
-          <a href="#pricing">Paketler</a><br>
-          <a href="#faq">SSS</a>
-        </div>
-        <div>
-          <h4>Bağlantılar</h4>
-          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><br>
-          <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a><br>
-          <a href="https://x.com" target="_blank" rel="noopener">X</a>
-        </div>
-        <div>
-          <h4>İletişim</h4>
-          <a href="mailto:info@eyupmuzik.com">info@eyupmuzik.com</a><br>
-          <a href="tel:+905555555555">+90 555 555 55 55</a>
-        </div>
-      </div>
-      <div style="border-top:1px solid var(--border);padding:1rem 0;text-align:center;color:var(--muted)">© <span id="year"></span> Eyüp Müzik Organizasyon. Tüm hakları saklıdır.</div>
-    </div>
-  </footer>
-
-  <!-- Back to Top -->
-  <button id="toTop" aria-label="Yukarı çık"><i class="fa-solid fa-arrow-up"></i></button>
-
- 
-      <div class="muted">Deneyiminizi iyileştirmek için çerez kullanıyoruz.</div>
-    </div>
-    <div>
-      <button class="btn btn-primary" id="cookie-accept">Kabul Et</button>
-      <button class="btn btn-ghost" id="cookie-decline">Reddet</button>
-    </div>
-  </div>
-
-  <!-- SCRIPTS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
     // ===== Utilities =====
     const $ = (s,root=document)=>root.querySelector(s);
     const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
@@ -888,9 +899,8 @@ function closeMenu(){menu.classList.remove('show');menuToggle.setAttribute('aria
     // Year
     $('#year').textContent=new Date().getFullYear();
   </script>
-
-  <!-- JSON-LD SCHEMA -->
-  <script type="application/ld+json">
+<!-- JSON-LD SCHEMA -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -910,7 +920,7 @@ function closeMenu(){menu.classList.remove('show');menuToggle.setAttribute('aria
     "description": "Düğün, konser ve kurumsal etkinliklerde profesyonel müzik organizasyonu."
   }
   </script>
-  <script type="application/ld+json">
+<script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"ItemList",
