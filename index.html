@@ -1,650 +1,1219 @@
 <!DOCTYPE html>
+
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesyonel Portfolyo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #3498db;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            transition: 0.3s;
-        }
-
-        main {
-            margin-top: 80px;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .cta-button:hover {
-            background: #c0392b;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            text-align: center;
-        }
-
-        .about-image img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #3498db;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            color: #3498db;
-            margin-bottom: 1rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-image {
-            height: 200px;
-            background: linear-gradient(45deg, #3498db, #2c3e50);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: #3498db;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: #2980b9;
-        }
-
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .social-links {
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #3498db;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Mobile Responsive Styles */
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: #2c3e50;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: right 0.3s ease;
-                gap: 1rem;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links li {
-                width: 100%;
-                text-align: center;
-                padding: 1rem 0;
-                border-bottom: 1px solid #34495e;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-                display: block;
-                width: 100%;
-                padding: 1rem;
-            }
-
-            .hero {
-                padding: 60px 0;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-                padding: 0 1rem;
-            }
-
-            .cta-button {
-                padding: 10px 25px;
-                font-size: 0.9rem;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .about-image img {
-                width: 200px;
-                height: 200px;
-            }
-
-            .about-text {
-                font-size: 1rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-
-            .skill-card {
-                padding: 1.5rem;
-            }
-
-            .skill-icon {
-                font-size: 2.5rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-
-            .project-image {
-                height: 150px;
-                font-size: 1rem;
-            }
-
-            .project-content {
-                padding: 1rem;
-            }
-
-            .project-title {
-                font-size: 1.1rem;
-            }
-
-            .contact-form {
-                padding: 0 1rem;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 10px;
-                font-size: 0.9rem;
-            }
-
-            .submit-btn {
-                padding: 10px 25px;
-                font-size: 0.9rem;
-            }
-
-            .social-links a {
-                font-size: 1.2rem;
-                margin: 0 0.5rem;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .container {
-                padding: 0 10px;
-            }
-
-            .hero {
-                padding: 40px 0;
-            }
-
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .about-image img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .skill-card {
-                padding: 1rem;
-            }
-
-            .skill-icon {
-                font-size: 2rem;
-            }
-
-            .project-image {
-                height: 120px;
-                font-size: 0.9rem;
-            }
-
-            .contact-form {
-                padding: 0 0.5rem;
-            }
-        }
-    </style>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport"/>
+<title>Eyüp Müzik Organizasyon | Profesyonel Etkinlik &amp; Müzik Hizmetleri</title>
+<meta content="Düğün, konser, festival ve kurumsal etkinliklerde profesyonel müzik organizasyonu, sahne, ses-ışık ve sanatçı yönetimi. İstanbul ve tüm Türkiye." name="description"/>
+<meta content="müzik organizasyon, etkinlik, düğün, konser, festival, dj, orkestra, sahne ses ışık" name="keywords"/>
+<meta content="#0a0a0a" name="theme-color"/>
+<link href="https://eyupmuzik.com/" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="Eyüp Müzik Organizasyon" property="og:title"/>
+<meta content="Düğün, konser, festival ve kurumsal etkinliklerde profesyonel müzik organizasyonu." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://eyupmuzik.com/" property="og:url"/>
+<meta content="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" property="og:image"/>
+<meta content="tr_TR" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- Fonts & Icons -->
+<link crossorigin="" href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1XOn..." referrerpolicy="no-referrer" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+<style>
+    :root{
+      --bg:#0a0a0a;--bg-soft:#111418;--bg-elev:#171a20;--text:#ffffff;--muted:#c7c9cc;
+      --primary:#e91e63;--primary-2:#ff4d8d;--accent:#7c3aed;--ring:#2dd4bf;
+      --card:rgba(255,255,255,.04);--border:rgba(255,255,255,.08);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;--radius-lg:22px;--trans:.3s ease;
+      --container:1200px;
+    }
+
+  [data-theme="light"] {
+    --bg:#ffffff;
+    --bg-soft:#f5f5f5;
+    --bg-elev:#f9f9f9;
+    --text:#111111;
+    --muted:#333333;
+    --primary:#e91e63;
+    --primary-2:#ff4d8d;
+    --accent:#7c3aed;
+    --ring:#2dd4bf;
+    --card:#ffffff;
+    --border:rgba(0,0,0,.2);
+    --shadow:0 10px 30px rgba(0,0,0,.15);
+  }
+
+    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:var(--text);text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:0 1rem}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;border:0;border-radius:999px;padding:.9rem 1.3rem;font-weight:700;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;box-shadow:var(--shadow)}
+    .btn-ghost{background:transparent;border:1px solid var(--border);color:#fff}
+    .badge{display:inline-block;padding:.35rem .7rem;border-radius:999px;border:1px solid var(--border);color:var(--muted);font-size:.8rem}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,.7);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
+    .brand{display:flex;align-items:center;gap:.7rem;font-weight:800}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:0 0 0 3px #ffffff10}
+    .menu{display:flex;gap:1rem}
+    .menu a{padding:.6rem .8rem;border-radius:999px;color:var(--muted)}
+    .menu a:hover,.menu a[aria-current="page"]{color:#fff;background:#ffffff0f}
+    .menu-toggle{display:none;background:transparent;border:1px solid var(--border);border-radius:12px;color:#fff;font-size:1.25rem;padding:.4rem .6rem}
+
+    @media (max-width: 900px){
+      .menu{position:fixed;inset:64px 12px auto 12px;background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);flex-direction:column;padding:.6rem;max-height:0;overflow:hidden;transition:max-height var(--trans)}
+      .menu.show{max-height:60vh}
+      .menu-toggle{display:inline-flex}
+    }
+
+    /* Hero */
+    .hero{position:relative}
+    .hero .wrap{position:relative;isolation:isolate;border-radius:var(--radius-lg);overflow:hidden;background:radial-gradient(1200px 600px at 80% 20%,#6d28d9 0,#111418 60%),linear-gradient(90deg,#0b0e13,#0b0e13)}
+    .hero .bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1800&auto=format&fit=crop') center/cover;opacity:.22;transform:scale(1.05)}
+    .hero .content{position:relative;z-index:1;padding:5.2rem 1.2rem;text-align:center}
+    .hero h1{font-size:clamp(1.9rem,4.2vw,3.6rem);margin:.6rem auto 1rem;max-width:900px;letter-spacing:.2px}
+    .hero p{max-width:820px;margin:0 auto 1.6rem;color:#d7d9dd}
+    .hero .actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+    .hero .stats{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:.8rem;margin-top:2rem}
+    .stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem}
+    .stat strong{display:block;font-size:1.6rem}
+    @media (max-width: 700px){.hero .stats{grid-template-columns:repeat(2,1fr)}}
+
+    /* Sections */
+    section{margin:3rem 0}
+    section .section-head{text-align:center;margin:0 0 2rem}
+    .section-head .kicker{color:var(--ring);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem}
+    .section-head h2{font-size:clamp(1.4rem,2.8vw,2.2rem);margin:.4rem 0}
+    .muted{color:var(--muted)}
+
+    /* Services */
+    .grid{display:grid;gap:1rem}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;transition:transform .25s ease,box-shadow .25s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .icon{font-size:1.6rem;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:#ffffff10;margin-bottom:.6rem}
+    .card h3{margin:.2rem 0 .4rem}
+
+    /* Event List + Modal */
+    .event-list .event{overflow:hidden}
+    .event .image{border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:#000}
+    .event .meta{display:flex;align-items:center;gap:.6rem;color:var(--muted);margin:.5rem 0}
+    .event .meta time{color:#fff;font-weight:700}
+
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);opacity:0;pointer-events:none;transition:opacity .25s;z-index:1002}
+    .modal.show{opacity:1;pointer-events:auto}
+    .modal .box{max-width:min(92vw,900px);background:var(--bg-soft);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:1rem;position:relative}
+    .modal .close{position:absolute;right:.6rem;top:.2rem;border:0;background:transparent;color:#fff;font-size:2rem;cursor:pointer}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:.6rem}
+    .gallery a{display:block;border-radius:12px;overflow:hidden;transform:translateZ(0)}
+    .gallery img{height:100%;object-fit:cover;aspect-ratio:1/1}
+    @media (max-width: 900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;z-index:1002}
+    .lightbox.show{opacity:1;pointer-events:auto}
+    .lightbox img{max-width:min(92vw,1200px);max-height:86vh;border-radius:12px}
+    .lightbox .close{position:absolute;top:18px;right:18px;border:0;background:#ffffff18;color:#fff;border-radius:12px;padding:.2rem .6rem;font-size:1.6rem;cursor:pointer}
+
+    /* Pricing */
+    .pricing{position:relative}
+    .price-card{padding:1.2rem;border-radius:18px;background:linear-gradient(180deg,#151924,#0e1117);border:1px solid var(--border)}
+    .price-card.best{background:linear-gradient(180deg,#1c2333,#111827);border-color:#ffffff2a;box-shadow:0 20px 60px #00000066}
+    .price{font-size:2rem;font-weight:800}
+    .price small{font-size:.9rem;color:var(--muted)}
+    .features{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+    .features li{display:flex;align-items:center;gap:.5rem}
+    .features i{color:var(--ring)}
+
+    /* Steps / Process */
+    .steps{counter-reset:step}
+    .step{position:relative;padding-left:3.2rem}
+    .step:not(:last-child){padding-bottom:1.2rem}
+    .step::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:.1rem;width:2.2rem;height:2.2rem;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;font-weight:700}
+    .step::after{content:"";position:absolute;left:1.1rem;top:2.3rem;bottom:-.2rem;width:2px;background:linear-gradient(#ffffff22,#ffffff08)}
+    .step:last-child::after{display:none}
+
+    /* FAQ */
+    .faq details{border:1px solid var(--border);border-radius:12px;background:var(--card);padding:1rem}
+    .faq summary{cursor:pointer;font-weight:700}
+
+    /* Testimonials */
+    .testi{display:flex;flex-direction:column;gap:1rem}
+    .quote{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem;font-style:italic}
+    .quote cite{display:block;margin-top:.6rem;font-style:normal;color:var(--primary)}
+
+    /* Blog preview */
+    .post{display:grid;grid-template-columns:200px 1fr;gap:1rem;align-items:center;border:1px solid var(--border);border-radius:14px;background:var(--card);padding:.7rem}
+    .post img{border-radius:10px;height:120px;object-fit:cover}
+    @media (max-width:700px){.post{grid-template-columns:1fr}.post img{height:auto}}
+
+    /* CTA band */
+    .cta{background:linear-gradient(90deg,#111418,#0b0e13);border:1px solid var(--border);border-radius:18px;padding:1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+    /* Contact */
+    form{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1rem}
+    label{display:block;margin:.75rem 0 .25rem;font-weight:700}
+    input,select,textarea{width:100%;padding:.8rem;border-radius:12px;border:1px solid var(--border);background:#0c0f14;color:#fff}
+    input:focus,select:focus,textarea:focus{outline:2px solid var(--ring);border-color:transparent}
+
+    /* Utilities */
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s;z-index:1001}
+    .overlay.show{opacity:1;pointer-events:auto}
+    .hidden{display:none}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);background:#0a0a0a}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1rem}
+    .footer-grid a{color:var(--muted)}
+    .footer-grid a:hover{color:#fff}
+    @media (max-width: 900px){.footer-grid{grid-template-columns:1fr 1fr}}
+
+    /* Back to top */
+    #toTop{position:fixed;right:16px;bottom:16px;border:0;border-radius:999px;background:#0b1120cc;color:#fff;padding:.8rem 1rem;box-shadow:var(--shadow);cursor:pointer;display:none}
+    #toTop.show{display:block}
+
+    /* Cookie bar */
+    .cookie{position:fixed;left:12px;right:12px;bottom:12px;background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;padding:1rem;display:flex;gap:1rem;align-items:center;justify-content:space-between;z-index:1005}
+
+    /* Animations */
+    .fade-in{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .fade-in.appear{opacity:1;transform:none}
+  
+    @media (max-width: 900px){
+      .menu{z-index:1000}
+      .menu-toggle{z-index:1001}
+    }
+    @media (max-width: 600px){
+      body{font-size:15px}
+      .btn{padding:.8rem 1.1rem;font-size:.9rem}
+      nav{padding:.5rem 0}
+      h1,h2,h3{word-break:break-word}
+    }
+
+    /* === MOBİL RESPONSIVE EK STILLER === */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 0.8rem;
+      }
+      
+      .hero .content {
+        padding: 3rem 1rem;
+      }
+      
+      .hero h1 {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        line-height: 1.2;
+      }
+      
+      .hero p {
+        font-size: 0.9rem;
+        margin: 0 auto 1.2rem;
+      }
+      
+      .hero .actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        min-height: 48px;
+      }
+      
+      .hero .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+        margin-top: 1.5rem;
+      }
+      
+      .stat {
+        padding: 0.8rem;
+        text-align: center;
+      }
+      
+      .stat strong {
+        font-size: 1.2rem;
+      }
+      
+      section {
+        margin: 2rem 0;
+      }
+      
+      .section-head {
+        margin-bottom: 1.5rem;
+      }
+      
+      .section-head h2 {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+      }
+      
+      .card {
+        padding: 1rem;
+      }
+      
+      .menu a {
+        padding: 1rem;
+        font-size: 1rem;
+        text-align: center;
+      }
+      
+      .menu-toggle {
+        min-width: 48px;
+        min-height: 48px;
+        padding: 0.6rem;
+      }
+      
+      .modal .box {
+        margin: 1rem;
+        max-width: calc(100vw - 2rem);
+      }
+      
+      .lightbox img {
+        max-width: 95vw;
+        max-height: 80vh;
+      }
+      
+      .price {
+        font-size: 1.5rem;
+      }
+      
+      .steps .step {
+        padding-left: 2.5rem;
+      }
+      
+      .step::before {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.9rem;
+      }
+      
+      .step::after {
+        left: 0.9rem;
+      }
+      
+      .cta {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      form {
+        padding: 0.8rem;
+      }
+      
+      input, select, textarea {
+        padding: 0.7rem;
+        font-size: 16px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+      
+      #theme-toggle {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        top: 12px;
+        left: 12px;
+      }
+      
+      nav {
+        padding-left: 60px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 0.5rem;
+      }
+      
+      .hero .content {
+        padding: 2rem 0.5rem;
+      }
+      
+      .hero h1 {
+        font-size: clamp(1.3rem, 6vw, 2rem);
+        margin-bottom: 0.5rem;
+      }
+      
+      .hero p {
+        font-size: 0.85rem;
+      }
+      
+      .badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+      }
+      
+      .btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+        max-width: 100%;
+      }
+      
+      .hero .stats {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      
+      .stat {
+        padding: 0.6rem;
+      }
+      
+      .stat strong {
+        font-size: 1rem;
+      }
+      
+      .card {
+        padding: 0.8rem;
+      }
+      
+      .icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.3rem;
+      }
+      
+      .price {
+        font-size: 1.2rem;
+      }
+      
+      .menu {
+        inset: 60px 8px auto 8px;
+        padding: 0.4rem;
+      }
+      
+      .menu a {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+      }
+      
+      input, select, textarea {
+        padding: 0.6rem;
+        font-size: 16px;
+      }
+      
+      .footer-grid {
+        font-size: 0.9rem;
+      }
+      
+      #theme-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+      }
+    }
+
+
+/* === Mobil Buton & Menü İyileştirmeleri === */
+@media (max-width: 900px) {
+  .menu a {
+    padding: 1rem;
+    font-size: 1rem;
+    display: block;
+  }
+  .menu-toggle {
+    min-width: 48px;
+    min-height: 48px;
+  }
+}
+@media (max-width: 600px) {
+  .btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  input, select, textarea {
+    font-size: 16px; /* iOS zoom sorununu önlemek için */
+  }
+}
+
+
+/* Ek mobil uyumluluk */
+@media (max-width: 900px) {
+  .btn, .menu-toggle {
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+}
+
+
+[data-theme="light"] .menu-toggle {
+  color: #000 !important;
+  border-color: rgba(0,0,0,.3) !important;
+}
+
+
+/* === MOBİL BUTON OPTİMİZASYON === */
+.menu-toggle, .btn {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.menu-toggle i, .btn i {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .menu {
+    z-index: 1100 !important;
+  }
+  .menu-toggle {
+    z-index: 1101 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .btn {
+    font-size: 1rem !important;
+    padding: 0.9rem 1.3rem !important;
+  }
+  .menu a {
+    font-size: 1rem !important;
+  }
+}
+
+/* Overlay dokunma engelini kaldırma */
+.overlay {
+  pointer-events: auto !important;
+}
+
+/* ==== EK MOBİL OPTİMİZASYONLAR ==== */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  h2 {
+    font-size: 1.4rem !important;
+  }
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+  .card {
+    padding: 1rem !important;
+  }
+  nav .menu a {
+    font-size: 1rem !important;
+    padding: 0.9rem !important;
+  }
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem !important;
+  }
+  h2 {
+    font-size: 1.2rem !important;
+  }
+  .btn {
+    font-size: 0.9rem !important;
+    padding: 0.8rem 1rem !important;
+  }
+}
+
+/* === Tema butonu görünürlük ve konum düzenleme === */
+#theme-toggle {
+  z-index: 2000 !important;
+  top: 12px !important;
+  left: 12px !important;
+}
+@media (max-width: 600px) {
+  #theme-toggle {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 1.4rem !important;
+  }
+  nav {
+    padding-left: 60px !important; /* Tema butonu ile çakışmayı önler */
+  }
+}
+
+/* Menü ve overlay önceliğini arttır */
+.menu { z-index: 1500 !important; }
+.menu-toggle { z-index: 1600 !important; }
+.overlay { z-index: 1400 !important; }
+
+/* Butonların mobilde görünürlüğünü arttır */
+.btn, .menu-toggle {
+  min-width: 48px !important;
+  min-height: 48px !important;
+  font-size: 1rem !important;
+}
+
+/* === Buton netlik ve dokunma düzenlemeleri === */
+#theme-toggle, .menu-toggle, .btn {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: none !important; /* translateZ kaldırıldı */
+  backdrop-filter: none !important;
+  image-rendering: auto !important;
+}
+
+/* Dokunma alanı ve görünürlük */
+#theme-toggle, .menu-toggle, .btn {
+  z-index: 3000 !important;
+  pointer-events: auto !important;
+}
+
+/* Overlay butonların önünü kapatmasın */
+.overlay {
+  pointer-events: none !important;
+}
+
+/* Mobilde buton boyut ve okunabilirlik optimizasyonu */
+@media (max-width: 600px) {
+  #theme-toggle {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 1.5rem !important;
+  }
+  .btn, .menu-toggle {
+    min-width: 52px !important;
+    min-height: 52px !important;
+    font-size: 1.05rem !important;
+  }
+}
+</style>
+</link></link></head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Portfolyo</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#about">Hakkımda</a></li>
-                <li><a href="#skills">Yetenekler</a></li>
-                <li><a href="#projects">Projeler</a></li>
-                <li><a href="#contact">İletişim</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<button aria-label="Tema değiştir" id="theme-toggle" style="
+  position:fixed;top:16px;left:16px;z-index:1100;
+  border:0;border-radius:50%;width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--card);color:var(--text);font-size:1.2rem;
+  cursor:pointer;box-shadow:var(--shadow);
+">
+<span id="theme-icon">🌙</span>
+</button>
+<noscript><div class="container" style="margin-top:1rem"><div class="badge">Tarayıcınızda JavaScript kapalı. Bazı özellikler sınırlı çalışacaktır.</div></div></noscript>
+<!-- HEADER -->
+<header role="banner">
+<div class="container">
+<nav aria-label="Ana Navigasyon">
+<div class="brand"><span aria-hidden="true" class="dot"></span> <span>Eyüp Müzik</span></div>
+<button aria-controls="primary-menu" aria-expanded="false" aria-label="Menüyü aç/kapat" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+<div class="menu" id="primary-menu" role="menubar">
+<a href="#hero" role="menuitem">Anasayfa</a>
+<a href="#about" role="menuitem">Hakkımızda</a>
+<a href="#services" role="menuitem">Hizmetler</a>
+<a href="#events" role="menuitem">Etkinlikler</a>
+<a href="#gallery" role="menuitem">Galeri</a>
+<a href="#pricing" role="menuitem">Paketler</a>
+<a href="#process" role="menuitem">Süreç</a>
+<a href="#testimonials" role="menuitem">Referanslar</a>
+<a href="#faq" role="menuitem">SSS</a>
+<a href="#contact" role="menuitem">İletişim</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="overlay" hidden="" id="overlay"></div>
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="container">
+<div class="wrap fade-in" tabindex="0">
+<div aria-hidden="true" class="bg"></div>
+<div class="content">
+<span class="badge" data-aos="fade-down">10+ yıl deneyim</span>
+<h1 data-aos="fade-up">Unutulmaz Etkinlikler İçin <span style="background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Profesyonel Müzik Organizasyonu</span></h1>
+<p data-aos="fade-up" data-aos-delay="100">Düğün, konser, festival ve kurumsal etkinliklerde sahne, ses-ışık, DJ/orkestra ve sanatçı yönetimi ile uçtan uca çözüm sunuyoruz.</p>
+<div class="actions" data-aos="fade-up" data-aos-delay="150">
+<a class="btn btn-primary" href="#contact"><i class="fa-solid fa-envelope"></i> Hızlı Teklif Al</a>
+<a class="btn btn-ghost" href="#services"><i class="fa-solid fa-music"></i> Hizmetleri Gör</a>
+</div>
+<div class="stats" data-aos="zoom-in">
+<div class="stat"><strong id="c1">0</strong><span class="muted">Tamamlanan etkinlik</span></div>
+<div class="stat"><strong id="c2">0</strong><span class="muted">Mutlu müşteri</span></div>
+<div class="stat"><strong id="c3">0</strong><span class="muted">Şehir</span></div>
+<div class="stat"><strong id="c4">0</strong><span class="muted">Yıllık deneyim</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Biz kimiz?</div>
+<h2>Hakkımızda</h2>
+<p class="muted">Her ölçekte etkinlik için planlama, lojistik ve sahne yönetimi.</p>
+</div>
+<div class="grid grid-3">
+<div class="card fade-in" tabindex="0">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-wave-square"></i></div>
+<h3>Teknik Üstünlük</h3>
+<p>RF koordinasyonundan backline’a kadar tüm teknik süreçleri uluslararası standartlarda yönetiyoruz.</p>
+</div>
+<div class="card fade-in" tabindex="0">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-users-gear"></i></div>
+<h3>Deneyimli Ekip</h3>
+<p>Prodüksiyon, sanatçı ilişkileri ve sahne operasyonlarında uzman, güler yüzlü ekip.</p>
+</div>
+<div class="card fade-in" tabindex="0">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-shield-heart"></i></div>
+<h3>Güven ve Şeffaflık</h3>
+<p>Bütçe, zamanlama ve içerik konularında net iletişimle risksiz süreç.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SERVICES -->
+<section id="services">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Ne yapıyoruz?</div>
+<h2>Hizmetlerimiz</h2>
+<p class="muted">Festivalden butik düğüne, kurumsaldan açıkhava konserine.</p>
+</div>
+<div class="grid grid-3">
+<article aria-label="Festival Organizasyonu" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+<h3>Festival Organizasyonu</h3>
+<p>Çok sahneli kurgu, sanatçı akışı, sahne &amp; backline, lojistik ve güvenlik koordinasyonu.</p>
+</article>
+<article aria-label="Kurumsal Etkinlikler" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-building"></i></div>
+<h3>Kurumsal Etkinlikler</h3>
+<p>Lansman, bayi toplantısı, yıl sonu partisi: marka kimliğinize uygun konsept ve akış.</p>
+</article>
+<article aria-label="Düğün &amp; Özel Davet" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-ring"></i></div>
+<h3>Düğün &amp; Özel</h3>
+<p>DJ/bando/orkestra, ilk dans koreografisi, sanatçı &amp; MC yönetimi, teknik tüm detaylar.</p>
+</article>
+<article aria-label="Sahne &amp; Işık Tasarımı" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-lightbulb"></i></div>
+<h3>Sahne &amp; Işık Tasarımı</h3>
+<p>Mekanınıza özel sahne, rigging ve dinamik ışık senaryoları ile etkileyici atmosfer.</p>
+</article>
+<article aria-label="Ses Sistemleri" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-volume-high"></i></div>
+<h3>Ses Sistemleri</h3>
+<p>Line array, monitörleme, dijital miksaj, akustik optimizasyon ve kayıt.</p>
+</article>
+<article aria-label="Sanatçı &amp; DJ" class="card fade-in">
+<div aria-hidden="true" class="icon"><i class="fa-solid fa-headphones"></i></div>
+<h3>Sanatçı &amp; DJ</h3>
+<p>Tarza uygun sanatçı, DJ ve performans grupları; telif ve sözleşme yönetimi.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- EVENTS -->
+<section id="events">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Gündem</div>
+<h2>Yaklaşan Etkinlikler</h2>
+<p class="muted">Takvimi inceleyin, katılım için bizimle iletişime geçin.</p>
+</div>
+<label class="badge" for="event-filter" style="margin-bottom:.8rem;display:inline-block">Tarihe göre filtrele</label>
+<select aria-controls="event-list" aria-label="Etkinlik tarih filtresi" id="event-filter">
+<option value="all">Tümü</option>
+<option value="2025-09">Eylül 2025</option>
+<option value="2025-10">Ekim 2025</option>
+<option value="2025-11">Kasım 2025</option>
+</select>
+<div aria-live="polite" aria-relevant="additions" class="grid grid-3 event-list" id="event-list" style="margin-top:1rem"></div>
+<!-- Modal -->
+<div aria-describedby="modal-desc" aria-labelledby="modal-title" aria-modal="true" class="modal" hidden="" id="modal" role="dialog">
+<div class="box">
+<button aria-label="Kapat" class="close" id="modal-close">×</button>
+<h3 id="modal-title"></h3>
+<img alt="" id="modal-img" style="max-width:100%;border-radius:12px;margin:.5rem 0;max-width:100%;height:auto;"/>
+<div class="muted" style="margin:.3rem 0"><time id="modal-date"></time></div>
+<p id="modal-desc"></p>
+</div>
+</div>
+</div>
+</section>
+<!-- GALLERY -->
+<section id="gallery">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Kareler</div>
+<h2>Galeri</h2>
+<p class="muted">Geçmiş projelerimizden öne çıkan anlar.</p>
+</div>
+<div class="gallery" role="list">
+<a aria-label="Konser sahnesi" class="gl" href="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="Konser sahnesi" loading="lazy" src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+<a aria-label="Düğün ilk dans" class="gl" href="https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="Düğün ilk dans" loading="lazy" src="https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+<a aria-label="Festival kalabalığı" class="gl" href="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="Festival kalabalığı" loading="lazy" src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+<a aria-label="Kurumsal sahne" class="gl" href="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="Kurumsal sahne" loading="lazy" src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+<a aria-label="DJ performansı" class="gl" href="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="DJ performansı" loading="lazy" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+<a aria-label="Sahne ışıkları" class="gl" href="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&amp;w=1600&amp;auto=format&amp;fit=crop"><img alt="Sahne ışıkları" loading="lazy" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/></a>
+</div>
+<!-- Lightbox -->
+<div aria-modal="true" class="lightbox" hidden="" id="lightbox" role="dialog">
+<button aria-label="Kapat" class="close" id="lightbox-close">×</button>
+<img alt="Büyütülmüş görsel" id="lightbox-img" style="max-width:100%;height:auto;"/>
+</div>
+</div>
+</section>
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Paketler</div>
+<h2>İhtiyacınıza Uygun Çözümler</h2>
+<p class="muted">Tüm paketler kurulum, prova ve sahne yönetimini içerir.</p>
+</div>
+<div class="grid grid-3">
+<div class="price-card card fade-in">
+<h3>Başlangıç</h3>
+<div class="price">₺19.900 <small>/ etkinlik</small></div>
+<ul class="features">
+<li><i class="fa-solid fa-check"></i> DJ + Temel Ses Sistemi</li>
+<li><i class="fa-solid fa-check"></i> 4 Adet Işık</li>
+<li><i class="fa-solid fa-check"></i> Standart Sahne</li>
+</ul>
+<div style="margin-top:1rem"><a class="btn btn-primary" href="#contact">Teklif Al</a></div>
+</div>
+<div class="price-card card best fade-in">
+<h3>Popüler</h3>
+<div class="price">₺34.900 <small>/ etkinlik</small></div>
+<ul class="features">
+<li><i class="fa-solid fa-check"></i> DJ / Orkestra Opsiyonu</li>
+<li><i class="fa-solid fa-check"></i> Gelişmiş Ses &amp; Işık</li>
+<li><i class="fa-solid fa-check"></i> Sahne Tasarımı</li>
+<li><i class="fa-solid fa-check"></i> Koordinatör</li>
+</ul>
+<div style="margin-top:1rem"><a class="btn btn-primary" href="#contact">Teklif Al</a></div>
+</div>
+<div class="price-card card fade-in">
+<h3>Pro</h3>
+<div class="price">₺59.900 <small>/ etkinlik</small></div>
+<ul class="features">
+<li><i class="fa-solid fa-check"></i> Full Band + DJ</li>
+<li><i class="fa-solid fa-check"></i> Konser Düzeyi Ses &amp; Işık</li>
+<li><i class="fa-solid fa-check"></i> Pyro/Özel Efekt Opsiyonları</li>
+<li><i class="fa-solid fa-check"></i> Backstage &amp; Sanatçı İlişkileri</li>
+</ul>
+<div style="margin-top:1rem"><a class="btn btn-primary" href="#contact">Teklif Al</a></div>
+</div>
+</div>
+</div>
+</section>
+<!-- PROCESS -->
+<section id="process">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Nasıl Çalışıyoruz?</div>
+<h2>4 Adımda Kusursuz Organizasyon</h2>
+</div>
+<div class="grid grid-2">
+<div class="card">
+<div class="steps">
+<div class="step"><h3>Keşif &amp; Brief</h3><p>İhtiyaçlarınızı dinleyip hedeflerinizi netleştiriyoruz.</p></div>
+<div class="step"><h3>Tasarım</h3><p>Sahne, ses-ışık ve akış taslağını hazırlıyoruz.</p></div>
+<div class="step"><h3>Uygulama</h3><p>Kurulum, prova ve canlı yönetim.</p></div>
+<div class="step"><h3>Değerlendirme</h3><p>Etkinlik sonrası rapor ve medya paylaşımı.</p></div>
+</div>
+</div>
+<div class="card">
+<img alt="Sahne kurulum" src="https://images.unsplash.com/photo-1518972559570-7cc1309f3229?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" style="border-radius:12pxmax-width:100%;height:auto;"/>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Yorumlar</div>
+<h2>Referanslar</h2>
+</div>
+<div class="testi">
+<div class="quote fade-in">“Düğünümüz hayalimizden bile güzeldi. Akış ve müzik seçkisi mükemmeldi.”<cite>— Ayşe K.</cite></div>
+<div class="quote fade-in">“Festivalimizde tüm süreç kusursuz ilerledi. Profesyonel ve güven veren ekip.”<cite>— Mehmet T.</cite></div>
+<div class="quote fade-in">“Kurumsal lansmanda sahne-ışık ve müzik kurgusu tam istediğimiz gibiydi.”<cite>— Zeynep A.</cite></div>
+</div>
+</div>
+</section>
+<!-- BLOG PREVIEW -->
+<section id="blog">
+<div class="container">
+<div class="section-head"><div class="kicker">Bilgi</div><h2>Blogdan</h2></div>
+<div class="grid grid-3">
+<article class="post fade-in">
+<img alt="Ses sistemi" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/>
+<div>
+<h3>Etkinlikte Ses Kalitesi Nasıl Sağlanır?</h3>
+<p class="muted">Akustik planlama, mikrofon seçimi ve miksaj ipuçları.</p>
+</div>
+</article>
+<article class="post fade-in">
+<img alt="Işık tasarımı" src="https://images.unsplash.com/photo-1526485797145-8b63c1a37e2e?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/>
+<div>
+<h3>Işık Tasarımında 5 Altın Kural</h3>
+<p class="muted">Renk paleti, hareket ve senkron prensipleri.</p>
+</div>
+</article>
+<article class="post fade-in">
+<img alt="DJ seçimi" src="https://images.unsplash.com/photo-1515165562835-c3b8c8cbb5b0?q=80&amp;w=600&amp;auto=format&amp;fit=crop" style="max-width:100%;height:auto;"/>
+<div>
+<h3>Etkinliğe Uygun DJ/Orkestra Seçimi</h3>
+<p class="muted">Konuk profilinize göre repertuvar stratejisi.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- CTA BAND -->
+<section>
+<div class="container">
+<div class="cta fade-in">
+<div>
+<h3 style="margin:0">Takviminizde tarih var mı?</h3>
+<p class="muted" style="margin:.3rem 0 0">Müsaitliği kontrol edip 24 saat içinde dönüş yapalım.</p>
+</div>
+<a class="btn btn-primary" href="#contact"><i class="fa-solid fa-calendar-check"></i> Müsaitlik Sor</a>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section id="faq">
+<div class="container">
+<div class="section-head"><div class="kicker">SSS</div><h2>Sık Sorulan Sorular</h2></div>
+<div class="grid grid-2 faq">
+<details class="fade-in"><summary>Hangi şehirlerde hizmet veriyorsunuz?</summary><p>İstanbul merkez olmak üzere tüm Türkiye’de hizmet veriyoruz.</p></details>
+<details class="fade-in"><summary>Rezervasyon için ne kadar önce iletişime geçmeliyim?</summary><p>Yoğun sezonda en az 4–8 hafta önce iletişime geçmenizi öneririz.</p></details>
+<details class="fade-in"><summary>Ödeme koşulları nedir?</summary><p>Sözleşmede belirtilen avans + etkinlik öncesi bakiye şeklinde ilerliyoruz.</p></details>
+<details class="fade-in"><summary>Ses seviyesi ve komşu şikayetleri nasıl yönetilir?</summary><p>Desibel ölçümü ve saat planı ile riskleri en aza indiriyoruz.</p></details>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+<div class="section-head"><div class="kicker">İletişim</div><h2>Hızlı Teklif Formu</h2><p class="muted">Form çalışmazsa <a href="/cdn-cgi/l/email-protection#157c7b737a55706c606578606f7c7e3b767a78"><span class="__cf_email__" data-cfemail="452c2b232a05203c303528303f2c2e6b262a28">[email&#160;protected]</span></a> adresine e‑posta gönderebilirsiniz.</p></div>
+<form class="fade-in" id="contact-form" novalidate="">
+<div class="grid grid-2">
+<div>
+<label for="name">Ad Soyad *</label>
+<input id="name" name="name" placeholder="Adınız Soyadınız" required=""/>
+</div>
+<div>
+<label for="email">E‑posta *</label>
+<input id="email" name="email" placeholder="ornek@eposta.com" required="" type="email"/>
+</div>
+<div>
+<label for="phone">Telefon</label>
+<input id="phone" name="phone" placeholder="05xx xxx xx xx"/>
+</div>
+<div>
+<label for="subject">Konu *</label>
+<select id="subject" name="subject" required="">
+<option value="">Seçiniz</option>
+<option value="festival">Festival</option>
+<option value="kurumsal">Kurumsal Etkinlik</option>
+<option value="dugun">Düğün</option>
+<option value="ozel">Özel Parti</option>
+<option value="diger">Diğer</option>
+</select>
+</div>
+</div>
+<label for="date">Etkinlik Tarihi</label>
+<input id="date" name="date" type="date"/>
+<label for="message">Mesaj *</label>
+<textarea id="message" name="message" placeholder="Detayları yazın..." required="" rows="6"></textarea>
+<div class="grid grid-2" style="margin-top:1rem">
+<button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Gönder</button>
+<a class="btn btn-ghost" href="tel:+905555555555"><i class="fa-solid fa-phone"></i> Hemen Ara</a>
+</div>
+<div class="muted" id="form-status" style="margin-top:.6rem"></div>
+</form>
+<div class="fade-in" style="margin-top:1.4rem">
+<iframe height="260" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12038.542!2d28.9784!3d41.0082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2z!5e0!3m2!1str!2str!4v1680000000000" style="border:0;border-radius:12px" title="Harita" width="100%"></iframe>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer role="contentinfo">
+<div class="container">
+<div class="footer-grid" style="padding:1.2rem 0">
+<div>
+<div class="brand" style="margin-bottom:.6rem"><span class="dot"></span><strong>Eyüp Müzik</strong></div>
+<p class="muted">Profesyonel müzik organizasyonları için güvenilir çözüm ortağınız.</p>
+</div>
+<div>
+<h4>Menü</h4>
+<a href="#services">Hizmetler</a><br/>
+<a href="#pricing">Paketler</a><br/>
+<a href="#faq">SSS</a>
+</div>
+<div>
+<h4>Bağlantılar</h4>
+<a href="https://instagram.com" rel="noopener" target="_blank">Instagram</a><br/>
+<a href="https://facebook.com" rel="noopener" target="_blank">Facebook</a><br/>
+<a href="https://x.com" rel="noopener" target="_blank">X</a>
+</div>
+<div>
+<h4>İletişim</h4>
+<a href="/cdn-cgi/l/email-protection#80e9eee6efc0e5f9f5f0edf5fae9ebaee3efed"><span class="__cf_email__" data-cfemail="056c6b636a45607c707568707f6c6e2b666a68">[email&#160;protected]</span></a><br/>
+<a href="tel:+905555555555">+90 555 555 55 55</a>
+</div>
+</div>
+<div style="border-top:1px solid var(--border);padding:1rem 0;text-align:center;color:var(--muted)">© <span id="year"></span> Eyüp Müzik Organizasyon. Tüm hakları saklıdır.</div>
+</div>
+</footer>
+<!-- Back to Top -->
+<button aria-label="Yukarı çık" id="toTop"><i class="fa-solid fa-arrow-up"></i></button>
+<div class="muted">Deneyiminizi iyileştirmek için çerez kullanıyoruz.</div>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h1>Merhaba, Ben [Adınız]</h1>
-                <p>Profesyonel Web Geliştirici & Tasarımcı</p>
-                <a href="#contact" class="cta-button">Benimle İletişime Geç</a>
-            </div>
-        </section>
+<div>
+<button class="btn btn-primary" id="cookie-accept">Kabul Et</button>
+<button class="btn btn-ghost" id="cookie-decline">Reddet</button>
+</div>
 
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">Hakkımda</h2>
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="https://via.placeholder.com/250" alt="Profil Fotoğrafı">
-                    </div>
-                    <div class="about-text">
-                        <p>Merhaba! 5+ yıllık deneyime sahip bir web geliştirici ve tasarımcıyım. Modern teknolojiler kullanarak kullanıcı dostu ve responsive web siteleri geliştiriyorum.</p>
-                        <p>HTML, CSS, JavaScript, React ve Node.js gibi teknolojilerde uzmanım. Her projede en iyi sonuçları elde etmek için sürekli kendimi geliştiriyorum.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- SCRIPTS -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    // ===== Utilities =====
+    const $ = (s,root=document)=>root.querySelector(s);
+    const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
 
-        <section id="skills" class="section" style="background-color: #f8f9fa;">
-            <div class="container">
-                <h2 class="section-title">Yeteneklerim</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon">🌐</div>
-                        <h3>Web Geliştirme</h3>
-                        <p>Modern web teknolojileri kullanarak responsive ve hızlı web siteleri geliştiriyorum.</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">🎨</div>
-                        <h3>UI/UX Tasarım</h3>
-                        <p>Kullanıcı deneyimini ön planda tutan, estetik ve fonksiyonel tasarımlar yapıyorum.</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">📱</div>
-                        <h3>Mobil Uyumlu</h3>
-                        <p>Tüm cihazlarda mükemmel görüntü sağlayan responsive tasarımlar geliştiriyorum.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    // ===== Mobile Menu & Overlay =====
+    const menuToggle = $('.menu-toggle');
+    const menu = $('#primary-menu');
+    const overlay = $('#overlay');
 
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Projelerim</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            Proje Görseli 1
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">E-Ticaret Sitesi</h3>
-                            <p>Modern ve kullanıcı dostu e-ticaret platformu. React ve Node.js kullanılarak geliştirildi.</p>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            Proje Görseli 2
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Kurumsal Web Sitesi</h3>
-                            <p>Profesyonel kurumsal web sitesi tasarımı. SEO uyumlu ve responsive yapı.</p>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            Proje Görseli 3
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Portfolyo Sitesi</h3>
-                            <p>Kişisel portfolyo web sitesi. Modern tasarım ve interaktif animasyonlar.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
+// Mobil menü açıldığında sayfa kaydırmasını engelle
+function openMenu(){
+  menu.classList.add('show');
+  menuToggle.setAttribute('aria-expanded','true');
+  overlay.hidden=false; overlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  const firstLink = menu.querySelector('a'); firstLink && firstLink.focus();
+}
+function closeMenu(){menu.classList.remove('show');menuToggle.setAttribute('aria-expanded','false');overlay.classList.remove('show');overlay.hidden=true;document.body.style.overflow='';menuToggle.focus();}
+    menuToggle.addEventListener('click',()=>{
+      const ex = menuToggle.getAttribute('aria-expanded')==='true';
+      ex ? closeMenu() : openMenu();
+    });
+    overlay.addEventListener('click', closeMenu);
 
-        <section id="contact" class="section" style="background-color: #f8f9fa;">
-            <div class="container">
-                <h2 class="section-title">İletişim</h2>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Adınız</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-posta Adresiniz</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mesajınız</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Gönder</button>
-                </form>
-            </div>
-        </section>
-    </main>
+    // ===== AOS & Fade-in Observer =====
+    AOS.init({ duration: 900, once: true });
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('appear'); io.unobserve(e.target); } });
+    },{threshold:.12});
+    $$('.fade-in').forEach(el=>io.observe(el));
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 [Adınız]. Tüm hakları saklıdır.</p>
-            <div class="social-links">
-                <a href="#">📧</a>
-                <a href="#">💼</a>
-                <a href="#">🔗</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+    // ===== Hero Counters =====
+    const counters = [
+      { el: $('#c1'), to: 450 },
+      { el: $('#c2'), to: 390 },
+      { el: $('#c3'), to: 32 },
+      { el: $('#c4'), to: 10 }
+    ];
+    const co = new IntersectionObserver((entries)=>{
+      entries.forEach(({isIntersecting})=>{
+        if(!isIntersecting) return;
+        counters.forEach(c=>{
+          const start=0,end=c.to,dur=1200,startTs=performance.now();
+          function tick(now){
+            const p=Math.min((now-startTs)/dur,1); c.el.textContent = Math.floor(start + (end-start)*p);
+            if(p<1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
         });
+        co.disconnect();
+      });
+    },{threshold:.4});
+    co.observe($('.stats'));
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-                // Close mobile menu after clicking a link
-                navLinks.classList.remove('active');
-            });
-        });
+    // ===== Events =====
+    const eventsData = [
+      { id:1, title:"Sonbahar Festivali", date:"2025-09-20", description:"Açık hava müzik festivali, çok sayıda sanatçı ve iki sahne.", img:"https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1200&auto=format&fit=crop" },
+      { id:2, title:"Düğün Organizasyonu - Ahmet & Elif", date:"2025-10-05", description:"Romantik seçkiler, canlı keman ve DJ performansı.", img:"https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&w=1200&auto=format&fit=crop" },
+      { id:3, title:"Kurumsal Lansman", date:"2025-10-25", description:"Markaya özel jingle, sahne & ışık senaryosu, MC yönetimi.", img:"https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1200&auto=format&fit=crop" },
+      { id:4, title:"Yılbaşı Partisi", date:"2025-11-30", description:"Özel yılbaşı konseptli DJ seti, sahne şovları ve countdown.", img:"https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop" }
+    ];
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-    </script>
+    const eventListEl = $('#event-list');
+    const eventFilter = $('#event-filter');
+
+    const fmtDate = (d)=> new Date(d).toLocaleDateString('tr-TR',{year:'numeric',month:'long',day:'numeric'});
+
+    function renderEvents(filter='all'){
+      eventListEl.innerHTML='';
+      const filtered = filter==='all' ? eventsData : eventsData.filter(ev=>ev.date.startsWith(filter));
+      if(!filtered.length){ eventListEl.innerHTML='<p class="muted">Seçilen tarihe uygun etkinlik bulunamadı.</p>'; return; }
+      filtered.forEach(ev=>{
+        const card=document.createElement('article');
+        card.className='card event fade-in'; card.tabIndex=0;
+        card.setAttribute('aria-label', `${ev.title}, tarihi: ${fmtDate(ev.date)}`);
+        card.innerHTML=`
+          <div class="image"><img src="${ev.img}" alt="${ev.title}" loading="lazy"></div>
+          <h3>${ev.title}</h3>
+          <div class="meta"><i class="fa-regular fa-calendar"></i> <time datetime="${ev.date}">${fmtDate(ev.date)}</time></div>
+          <p>${ev.description}</p>
+        `;
+        card.addEventListener('click',()=>openModal(ev));
+        card.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openModal(ev); }});
+        eventListEl.appendChild(card);
+      });
+      $$('.fade-in',eventListEl).forEach(el=>io.observe(el));
+    }
+    renderEvents();
+    eventFilter.addEventListener('change',()=>renderEvents(eventFilter.value));
+
+    // Modal
+    const modal=$('#modal');
+    const modalTitle=$('#modal-title');
+    const modalImg=$('#modal-img');
+    const modalDate=$('#modal-date');
+    const modalDesc=$('#modal-desc');
+    const modalClose=$('#modal-close');
+
+    function openModal(ev){
+      modalTitle.textContent=ev.title;
+      modalImg.src=ev.img; modalImg.alt=ev.title;
+      modalDate.textContent=fmtDate(ev.date);
+      modalDesc.textContent=ev.description;
+      modal.hidden=false; modal.classList.add('show');
+      overlay.hidden=false; overlay.classList.add('show');
+      modalClose.focus(); document.body.style.overflow='hidden';
+    }
+    function closeModal(){
+      modal.classList.remove('show'); modal.hidden=true;
+      overlay.classList.remove('show'); overlay.hidden=true;
+      document.body.style.overflow='';
+    }
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape' && !modal.hidden) closeModal(); });
+
+    // Gallery Lightbox
+    const lightbox=$('#lightbox');
+    const lightboxImg=$('#lightbox-img');
+    const lightboxClose=$('#lightbox-close');
+    $$('.gallery a.gl').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault(); lightboxImg.src=a.href; lightbox.hidden=false; lightbox.classList.add('show'); overlay.hidden=false; overlay.classList.add('show');
+      });
+    });
+    function closeLightbox(){ lightbox.classList.remove('show'); lightbox.hidden=true; overlay.classList.remove('show'); overlay.hidden=true; }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e=>{ if(e.target===lightbox) closeLightbox(); });
+
+    // Contact Form (FormSubmit fallback)
+    const form=$('#contact-form');
+    const statusEl=$('#form-status');
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      const data=new FormData(form);
+      const name=data.get('name')?.trim();
+      const email=data.get('email')?.trim();
+      const subject=data.get('subject');
+      const message=data.get('message')?.trim();
+      if(!name||!email||!subject||!message){ statusEl.textContent='Lütfen zorunlu alanları doldurun.'; return; }
+      const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!emailRegex.test(email)){ statusEl.textContent='Lütfen geçerli bir e‑posta adresi girin.'; return; }
+
+      // FormSubmit
+      fetch('https://formsubmit.co/ajax/YOUR_EMAIL_HERE',{ // TODO: e‑postanı yaz
+        method:'POST',
+        headers:{ 'Accept':'application/json' },
+        body:data
+      }).then(r=>r.json()).then(()=>{
+        statusEl.textContent='Teşekkürler! En kısa sürede dönüş yapacağız.'; form.reset();
+      }).catch(()=>{
+        // Mailto fallback
+        const mailto=`mailto:info@eyupmuzik.com?subject=${encodeURIComponent(subject+' - '+name)}&body=${encodeURIComponent('İsim: '+name+'\nE‑posta: '+email+'\nTelefon: '+(data.get('phone')||'')+'\nTarih: '+(data.get('date')||'')+'\n\nMesaj:\n'+message)}`;
+        window.location.href=mailto;
+      });
+    });
+
+    
+    // Tema Toggle
+    document.addEventListener("DOMContentLoaded", function(){
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
+      function setTheme(theme){
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+      }
+      themeToggleBtn.addEventListener('click', ()=>{
+        const current = localStorage.getItem('theme') || 'dark';
+        setTheme(current === 'light' ? 'dark' : 'light');
+      });
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      setTheme(savedTheme);
+    });
+
+    // Back to top
+    const toTop=$('#toTop');
+    window.addEventListener('scroll',()=>{ if(window.scrollY>600) toTop.classList.add('show'); else toTop.classList.remove('show'); });
+    toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+    // Year
+    $('#year').textContent=new Date().getFullYear();
+  </script>
+<!-- JSON-LD SCHEMA -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Eyüp Müzik Organizasyon",
+    "url": "https://eyupmuzik.com/",
+    "logo": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=400&auto=format&fit=crop",
+    "sameAs": [
+      "https://instagram.com/eyupmuzik",
+      "https://facebook.com/eyupmuzik",
+      "https://x.com/eyupmuzik"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "TR",
+      "addressLocality": "İstanbul"
+    },
+    "description": "Düğün, konser ve kurumsal etkinliklerde profesyonel müzik organizasyonu."
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"url":"https://eyupmuzik.com/#festival","name":"Festival Organizasyonu"},
+      {"@type":"ListItem","position":2,"url":"https://eyupmuzik.com/#kurumsal","name":"Kurumsal Etkinlik"},
+      {"@type":"ListItem","position":3,"url":"https://eyupmuzik.com/#dugun","name":"Düğün & Özel"}
+    ]
+  }
+  </script>
 </body>
 </html>
 
