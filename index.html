@@ -65,12 +65,12 @@
     .brand{display:flex;align-items:center;gap:.7rem;font-weight:800}
     .brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:0 0 0 3px #ffffff10}
     .menu{display:flex;gap:1rem}
-    .menu a{padding:.6rem .8rem;border-radius:999px;color:var(--muted)}
-    .menu a:hover,.menu a[aria-current="page"]{color:#fff;background:#ffffff0f}
+    .menu a{padding:.6rem .8rem;border-radius:999px;color:var(--muted);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-decoration:none;display:block}
+    .menu a:hover,.menu a[aria-current="page"]{color:#fff;background:#ffffff0f;transform:none}
     .menu-toggle{display:none;background:transparent;border:1px solid var(--border);border-radius:12px;color:#fff;font-size:1.25rem;padding:.4rem .6rem}
 
     @media (max-width: 900px){
-      .menu{position:fixed;inset:64px 12px auto 12px;background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);flex-direction:column;padding:.6rem;max-height:0;overflow:hidden;transition:max-height var(--trans)}
+      .menu{position:fixed;inset:64px 12px auto 12px;background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);flex-direction:column;padding:.6rem;max-height:0;overflow:hidden;transition:max-height var(--trans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
       .menu.show{max-height:60vh}
       .menu-toggle{display:inline-flex}
     }
@@ -430,6 +430,21 @@
     padding: 1rem;
     font-size: 1rem;
     display: block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    margin: 0.2rem 0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+  }
+  .menu a:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    transform: translateY(-1px);
   }
   .menu-toggle {
     min-width: 48px;
@@ -1218,6 +1233,7 @@ function closeMenu(){menu.classList.remove('show');menuToggle.setAttribute('aria
   </script>
 </body>
 </html>
+
 
 
 
