@@ -466,8 +466,10 @@
 .menu-toggle, .btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transform: translateZ(0);
-  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+  transform: none;
+  will-change: auto;
+  backface-visibility: hidden;
 }
 
 .menu-toggle i, .btn i {
@@ -568,13 +570,13 @@ img, video, iframe {
   font-size: 1rem !important;
 }
 
-/* === Buton netlik ve dokunma düzenlemeleri === */
+/* === Buton netlik düzenlemeleri === */
 #theme-toggle, .menu-toggle, .btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transform: none !important; /* translateZ kaldırıldı */
-  backdrop-filter: none !important;
-  image-rendering: auto !important;
+  transform: none;
+  backface-visibility: hidden;
+  image-rendering: auto;
 }
 
 /* Dokunma alanı ve görünürlük */
@@ -915,7 +917,7 @@ img, video, iframe {
 <!-- CONTACT -->
 <section id="contact">
 <div class="container">
-<div class="section-head"><div class="kicker">İletişim</div><h2>Hızlı Teklif Formu</h2><p class="muted">Form çalışmazsa <a href="/cdn-cgi/l/email-protection#157c7b737a55706c606578606f7c7e3b767a78"><span class="__cf_email__" data-cfemail="452c2b232a05203c303528303f2c2e6b262a28">[email&#160;protected]</span></a> adresine e‑posta gönderebilirsiniz.</p></div>
+<div class="section-head"><div class="kicker">İletişim</div><h2>Hızlı Teklif Formu</h2><p class="muted">Form çalışmazsa <a href="/cdn-cgi/l/email-protection#5f363139301f3a262a2f322a253634713c3032"><span class="__cf_email__" data-cfemail="137a7d757c53766a66637e66697a783d707c7e">[email&#160;protected]</span></a> adresine e‑posta gönderebilirsiniz.</p></div>
 <form class="fade-in" id="contact-form" novalidate="">
 <div class="grid grid-2">
 <div>
@@ -979,7 +981,7 @@ img, video, iframe {
 </div>
 <div>
 <h4>İletişim</h4>
-<a href="/cdn-cgi/l/email-protection#80e9eee6efc0e5f9f5f0edf5fae9ebaee3efed"><span class="__cf_email__" data-cfemail="056c6b636a45607c707568707f6c6e2b666a68">[email&#160;protected]</span></a><br/>
+<a href="/cdn-cgi/l/email-protection#7811161e17381d010d08150d021113561b1715"><span class="__cf_email__" data-cfemail="543d3a323b14312d212439212e3d3f7a373b39">[email&#160;protected]</span></a><br/>
 <a href="tel:+905555555555">+90 555 555 55 55</a>
 </div>
 </div>
