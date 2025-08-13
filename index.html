@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
@@ -34,6 +34,22 @@
       --radius:14px;--radius-lg:22px;--trans:.3s ease;
       --container:1200px;
     }
+
+  [data-theme="light"] {
+    --bg:#ffffff;
+    --bg-soft:#f5f5f5;
+    --bg-elev:#f9f9f9;
+    --text:#0a2a5e;
+    --muted:#334e91;
+    --primary:#e91e63;
+    --primary-2:#ff4d8d;
+    --accent:#7c3aed;
+    --ring:#2dd4bf;
+    --card:rgba(0,0,0,.04);
+    --border:rgba(0,0,0,.08);
+    --shadow:0 10px 30px rgba(0,0,0,.15);
+  }
+
     html{scroll-behavior:smooth}
     *{box-sizing:border-box}
     body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
@@ -177,7 +193,16 @@
     /* Animations */
     .fade-in{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
     .fade-in.appear{opacity:1;transform:none}
-  </style>
+  
+    @media (max-width: 600px){
+      body{font-size:15px}
+      .btn{padding:.8rem 1.1rem}
+      nav{padding:.5rem 0}
+      .menu-toggle{z-index:1001}
+      .menu{z-index:1000}
+    }
+
+</style>
 </head>
 <body>
   <noscript><div class="container" style="margin-top:1rem"><div class="badge">Tarayıcınızda JavaScript kapalı. Bazı özellikler sınırlı çalışacaktır.</div></div></noscript>
@@ -188,6 +213,11 @@
       <nav aria-label="Ana Navigasyon">
         <div class="brand"><span class="dot" aria-hidden="true"></span> <span>Eyüp Müzik</span></div>
         <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Menüyü aç/kapat"><i class="fa-solid fa-bars"></i></button>
+        
+<button id="theme-toggle" aria-label="Tema değiştir" class="btn btn-ghost" style="margin-left:.5rem;">
+  <span id="theme-icon">🌙</span>
+</button>
+
         <div class="menu" id="primary-menu" role="menubar">
           <a href="#hero" role="menuitem">Anasayfa</a>
           <a href="#about" role="menuitem">Hakkımızda</a>
@@ -750,14 +780,6 @@
       });
     });
 
-    // Cookie Bar
-    const cookieBar=$('#cookie');
-    const cookieAccept=$('#cookie-accept');
-    const cookieDecline=$('#cookie-decline');
-    if(!localStorage.getItem('cookie')) cookieBar.classList.remove('hidden');
-    cookieAccept.addEventListener('click',()=>{ localStorage.setItem('cookie','1'); cookieBar.remove(); });
-    cookieDecline.addEventListener('click',()=>{ localStorage.setItem('cookie','0'); cookieBar.remove(); });
-
     // Back to top
     const toTop=$('#toTop');
     window.addEventListener('scroll',()=>{ if(window.scrollY>600) toTop.classList.add('show'); else toTop.classList.remove('show'); });
@@ -799,8 +821,10 @@
     ]
   }
   </script>
+
+
+
 </body>
 </html>
-
 
 
