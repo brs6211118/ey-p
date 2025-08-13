@@ -243,6 +243,43 @@
   border-color: rgba(0,0,0,.3) !important;
 }
 
+
+/* === MOBİL BUTON OPTİMİZASYON === */
+.menu-toggle, .btn {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.menu-toggle i, .btn i {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .menu {
+    z-index: 1100 !important;
+  }
+  .menu-toggle {
+    z-index: 1101 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .btn {
+    font-size: 1rem !important;
+    padding: 0.9rem 1.3rem !important;
+  }
+  .menu a {
+    font-size: 1rem !important;
+  }
+}
+
+/* Overlay dokunma engelini kaldırma */
+.overlay {
+  pointer-events: auto !important;
+}
 </style>
 </head>
 <body>
@@ -685,20 +722,7 @@ function openMenu(){
   document.body.style.overflow = 'hidden';
   const firstLink = menu.querySelector('a'); firstLink && firstLink.focus();
 }
-function closeMenu(){
-  menu.classList.remove('show');
-  menuToggle.setAttribute('aria-expanded','false');
-  overlay.classList.remove('show'); overlay.hidden=true;
-  document.body.style.overflow = '';
-  menuToggle.focus();
-}
-
-function closeMenu(){
-      menu.classList.remove('show');
-      menuToggle.setAttribute('aria-expanded','false');
-      overlay.classList.remove('show'); overlay.hidden=true;
-      menuToggle.focus();
-    }
+function closeMenu(){menu.classList.remove('show');menuToggle.setAttribute('aria-expanded','false');overlay.classList.remove('show');overlay.hidden=true;document.body.style.overflow='';menuToggle.focus();}
     menuToggle.addEventListener('click',()=>{
       const ex = menuToggle.getAttribute('aria-expanded')==='true';
       ex ? closeMenu() : openMenu();
@@ -899,6 +923,7 @@ function closeMenu(){
   </script>
 </body>
 </html>
+
 
 
 
