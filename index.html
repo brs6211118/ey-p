@@ -1,162 +1,197 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<title>Eyüp Müzik Organizasyon</title>
-<meta name="description" content="Eyüp Müzik Organizasyon - Profesyonel müzik organizasyonları, etkinlik planlama, konser, düğün, festival ve daha fazlası." />
-<meta name="keywords" content="Eyüp, müzik organizasyon, etkinlik, konser, festival, düğün, kurumsal etkinlik" />
-<meta name="author" content="Eyüp Müzik Organizasyon" />
-<meta name="theme-color" content="#1e88e5"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <title>Eyüp Müzik Organizasyon</title>
+  <meta name="description" content="Eyüp Müzik Organizasyon - Profesyonel müzik organizasyonları, etkinlik planlama, konser, düğün, festival ve daha fazlası." />
+  <meta name="keywords" content="Eyüp, müzik organizasyon, etkinlik, konser, festival, düğün, kurumsal etkinlik" />
+  <meta name="author" content="Eyüp Müzik Organizasyon" />
+  <meta name="theme-color" content="#1e88e5"/>
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://eyupmuzik.com/" />
 
-<!-- Open Graph / Sosyal Paylaşım -->
-<meta property="og:title" content="Eyüp Müzik Organizasyon" />
-<meta property="og:description" content="Profesyonel müzik organizasyonları, konserler, düğünler, festivaller ve daha fazlası." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://eyupmuzik.com" />
-<meta property="og:image" content="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1200&auto=format&fit=crop" />
-<meta property="og:locale" content="tr_TR" />
-<meta name="twitter:card" content="summary_large_image" />
+  <!-- Favicons -->
+  <link rel="icon" href="https://fav.farm/🎵" />
+  <link rel="apple-touch-icon" href="https://fav.farm/🎵" />
 
-<!-- Font -->
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Open Graph / Sosyal Paylaşım -->
+  <meta property="og:title" content="Eyüp Müzik Organizasyon" />
+  <meta property="og:description" content="Profesyonel müzik organizasyonları, konserler, düğünler, festivaller ve daha fazlası." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://eyupmuzik.com" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1200&auto=format&fit=crop" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-<style>
-  :root {
-    --color-primary:#1e88e5; --color-primary-dark:#1565c0;
-    --color-bg-light:#ffffff; --color-bg-dark:#0f1216;
-    --color-text-light:#1f2937; --color-text-dark:#e5e7eb;
-    --color-neutral-light:#f3f4f6; --color-neutral-dark:#1c232d;
-    --shadow-card:0 6px 24px rgba(0,0,0,.12);
-    --radius:14px; --transition:.3s ease;
+  <!-- Preconnects for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --color-primary:#1e88e5; --color-primary-dark:#1565c0;
+      --color-bg-light:#ffffff; --color-bg-dark:#0f1216;
+      --color-text-light:#1f2937; --color-text-dark:#e5e7eb;
+      --color-neutral-light:#f3f4f6; --color-neutral-dark:#161c25;
+      --shadow-card:0 6px 24px rgba(0,0,0,.12);
+      --radius:14px; --transition:.3s ease;
+      --container: 1200px;
+    }
+    html {scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;background:var(--color-bg-light);color:var(--color-text-light);transition:background var(--transition),color var(--transition)}
+    body.dark{background:var(--color-bg-dark);color:var(--color-text-dark)}
+    a{color:var(--color-primary);text-decoration:none} a:hover{opacity:.9}
+    img{max-width:100%;display:block}
+
+    /* Container */
+    main, nav .inner {max-width:var(--container);margin:0 auto;padding:0 1rem}
+    main{margin:1.5rem auto 3.2rem}
+    section{margin-bottom:3.2rem}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:1000;background:rgba(30,136,229,.95);backdrop-filter:saturate(140%) blur(6px);color:#fff;box-shadow:var(--shadow-card)}
+    nav{padding:.6rem 0}
+    nav .inner{display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;font-size:1.2rem;letter-spacing:.4px;display:flex;align-items:center;gap:.6rem}
+    .logo .badge{background:#ffffff26;color:#fff;padding:.15rem .45rem;border-radius:999px;font-size:.72rem}
+    .menu-toggle{display:none;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer}
+    .toggle-theme{background:rgba(255,255,255,.15);border:0;color:#fff;border-radius:999px;padding:.4rem .6rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+    ul.menu{list-style:none;display:flex;gap:1.1rem;margin:0;padding:0}
+    ul.menu a{display:block;padding:.5rem .25rem;font-weight:700}
+    ul.menu a:focus-visible{outline:2px solid #fff;outline-offset:2px;border-radius:8px}
+
+    /* Mobile menu */
+    @media (max-width: 820px){
+      .menu-toggle{display:block}
+      ul.menu{position:fixed;top:64px;right:12px;left:12px;border-radius:16px;background:#1e88e5;color:#fff;flex-direction:column;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;box-shadow:var(--shadow-card);z-index:1001}
+      ul.menu.show{max-height:360px}
+      ul.menu li{border-bottom:1px solid rgba(255,255,255,.2)}
+      ul.menu li:last-child{border-bottom:0}
+      ul.menu a{padding:1rem}
+    }
+    /* Overlay (mobil menü ve modal arkaplan) */
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s;z-index:1000}
+    .overlay.show{opacity:1;pointer-events:auto}
+
+    /* Hero */
+    .hero{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-card);color:#fff;text-align:center;isolation:isolate}
+    .hero::before{content:"";position:absolute;inset:0;background:
+      linear-gradient(135deg, rgba(21,101,192,.85), rgba(30,136,229,.65));
+      z-index:1}
+    .hero .bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop') center/cover;transform:scale(1.03)}
+    .hero-content{position:relative;z-index:2;padding:4.4rem 1.2rem}
+    .hero h1{font-size:clamp(1.9rem,3.4vw,3.1rem);margin:0 0 .8rem;letter-spacing:.3px}
+    .hero p{font-size:clamp(1rem,1.6vw,1.25rem);margin:0 0 1.6rem}
+    .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+    .btn-primary{background:#fff;color:var(--color-primary-dark);border:0;padding:.95rem 1.6rem;border-radius:999px;font-weight:800;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.18);transition:transform .2s,background .2s}
+    .btn-primary:hover{transform:translateY(-2px);background:#eef6ff}
+    .btn-outline{background:transparent;color:#fff;border:2px solid #fff;padding:.9rem 1.4rem;border-radius:999px;font-weight:800;cursor:pointer}
+
+    /* About */
+    #about p{max-width:820px;margin:0 auto;font-size:1.07rem}
+
+    /* Services */
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+    .service-card{background:var(--color-neutral-light);border-radius:18px;padding:1.4rem;box-shadow:var(--shadow-card);transition:transform .25s, box-shadow .25s;position:relative}
+    body.dark .service-card{background:var(--color-neutral-dark)}
+    .service-card:hover{transform:translateY(-6px)}
+    .service-icon{font-size:2.2rem;margin-bottom:.6rem}
+    .service-card h3{margin:.1rem 0 .4rem}
+    .pill{position:absolute;right:12px;top:12px;background:#fff3;border:1px solid #ffffff55;color:#fff;padding:.1rem .45rem;border-radius:999px;font-size:.75rem}
+
+    /* Events */
+    #events label{font-weight:800;display:block;margin-bottom:.5rem}
+    #event-filter{padding:.55rem;border-radius:12px;border:1px solid #cfd8e3;width:100%;max-width:260px;background:transparent;color:inherit}
+    #event-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+    .event-card{border-radius:18px;overflow:hidden;background:var(--color-neutral-light);box-shadow:var(--shadow-card);transition:transform .25s}
+    body.dark .event-card{background:var(--color-neutral-dark)}
+    .event-card:hover{transform:translateY(-6px)}
+    .event-card h3{margin:.9rem 1rem .2rem}
+    .event-card p{margin:0 1rem 1rem;font-size:.96rem}
+    .event-card time{display:block;margin:0 1rem .6rem;color:var(--color-primary-dark);font-weight:800}
+
+    /* Gallery */
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem}
+    .gallery-grid a{display:block;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-card);transform:translateZ(0);transition:transform .25s}
+    .gallery-grid a:hover{transform:scale(1.03)}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.88);opacity:0;pointer-events:none;transition:opacity .2s;z-index:1002}
+    .lightbox.show{opacity:1;pointer-events:auto}
+    .lightbox-content{max-width:min(92vw,1000px);max-height:86vh}
+    .lightbox-close{position:absolute;top:18px;right:18px;font-size:2rem;line-height:1;background:#ffffff26;border:0;color:#fff;border-radius:12px;padding:.1rem .6rem;cursor:pointer}
+
+    /* Testimonials */
+    .testimonial-list{display:flex;flex-direction:column;gap:1rem;max-width:780px;margin:0 auto}
+    .testimonial{background:var(--color-neutral-light);border-radius:18px;box-shadow:var(--shadow-card);padding:1rem 1.2rem;font-style:italic}
+    body.dark .testimonial{background:var(--color-neutral-dark)}
+    .testimonial cite{display:block;margin-top:.7rem;font-style:normal;font-weight:800;text-align:right;color:var(--color-primary-dark)}
+
+    /* Contact */
+    form{max-width:640px;margin:0 auto;background:var(--color-neutral-light);padding:1.4rem;border-radius:18px;box-shadow:var(--shadow-card)}
+    body.dark form{background:var(--color-neutral-dark)}
+    label{display:block;margin:.75rem 0 .25rem;font-weight:800}
+    input,select,textarea{width:100%;padding:.65rem;border-radius:12px;border:1px solid #cfd8e3;background:transparent;color:inherit}
+    input:focus,select:focus,textarea:focus{outline:2px solid var(--color-primary);border-color:transparent}
+    textarea{resize:vertical}
+    button[type="submit"]{margin-top:1rem;width:100%;background:var(--color-primary);border:0;padding:.95rem;color:#fff;font-weight:800;border-radius:999px;cursor:pointer;box-shadow:var(--shadow-card)}
+    button[type="submit"]:hover{background:var(--color-primary-dark)}
+
+    /* Footer */
+    footer{background:var(--color-primary);color:#fff;text-align:center;padding:1.2rem}
+
+    /* Animations (sayfa giriş) */
+    .fade-in{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
+    .fade-in.appear{opacity:1;transform:none}
+    @media (prefers-reduced-motion: reduce){
+      .fade-in{opacity:1;transform:none}
+      .hero .bg{transform:none}
+    }
+
+    /* Müzik Butonu */
+    .music-toggle{position:fixed;right:16px;bottom:16px;z-index:1003;border:0;border-radius:999px;background:#0b1120cc;color:#fff;padding:.6rem .8rem;box-shadow:0 10px 20px rgba(0,0,0,.2);cursor:pointer;font-weight:800;display:flex;align-items:center;gap:.45rem}
+    .music-toggle[aria-pressed="true"]{background:#10b981cc}
+  </style>
+
+  <!-- JSON-LD: Organization + Website -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Eyüp Müzik Organizasyon",
+    "url": "https://eyupmuzik.com/",
+    "logo": "https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=600&auto=format&fit=crop",
+    "sameAs": [
+      "https://facebook.com/eyupmuzik",
+      "https://instagram.com/eyupmuzik",
+      "https://twitter.com/eyupmuzik"
+    ]
   }
-  html {scroll-behavior:smooth}
-  *{box-sizing:border-box}
-  body{margin:0;font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;background:var(--color-bg-light);color:var(--color-text-light);transition:background var(--transition),color var(--transition)}
-  body.dark{background:var(--color-bg-dark);color:var(--color-text-dark)}
-  a{color:var(--color-primary);text-decoration:none} a:hover{opacity:.9}
-  img{max-width:100%;display:block}
-
-  /* Header */
-  header{position:sticky;top:0;z-index:1000;background:rgba(30,136,229,.95);backdrop-filter:saturate(140%) blur(6px);color:#fff;box-shadow:var(--shadow-card)}
-  nav{max-width:1200px;margin:0 auto;padding:.6rem 1rem;display:flex;align-items:center;justify-content:space-between}
-  .logo{font-weight:700;font-size:1.25rem;letter-spacing:.4px}
-  .menu-toggle{display:none;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer}
-  .toggle-theme{background:rgba(255,255,255,.15);border:0;color:#fff;border-radius:999px;padding:.4rem .6rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.15)}
-  ul.menu{list-style:none;display:flex;gap:1.1rem;margin:0;padding:0}
-  ul.menu a{display:block;padding:.5rem .25rem;font-weight:600}
-  ul.menu a:focus-visible{outline:2px solid #fff;outline-offset:2px}
-
-  /* Mobile menu */
-  @media (max-width: 768px){
-    .menu-toggle{display:block}
-    ul.menu{position:fixed;top:56px;right:12px;left:12px;border-radius:16px;background:#1e88e5;color:#fff;flex-direction:column;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;box-shadow:var(--shadow-card);z-index:1001}
-    ul.menu.show{max-height:360px}
-    ul.menu li{border-bottom:1px solid rgba(255,255,255,.2)}
-    ul.menu li:last-child{border-bottom:0}
-    ul.menu a{padding:1rem}
-  }
-  /* Overlay (mobil menü ve modal arkaplan) */
-  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s;z-index:1000}
-  .overlay.show{opacity:1;pointer-events:auto}
-
-  main{max-width:1200px;margin:1.5rem auto 3rem;padding:0 1rem}
-  section{margin-bottom:3rem}
-
-  /* Hero */
-  .hero{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-card);color:#fff;text-align:center;isolation:isolate}
-  .hero::before{content:"";position:absolute;inset:0;background:
-    linear-gradient(135deg, rgba(21,101,192,.85), rgba(30,136,229,.65));
-    z-index:1}
-  .hero .bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop') center/cover;transform:scale(1.03)}
-  .hero-content{position:relative;z-index:2;padding:4.2rem 1.2rem}
-  .hero h1{font-size:clamp(1.8rem,3.4vw,3rem);margin:0 0 .8rem;letter-spacing:.3px}
-  .hero p{font-size:clamp(1rem,1.6vw,1.25rem);margin:0 0 1.6rem}
-  .btn-primary{background:#fff;color:var(--color-primary-dark);border:0;padding:.95rem 1.6rem;border-radius:999px;font-weight:700;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.18);transition:transform .2s,background .2s}
-  .btn-primary:hover{transform:translateY(-2px);background:#eef6ff}
-
-  /* About */
-  #about p{max-width:780px;margin:0 auto;font-size:1.07rem}
-
-  /* Services */
-  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
-  .service-card{background:var(--color-neutral-light);border-radius:18px;padding:1.4rem;box-shadow:var(--shadow-card);transition:transform .25s, box-shadow .25s}
-  body.dark .service-card{background:var(--color-neutral-dark)}
-  .service-card:hover{transform:translateY(-6px)}
-  .service-icon{font-size:2.2rem;margin-bottom:.6rem}
-  .service-card h3{margin:.1rem 0 .4rem}
-
-  /* Events */
-  #events label{font-weight:700;display:block;margin-bottom:.5rem}
-  #event-filter{padding:.55rem;border-radius:12px;border:1px solid #cfd8e3;width:100%;max-width:260px;background:transparent;color:inherit}
-  #event-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
-  .event-card{border-radius:18px;overflow:hidden;background:var(--color-neutral-light);box-shadow:var(--shadow-card);transition:transform .25s}
-  body.dark .event-card{background:var(--color-neutral-dark)}
-  .event-card:hover{transform:translateY(-6px)}
-  .event-card h3{margin:.9rem 1rem .2rem}
-  .event-card p{margin:0 1rem 1rem;font-size:.96rem}
-  .event-card time{display:block;margin:0 1rem .6rem;color:var(--color-primary-dark);font-weight:700}
-
-  /* Gallery */
-  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem}
-  .gallery-grid a{display:block;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-card);transform:translateZ(0);transition:transform .25s}
-  .gallery-grid a:hover{transform:scale(1.03)}
-
-  /* Lightbox */
-  .lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.88);opacity:0;pointer-events:none;transition:opacity .2s;z-index:1002}
-  .lightbox.show{opacity:1;pointer-events:auto}
-  .lightbox-content{max-width:min(92vw,1000px);max-height:86vh}
-  .lightbox-close{position:absolute;top:18px;right:18px;font-size:2rem;line-height:1;background:#ffffff26;border:0;color:#fff;border-radius:12px;padding:.1rem .6rem;cursor:pointer}
-
-  /* Testimonials */
-  .testimonial-list{display:flex;flex-direction:column;gap:1rem;max-width:780px;margin:0 auto}
-  .testimonial{background:var(--color-neutral-light);border-radius:18px;box-shadow:var(--shadow-card);padding:1rem 1.2rem;font-style:italic}
-  body.dark .testimonial{background:var(--color-neutral-dark)}
-  .testimonial cite{display:block;margin-top:.7rem;font-style:normal;font-weight:700;text-align:right;color:var(--color-primary-dark)}
-
-  /* Contact */
-  form{max-width:640px;margin:0 auto;background:var(--color-neutral-light);padding:1.4rem;border-radius:18px;box-shadow:var(--shadow-card)}
-  body.dark form{background:var(--color-neutral-dark)}
-  label{display:block;margin:.75rem 0 .25rem;font-weight:700}
-  input,select,textarea{width:100%;padding:.65rem;border-radius:12px;border:1px solid #cfd8e3;background:transparent;color:inherit}
-  input:focus,select:focus,textarea:focus{outline:2px solid var(--color-primary);border-color:transparent}
-  textarea{resize:vertical}
-  button[type="submit"]{margin-top:1rem;width:100%;background:var(--color-primary);border:0;padding:.95rem;color:#fff;font-weight:700;border-radius:999px;cursor:pointer;box-shadow:var(--shadow-card)}
-  button[type="submit"]:hover{background:var(--color-primary-dark)}
-
-  /* Footer */
-  footer{background:var(--color-primary);color:#fff;text-align:center;padding:1rem}
-
-  /* Animations (sayfa giriş) */
-  .fade-in{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
-  .fade-in.appear{opacity:1;transform:none}
-  @media (prefers-reduced-motion: reduce){
-    .fade-in{opacity:1;transform:none}
-    .hero .bg{transform:none}
-  }
-
-  /* Müzik Butonu */
-  .music-toggle{position:fixed;right:16px;bottom:16px;z-index:1003;border:0;border-radius:999px;background:#0b1120cc;color:#fff;padding:.6rem .8rem;box-shadow:0 10px 20px rgba(0,0,0,.2);cursor:pointer;font-weight:700;display:flex;align-items:center;gap:.45rem}
-  .music-toggle[aria-pressed="true"]{background:#10b981cc}
-</style>
+  </script>
 </head>
 <body>
 <header role="banner">
   <nav aria-label="Ana Navigasyon">
-    <div class="logo" tabindex="0">Eyüp Müzik Organizasyon</div>
-    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Menüyü aç/kapat">☰</button>
-    <ul class="menu" id="primary-menu" role="menubar">
-      <li role="none"><a href="#hero" role="menuitem" tabindex="-1">Anasayfa</a></li>
-      <li role="none"><a href="#about" role="menuitem" tabindex="-1">Hakkımızda</a></li>
-      <li role="none"><a href="#services" role="menuitem" tabindex="-1">Hizmetler</a></li>
-      <li role="none"><a href="#events" role="menuitem" tabindex="-1">Etkinlikler</a></li>
-      <li role="none"><a href="#gallery" role="menuitem" tabindex="-1">Galeri</a></li>
-      <li role="none"><a href="#testimonials" role="menuitem" tabindex="-1">Referanslar</a></li>
-      <li role="none"><a href="#contact" role="menuitem" tabindex="-1">İletişim</a></li>
-    </ul>
-    <button class="toggle-theme" aria-pressed="false" aria-label="Karanlık/Aydın mod değiştir">🌙</button>
+    <div class="inner">
+      <div class="logo" tabindex="0">🎵 Eyüp Müzik <span class="badge">Organizasyon</span></div>
+      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Menüyü aç/kapat">☰</button>
+      <ul class="menu" id="primary-menu" role="menubar">
+        <li role="none"><a href="#hero" role="menuitem" tabindex="-1">Anasayfa</a></li>
+        <li role="none"><a href="#about" role="menuitem" tabindex="-1">Hakkımızda</a></li>
+        <li role="none"><a href="#services" role="menuitem" tabindex="-1">Hizmetler</a></li>
+        <li role="none"><a href="#events" role="menuitem" tabindex="-1">Etkinlikler</a></li>
+        <li role="none"><a href="#gallery" role="menuitem" tabindex="-1">Galeri</a></li>
+        <li role="none"><a href="#testimonials" role="menuitem" tabindex="-1">Referanslar</a></li>
+        <li role="none"><a href="#contact" role="menuitem" tabindex="-1">İletişim</a></li>
+      </ul>
+      <button class="toggle-theme" aria-pressed="false" aria-label="Karanlık/Aydın mod değiştir">🌙</button>
+    </div>
   </nav>
 </header>
 <div class="overlay" id="overlay" hidden></div>
@@ -168,7 +203,10 @@
     <div class="hero-content">
       <h1 id="hero-title">Eyüp Müzik Organizasyon ile Unutulmaz Anlar</h1>
       <p id="hero-desc">Konser, düğün, festival ve kurumsal etkinliklerde premium müzik deneyimi.</p>
-      <button class="btn-primary" id="btn-contact">İletişime Geçin</button>
+      <div class="cta-row">
+        <button class="btn-primary" id="btn-contact">İletişime Geçin</button>
+        <a class="btn-outline" href="#services" aria-label="Hizmetlerimize göz atın">Hizmetler</a>
+      </div>
     </div>
   </section>
 
@@ -186,6 +224,7 @@
         <div class="service-icon" aria-hidden="true">🎤</div>
         <h3>Festival Organizasyonu</h3>
         <p>Çok sahneli kurgu, sanatçı takvimi, sahne & backline, RF koordinasyonu ve güvenli lojistik.</p>
+        <span class="pill">Popüler</span>
       </article>
       <article class="service-card" tabindex="0" aria-label="Kurumsal Etkinlikler">
         <div class="service-icon" aria-hidden="true">🏢</div>
@@ -219,24 +258,25 @@
     <div class="gallery-grid" role="list">
       <!-- Unsplash telifsiz görseller -->
       <a href="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="Konser sahnesi">
-        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=600&auto=format&fit=crop" alt="Canlı konser sahnesi" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=600&auto=format&fit=crop" alt="Canlı konser sahnesi" loading="lazy" width="600" height="400">
       </a>
       <a href="https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="Düğün ilk dans">
-        <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&w=600&auto=format&fit=crop" alt="Düğün ilk dans" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&w=600&auto=format&fit=crop" alt="Düğün ilk dans" loading="lazy" width="600" height="400">
       </a>
       <a href="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="Festival kalabalığı">
-        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=600&auto=format&fit=crop" alt="Festival kalabalığı" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=600&auto=format&fit=crop" alt="Festival kalabalığı" loading="lazy" width="600" height="400">
       </a>
       <a href="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="Kurumsal sahne">
-        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=600&auto=format&fit=crop" alt="Kurumsal etkinlik sahnesi" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=600&auto=format&fit=crop" alt="Kurumsal etkinlik sahnesi" loading="lazy" width="600" height="400">
       </a>
       <a href="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="DJ performansı">
-        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop" alt="DJ performansı" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop" alt="DJ performansı" loading="lazy" width="600" height="400">
       </a>
       <a href="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1600&auto=format&fit=crop" class="gl" aria-label="Sahne ışıkları">
-        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop" alt="Sahne ışıkları" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop" alt="Sahne ışıkları" loading="lazy" width="600" height="400">
       </a>
     </div>
+    <noscript>Görselleri büyütmek için JavaScript gerekir.</noscript>
   </section>
 
   <!-- TESTIMONIALS -->
@@ -252,11 +292,20 @@
   <!-- CONTACT -->
   <section id="contact" class="fade-in" tabindex="0" aria-labelledby="contact-title">
     <h2 id="contact-title">İletişim</h2>
-    <form id="contact-form" novalidate>
+    <!-- FormSubmit fallback ile GitHub Pages üzerinde backend olmadan da çalışır -->
+    <form id="contact-form" action="https://formsubmit.co/info@eyupmuzik.com" method="POST" novalidate>
+      <!-- FormSubmit ayarları -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Yeni İletişim Mesajı – Eyüp Müzik">
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_next" value="https://eyupmuzik.com/tesekkurler.html">
+
       <label for="name">Adınız Soyadınız *</label>
       <input type="text" id="name" name="name" required aria-required="true" placeholder="Adınız Soyadınız" />
+
       <label for="email">E-posta Adresiniz *</label>
       <input type="email" id="email" name="email" required aria-required="true" placeholder="ornek@eposta.com" />
+
       <label for="subject">Konu *</label>
       <select id="subject" name="subject" required aria-required="true">
         <option value="">Lütfen konu seçin</option>
@@ -266,9 +315,12 @@
         <option value="ozel">Özel Parti</option>
         <option value="diger">Diğer</option>
       </select>
+
       <label for="message">Mesajınız *</label>
       <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Mesajınızı buraya yazın..."></textarea>
+
       <button type="submit">Gönder</button>
+      <p id="form-status" role="status" aria-live="polite" style="text-align:center;margin:.6rem 0 0"></p>
     </form>
   </section>
 </main>
@@ -279,7 +331,7 @@
     <a href="https://twitter.com/eyupmuzik" target="_blank" rel="noopener" aria-label="Twitter/X" style="color:#fff;margin:0 .5rem">X</a>
     <a href="https://instagram.com/eyupmuzik" target="_blank" rel="noopener" aria-label="Instagram" style="color:#fff;margin:0 .5rem">Instagram</a>
   </div>
-  <div>© 2025 Eyüp Müzik Organizasyon. Tüm hakları saklıdır.</div>
+  <div>© <span id="year"></span> Eyüp Müzik Organizasyon. Tüm hakları saklıdır.</div>
 </footer>
 
 <!-- EVENT MODAL -->
@@ -288,7 +340,7 @@
     <button id="modal-close" aria-label="Kapat" style="position:absolute;right:.6rem;top:.2rem;border:0;background:transparent;font-size:2rem;line-height:1;cursor:pointer">×</button>
     <h3 id="modal-title" style="margin:.4rem 0 .2rem"></h3>
     <img id="modal-img" alt="" style="max-width:100%;border-radius:12px;margin:.5rem 0;" />
-    <time id="modal-date" style="color:var(--color-primary);font-weight:700"></time>
+    <time id="modal-date" style="color:var(--color-primary);font-weight:800"></time>
     <p id="modal-desc"></p>
   </div>
 </div>
@@ -308,6 +360,9 @@
 <button class="music-toggle" id="music-toggle" aria-pressed="false" aria-label="Müziği aç/kapat">▶️ <span>Ses Aç</span></button>
 
 <script>
+  // Yıl
+  document.getElementById('year').textContent = new Date().getFullYear();
+
   /* ====== Mobil Menü & Overlay ====== */
   const menuToggle = document.querySelector('.menu-toggle');
   const menu = document.getElementById('primary-menu');
@@ -364,7 +419,7 @@
       card.className='event-card'; card.tabIndex=0;
       card.setAttribute('aria-label', `${ev.title}, tarihi: ${formatDate(ev.date)}`);
       card.innerHTML = `
-        <img src="${ev.img}" alt="${ev.title} görseli" loading="lazy">
+        <img src="${ev.img}" alt="${ev.title} görseli" loading="lazy" width="800" height="500">
         <h3>${ev.title}</h3>
         <time datetime="${ev.date}">${formatDate(ev.date)}</time>
         <p>${ev.description}</p>
@@ -373,6 +428,27 @@
       card.addEventListener('keydown',e=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openModal(ev); }});
       eventListEl.appendChild(card);
     });
+
+    // JSON-LD EventList (SEO)
+    const ld = {
+      "@context":"https://schema.org",
+      "@type":"ItemList",
+      "itemListElement": filtered.map((ev, i)=>({
+        "@type":"Event",
+        "name": ev.title,
+        "startDate": ev.date,
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": [ev.img],
+        "description": ev.description
+      }))
+    };
+    const old = document.getElementById('events-jsonld');
+    if(old) old.remove();
+    const s = document.createElement('script');
+    s.type = 'application/ld+json'; s.id = 'events-jsonld';
+    s.textContent = JSON.stringify(ld);
+    document.head.appendChild(s);
   }
   renderEvents();
   eventFilter.addEventListener('change',()=>renderEvents(eventFilter.value));
@@ -425,19 +501,30 @@
   lightbox.addEventListener('click', e=>{ if(e.target===lightbox) closeLightbox(); });
   document.addEventListener('keydown', e=>{ if(e.key==='Escape' && !lightbox.hidden) closeLightbox(); });
 
-  /* ====== İletişim Formu (mailto) ====== */
+  /* ====== İletişim Formu (validation + mailto fallback) ====== */
   const contactForm = document.getElementById('contact-form');
+  const statusEl = document.getElementById('form-status');
   contactForm.addEventListener('submit', e=>{
-    e.preventDefault();
+    // Eğer FormSubmit çalışmazsa mailto ile dene
     const name = contactForm.name.value.trim();
     const email = contactForm.email.value.trim();
     const subject = contactForm.subject.value;
     const message = contactForm.message.value.trim();
-    if(!name || !email || !subject || !message){ alert('Lütfen tüm zorunlu alanları doldurun.'); return; }
+    if(!name || !email || !subject || !message){ e.preventDefault(); alert('Lütfen tüm zorunlu alanları doldurun.'); return; }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!emailRegex.test(email)){ alert('Lütfen geçerli bir e-posta adresi girin.'); return; }
-    const mailtoLink = `mailto:info@eyupmuzik.com?subject=${encodeURIComponent(subject+' - '+name)}&body=${encodeURIComponent('İsim: '+name+'\nE-posta: '+email+'\n\nMesaj:\n'+message)}`;
-    window.location.href = mailtoLink;
+    if(!emailRegex.test(email)){ e.preventDefault(); alert('Lütfen geçerli bir e-posta adresi girin.'); return; }
+
+    // Kullanıcıyı bilgilendir
+    statusEl.textContent = 'Gönderiliyor…';
+
+    // FormSubmit başarısız olursa mailto fallback kur
+    setTimeout(()=>{
+      if(statusEl.textContent === 'Gönderiliyor…'){
+        statusEl.textContent = '';
+        const mailtoLink = `mailto:info@eyupmuzik.com?subject=${encodeURIComponent(subject+' - '+name)}&body=${encodeURIComponent('İsim: '+name+'\nE-posta: '+email+'\n\nMesaj:\n'+message)}`;
+        window.location.href = mailtoLink;
+      }
+    }, 4000);
   });
 
   /* ====== CTA Scroll ====== */
@@ -496,8 +583,10 @@
 
   // Sayfa yüklenince sessiz başlat
   document.addEventListener('DOMContentLoaded', ()=>{ audio.muted = true; audio.volume = 0.4; audio.load(); });
-
 </script>
+
+<!-- No-JS uyarısı -->
+<noscript>Bu site en iyi deneyim için JavaScript kullanır. Tarayıcınızda JavaScript kapalı görünüyor.</noscript>
 </body>
 </html>
- 
+
