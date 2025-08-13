@@ -347,6 +347,40 @@ img, video, iframe {
   min-height: 48px !important;
   font-size: 1rem !important;
 }
+
+/* === Buton netlik ve dokunma düzenlemeleri === */
+#theme-toggle, .menu-toggle, .btn {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: none !important; /* translateZ kaldırıldı */
+  backdrop-filter: none !important;
+  image-rendering: auto !important;
+}
+
+/* Dokunma alanı ve görünürlük */
+#theme-toggle, .menu-toggle, .btn {
+  z-index: 3000 !important;
+  pointer-events: auto !important;
+}
+
+/* Overlay butonların önünü kapatmasın */
+.overlay {
+  pointer-events: none !important;
+}
+
+/* Mobilde buton boyut ve okunabilirlik optimizasyonu */
+@media (max-width: 600px) {
+  #theme-toggle {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 1.5rem !important;
+  }
+  .btn, .menu-toggle {
+    min-width: 52px !important;
+    min-height: 52px !important;
+    font-size: 1.05rem !important;
+  }
+}
 </style>
 </link></link></head>
 <body>
@@ -962,7 +996,6 @@ function closeMenu(){menu.classList.remove('show');menuToggle.setAttribute('aria
   </script>
 </body>
 </html>
-
 
 
 
