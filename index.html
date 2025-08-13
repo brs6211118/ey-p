@@ -205,6 +205,29 @@
       h1,h2,h3{word-break:break-word}
     }
 
+
+/* === Mobil Buton & Menü İyileştirmeleri === */
+@media (max-width: 900px) {
+  .menu a {
+    padding: 1rem;
+    font-size: 1rem;
+    display: block;
+  }
+  .menu-toggle {
+    min-width: 48px;
+    min-height: 48px;
+  }
+}
+@media (max-width: 600px) {
+  .btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  input, select, textarea {
+    font-size: 16px; /* iOS zoom sorununu önlemek için */
+  }
+}
+
 </style>
 </head>
 <body>
@@ -638,13 +661,24 @@
     const menu = $('#primary-menu');
     const overlay = $('#overlay');
 
-    function openMenu(){
-      menu.classList.add('show');
-      menuToggle.setAttribute('aria-expanded','true');
-      overlay.hidden=false; overlay.classList.add('show');
-      const firstLink = menu.querySelector('a'); firstLink && firstLink.focus();
-    }
-    function closeMenu(){
+    
+// Mobil menü açıldığında sayfa kaydırmasını engelle
+function openMenu(){
+  menu.classList.add('show');
+  menuToggle.setAttribute('aria-expanded','true');
+  overlay.hidden=false; overlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  const firstLink = menu.querySelector('a'); firstLink && firstLink.focus();
+}
+function closeMenu(){
+  menu.classList.remove('show');
+  menuToggle.setAttribute('aria-expanded','false');
+  overlay.classList.remove('show'); overlay.hidden=true;
+  document.body.style.overflow = '';
+  menuToggle.focus();
+}
+
+function closeMenu(){
       menu.classList.remove('show');
       menuToggle.setAttribute('aria-expanded','false');
       overlay.classList.remove('show'); overlay.hidden=true;
