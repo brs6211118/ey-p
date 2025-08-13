@@ -39,14 +39,14 @@
     --bg:#ffffff;
     --bg-soft:#f5f5f5;
     --bg-elev:#f9f9f9;
-    --text:#0a2a5e;
-    --muted:#334e91;
+    --text:#111111;
+    --muted:#333333;
     --primary:#e91e63;
     --primary-2:#ff4d8d;
     --accent:#7c3aed;
     --ring:#2dd4bf;
-    --card:rgba(0,0,0,.04);
-    --border:rgba(0,0,0,.08);
+    --card:#ffffff;
+    --border:rgba(0,0,0,.2);
     --shadow:0 10px 30px rgba(0,0,0,.15);
   }
 
@@ -228,12 +228,27 @@
   }
 }
 
+
+/* Ek mobil uyumluluk */
+@media (max-width: 900px) {
+  .btn, .menu-toggle {
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+}
+
+
+[data-theme="light"] .menu-toggle {
+  color: #000 !important;
+  border-color: rgba(0,0,0,.3) !important;
+}
+
 </style>
 </head>
 <body>
 
 <button id="theme-toggle" aria-label="Tema değiştir" style="
-  position:fixed;top:16px;right:16px;z-index:1100;
+  position:fixed;top:16px;left:16px;z-index:1100;
   border:0;border-radius:50%;width:44px;height:44px;
   display:flex;align-items:center;justify-content:center;
   background:var(--card);color:var(--text);font-size:1.2rem;
@@ -884,5 +899,6 @@ function closeMenu(){
   </script>
 </body>
 </html>
+
 
 
