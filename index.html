@@ -318,6 +318,35 @@ img, video, iframe {
     padding: 0.8rem 1rem !important;
   }
 }
+
+/* === Tema butonu görünürlük ve konum düzenleme === */
+#theme-toggle {
+  z-index: 2000 !important;
+  top: 12px !important;
+  left: 12px !important;
+}
+@media (max-width: 600px) {
+  #theme-toggle {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 1.4rem !important;
+  }
+  nav {
+    padding-left: 60px !important; /* Tema butonu ile çakışmayı önler */
+  }
+}
+
+/* Menü ve overlay önceliğini arttır */
+.menu { z-index: 1500 !important; }
+.menu-toggle { z-index: 1600 !important; }
+.overlay { z-index: 1400 !important; }
+
+/* Butonların mobilde görünürlüğünü arttır */
+.btn, .menu-toggle {
+  min-width: 48px !important;
+  min-height: 48px !important;
+  font-size: 1rem !important;
+}
 </style>
 </link></link></head>
 <body>
